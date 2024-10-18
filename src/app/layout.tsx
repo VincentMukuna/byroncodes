@@ -51,7 +51,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${robotoFont.variable} font-sans antialiased`}>
+      <body className={`${robotoFont.variable} dark font-sans antialiased`}>
         <SiteHeader />
         {children}
         <TailwindIndicator />
