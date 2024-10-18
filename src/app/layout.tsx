@@ -8,6 +8,7 @@ const robotoFont = Roboto({
   weight: ["100", "300", "400", "500", "700", "900"],
   preload: true,
   display: "swap",
+  variable: "--font-roboto",
 });
 
 export const metadata: Metadata = {
@@ -22,7 +23,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${robotoFont.className} antialiased`}>{children}</body>
+      <body className={`${robotoFont.variable} font-sans antialiased`}>
+        {children}
+      </body>
     </html>
   );
 }
