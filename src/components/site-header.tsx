@@ -11,7 +11,7 @@ export function SiteHeader() {
         <MainNav />
       </div>
       <MobileNav />
-      <div className="hidden gap-4 md:flex">
+      <div className="hidden gap-4 lg:flex">
         <Button variant={"outline"}>Join</Button>
         <Button>Explore</Button>
       </div>

@@ -18,7 +18,7 @@ import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 export function MobileNav() {
   return (
     <Sheet>
-      <SheetTrigger>
+      <SheetTrigger className="lg:hidden">
         <HamburgerMenuIcon className="h-6 w-6 text-white" />
       </SheetTrigger>
       <SheetContent side={"left"} className="w-full overflow-auto">
@@ -46,7 +46,7 @@ export function MobileNav() {
                     <ChevronDownIcon className="h-4 w-4" />
                   </Button>
                 </CollapsibleTrigger>
-                <CollapsibleContent className="mt-6 space-y-4 pl-0">
+                <CollapsibleContent className="mt-2 space-y-4 pl-0">
                   {link.menuItems?.map((menuItem) => (
                     <div key={menuItem.title} className="space-y-4">
                       <h3 className="font-roboto text-base font-semibold text-white">
@@ -69,7 +69,7 @@ export function MobileNav() {
                       </div>
                     </div>
                   ))}
-                  <div className="h-96 space-y-4 bg-blue-dark p-6">
+                  <div className="bg-blue-dark h-96 space-y-4 p-6">
                     <h3 className="font-roboto font-semibold text-white">
                       Featured Articles
                     </h3>
