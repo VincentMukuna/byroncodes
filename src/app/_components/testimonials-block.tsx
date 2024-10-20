@@ -96,13 +96,14 @@ export function TestimonialsBlock() {
           </CarouselContent>
           <CarouselPrevious className="left-0 hidden bg-transparent sm:-left-12 sm:flex" />
           <CarouselNext className="right-0 hidden bg-transparent sm:-right-12 sm:flex" />
-          <div className="mt-4 flex items-center justify-center">
+          <div className="mt-4 flex items-center justify-center gap-4">
             {Array.from({ length: testimonials.length }).map((_, index) => (
               <button
                 key={index}
                 onClick={() => {
                   api?.scrollTo(index);
                 }}
+                aria-label={`Go to testimonial ${index + 1}`}
               >
                 <DotFilledIcon
                   className={cn("size-5 text-blue-light transition-[color]", {
