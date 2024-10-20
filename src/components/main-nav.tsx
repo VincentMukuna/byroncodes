@@ -1,5 +1,5 @@
 import Image from "next/image";
-        
+
 import { headerNavLinks } from "@/data/header-nav-links";
 import { cn } from "@/lib/utils";
 import { hasNestedItems } from "@/types/header-nav";
