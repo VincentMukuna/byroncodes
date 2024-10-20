@@ -40,17 +40,17 @@ export function SolutionsBlock() {
     <section className="bg-black px-4 py-12 sm:px-6 sm:py-16 md:px-8 md:py-20 lg:px-16 lg:py-28">
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-8 md:grid-cols-2 md:gap-12 lg:gap-20">
-          <h2 className="font-['Poppins'] text-2xl font-semibold leading-tight text-[#ff8328] sm:text-3xl md:text-4xl lg:text-[38px] lg:leading-[1.2]">
+          <h2 className="text-[32px] font-semibold leading-10 text-[#ff8328] md:text-4xl lg:text-[38px] lg:leading-[1.2]">
             {solutionsConfig.title}
           </h2>
-          <p className="font-['Poppins'] text-base font-normal leading-relaxed text-white sm:text-lg md:text-xl">
+          <p className="text-lg font-normal leading-relaxed text-white md:text-xl">
             {solutionsConfig.description}
           </p>
         </div>
 
-        <div className="mt-12 grid gap-8 sm:mt-16 md:mt-20 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-x-8 gap-y-10 sm:mt-16 md:mt-20 md:grid-cols-2 lg:grid-cols-3">
           {solutionsConfig.solutions.map((solution, index) => (
-            <div key={index} className="flex flex-col gap-6">
+            <div key={index} className="flex flex-col gap-3">
               <div className="relative aspect-[16/9] w-full overflow-hidden rounded-lg">
                 <Image
                   src={solution.image}
@@ -61,16 +61,16 @@ export function SolutionsBlock() {
                 />
               </div>
               <div className="flex flex-col gap-4">
-                <h3 className="font-['Poppins'] text-xl font-semibold leading-tight text-white sm:text-2xl">
+                <h3 className="text-xl font-semibold leading-tight text-white sm:text-2xl">
                   {solution.title}
                 </h3>
-                <p className="font-['Poppins'] text-base font-normal leading-normal text-white">
+                <p className="text-lg font-normal leading-normal text-white">
                   {solution.description}
                 </p>
               </div>
               <a
                 href="#"
-                className="inline-flex items-center font-['Poppins'] text-base font-normal leading-normal text-white transition-colors hover:text-[#ff8328]"
+                className="inline-flex items-center text-base font-normal leading-normal text-white transition-colors hover:text-[#ff8328]"
                 aria-label={`${solution.cta} ${solution.title}`}
               >
                 {solution.cta}

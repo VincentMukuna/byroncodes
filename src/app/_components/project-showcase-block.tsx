@@ -29,7 +29,7 @@ export function ProjectShowcaseBlock() {
                 <h3 className="self-stretch font-['Poppins'] text-3xl font-semibold leading-tight text-[#ff8328] sm:text-4xl md:text-[45px] md:leading-[54px]">
                   Transforming Ideas into Exceptional Software Solutions
                 </h3>
-                <p className="self-stretch font-['Poppins'] text-lg font-normal leading-relaxed text-white sm:text-xl sm:leading-[30px]">
+                <p className="self-stretch text-lg font-normal leading-relaxed text-white sm:text-xl sm:leading-[30px]">
                   This project showcases a cutting-edge application that
                   streamlines user experience and enhances productivity.
                   Discover how this solution has made a significant impact in
