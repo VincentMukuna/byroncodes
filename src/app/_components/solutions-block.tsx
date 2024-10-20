@@ -56,8 +56,8 @@ export function SolutionsBlock() {
                   src={solution.image}
                   unoptimized
                   alt={`Illustration for ${solution.title}`}
-                  layout="fill"
-                  objectFit="cover"
+                  className="object-cover"
+                  fill
                 />
               </div>
               <div className="flex flex-col gap-4">

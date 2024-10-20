@@ -16,7 +16,6 @@ export function ProjectShowcaseBlock() {
               alt="web inspiration"
               width={616}
               height={640}
-              layout="responsive"
             />
           </div>
           <div className="flex w-full flex-col items-start justify-start gap-8 lg:w-1/2">
