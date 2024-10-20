@@ -12,7 +12,7 @@ const Breadcrumb = React.forwardRef<
   }
 >(({ ...props }, ref) => <nav ref={ref} aria-label="breadcrumb" {...props} />);
 Breadcrumb.displayName = "Breadcrumb";
-
+      
 const BreadcrumbList = React.forwardRef<
   HTMLOListElement,
   React.ComponentPropsWithoutRef<"ol">
@@ -27,7 +27,6 @@ const BreadcrumbList = React.forwardRef<
   />
 ));
 BreadcrumbList.displayName = "BreadcrumbList";
-
 const BreadcrumbItem = React.forwardRef<
   HTMLLIElement,
   React.ComponentPropsWithoutRef<"li">
@@ -88,7 +87,6 @@ const BreadcrumbSeparator = ({
   </li>
 );
 BreadcrumbSeparator.displayName = "BreadcrumbSeparator";
-
 const BreadcrumbEllipsis = ({
   className,
   ...props
