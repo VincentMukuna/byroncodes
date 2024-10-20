@@ -57,7 +57,7 @@ export function TestimonialsBlock() {
   }, [api]);
   return (
     <section className="bg-[#201b1b] px-4 py-12 sm:px-6 sm:py-16 md:px-8 md:py-20 lg:px-16 lg:py-28">
-      <div className="mx-auto max-w-4xl">
+      <div className="mx-auto max-w-[90vw] md:max-w-4xl">
         <Carousel
           setApi={setApi}
           opts={{}}
@@ -70,9 +70,9 @@ export function TestimonialsBlock() {
                 <Card className="border-none bg-transparent">
                   <CardContent className="flex flex-col items-center justify-center gap-8 p-6 text-center">
                     <blockquote className="text-lg font-semibold leading-relaxed text-white sm:text-xl md:text-2xl lg:leading-[1.4]">
-                      &quot;{testimonial.quote}&quot;
+                      &quot; {testimonial.quote} &quot;
                     </blockquote>
-                    <div className="flex items-center gap-4">
+                    <div className="flex flex-col items-center gap-4 text-center md:flex-row md:text-left">
                       <Image
                         src={testimonial.image}
                         alt={`${testimonial.name}'s profile picture`}
@@ -80,7 +80,7 @@ export function TestimonialsBlock() {
                         height={56}
                         className="rounded-full"
                       />
-                      <div className="text-left">
+                      <div className="">
                         <p className="font-['Roboto'] text-base font-semibold leading-normal text-white">
                           {testimonial.name}
                         </p>
@@ -94,8 +94,8 @@ export function TestimonialsBlock() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="left-0 bg-transparent sm:-left-12" />
-          <CarouselNext className="right-0 bg-transparent sm:-right-12" />
+          <CarouselPrevious className="left-0 hidden bg-transparent sm:-left-12 sm:flex" />
+          <CarouselNext className="right-0 hidden bg-transparent sm:-right-12 sm:flex" />
           <div className="mt-4 flex items-center justify-center">
             {Array.from({ length: testimonials.length }).map((_, index) => (
               <button
