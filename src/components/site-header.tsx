@@ -1,5 +1,6 @@
 import { Logo } from "./icons/logo";
 import { MainNav } from "./main-nav";
+import { MobileNav } from "./mobile-nav";
 import { Button } from "./ui/button";
 
 export function SiteHeader() {
@@ -9,6 +10,7 @@ export function SiteHeader() {
         <Logo className="size-20" />
         <MainNav />
       </div>
+      <MobileNav />
       <div className="hidden gap-4 md:flex">
         <Button variant={"outline"}>Join</Button>
         <Button>Explore</Button>
