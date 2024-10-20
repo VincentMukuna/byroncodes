@@ -16,35 +16,33 @@ export const headerNavLinks: NavMenuItem[] = [
   {
     label: "Blog",
     menuItems: [
-      // {
-      //   isCard: false,
-      //   title: "Explore My Work",
-      //   items: [
-      //     {
-      //       title: "Projects",
-      //       description: "Discover my latest projects and achhievements.",
-      //       href: "/#",
-      //     },
-      //     {
-      //       title: "Testimonials",
-      //       description: "What my clients say about my work.",
-      //       href: "/#",
-      //     },
-
-      //     {
-      //       title: "Contact Me",
-      //       description: "Get in touch for collaboration opportunities.",
-      //       href: "/#",
-      //     },
-      //     {
-      //       title: "Blog",
-      //       description: "Insights and experiences shared through my blog.",
-      //       href: "/#",
-      //     },
-      //   ],
-      // },
       {
-        isCard: false,
+        title: "Explore My Work",
+        items: [
+          {
+            title: "Projects",
+            description: "Discover my latest projects and achhievements.",
+            href: "/#",
+          },
+          {
+            title: "Testimonials",
+            description: "What my clients say about my work.",
+            href: "/#",
+          },
+
+          {
+            title: "Contact Me",
+            description: "Get in touch for collaboration opportunities.",
+            href: "/#",
+          },
+          {
+            title: "Blog",
+            description: "Insights and experiences shared through my blog.",
+            href: "/#",
+          },
+        ],
+      },
+      {
         title: "Latest Blog Posts",
         items: [
           {
@@ -70,7 +68,6 @@ export const headerNavLinks: NavMenuItem[] = [
         ],
       },
       {
-        isCard: false,
         title: "More Blog Topics",
         items: [
           {
@@ -96,20 +93,19 @@ export const headerNavLinks: NavMenuItem[] = [
           },
         ],
       },
-      {
-        isCard: true,
-        label: "Featured Articles",
-        title: "Tech Trends",
-        description: "Latest trends shaping the tech industry.",
-        image: {
-          src: "",
-          alt: "",
-        },
-        link: {
-          href: "/#",
-          label: "Read more",
-        },
-      },
     ],
+    card: {
+      label: "Featured Articles",
+      title: "Tech Trends",
+      description: "Latest trends shaping the tech industry.",
+      image: {
+        src: "",
+        alt: "",
+      },
+      link: {
+        href: "/#",
+        label: "Read more",
+      },
+    },
   },
 ];

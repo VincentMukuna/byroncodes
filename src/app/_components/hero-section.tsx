@@ -14,7 +14,7 @@ export function HeroSection() {
         sizes="100vw"
       />
       <div className="mx-auto max-w-7xl md:mx-0">
-        <div className="flex flex-col items-center justify-start gap-8 py-12 sm:py-16 md:max-w-[560px] md:items-start lg:py-20">
+        <div className="flex flex-col gap-8 py-12 sm:py-16 md:max-w-[560px] lg:py-20">
           <div className="flex flex-col items-start justify-start gap-6 self-stretch">
             <h1 className="self-stretch font-['Poppins'] text-4xl font-semibold leading-tight text-white md:text-5xl lg:text-[56px] lg:leading-[1.2]">
               Crafting Innovative Software Solutions for You

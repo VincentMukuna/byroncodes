@@ -9,7 +9,8 @@ export type NavMenuItemDefault = {
 
 export type NavMenuItemWithNestedItems = {
   label: string;
-  menuItems?: (NavMenuGroup | NavMenuCard)[];
+  menuItems?: NavMenuGroup[];
+  card?: NavMenuCard;
 };
 
 export function hasNestedItems(
@@ -19,13 +20,11 @@ export function hasNestedItems(
 }
 
 export type NavMenuGroup = {
-  isCard: false;
   title: string;
   items: NavMenuGroupItem[];
 };
 
 export type NavMenuCard = {
-  isCard: true;
   label: string;
   title: string;
   description: string;
