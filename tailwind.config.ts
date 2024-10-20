@@ -10,10 +10,20 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-roboto)"],
+        sans: ["var(--font-poppins)"],
+        poppins: ["var(--font-poppins)"],
       },
       colors: {
-        background: "hsl(var(--background))",
+        blue: {
+          light: "#009FBA",
+        },
+        orange: {
+          main: "#FF8328",
+        },
+        background: {
+          DEFAULT: "hsla(var(--background))",
+          secondary: "#201b1b",
+        },
         foreground: "hsl(var(--foreground))",
         card: {
           DEFAULT: "hsl(var(--card))",

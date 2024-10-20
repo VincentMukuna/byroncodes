@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
+import { Poppins, Roboto } from "next/font/google";
 
+import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { TailwindIndicator } from "@/components/tailwind-indicator";
 import { siteConfig } from "@/config/site";
+import { cn } from "@/lib/utils";
 
 import "./globals.css";
 
@@ -13,6 +15,12 @@ const robotoFont = Roboto({
   preload: true,
   display: "swap",
   variable: "--font-roboto",
+});
+
+const poppinsFont = Poppins({
+  subsets: ["latin"],
+  weight: ["300"],
+  variable: "--font-poppins",
 });
 
 export const metadata: Metadata = {
@@ -51,9 +59,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${robotoFont.variable} dark font-sans antialiased`}>
+      <body
+        className={cn(
+          robotoFont.variable,
+          poppinsFont.variable,
+          "dark font-sans antialiased"
+        )}
+      >
         <SiteHeader />
         {children}
+        <SiteFooter />
         <TailwindIndicator />
       </body>
     </html>
