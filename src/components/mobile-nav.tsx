@@ -18,8 +18,15 @@ import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 export function MobileNav() {
   return (
     <Sheet>
-      <SheetTrigger className="lg:hidden">
-        <HamburgerMenuIcon className="h-6 w-6 text-white" />
+      <SheetTrigger asChild className="">
+        <Button
+          size={"icon"}
+          variant={"ghost"}
+          className="lg:hidden"
+          aria-label="Menu"
+        >
+          <HamburgerMenuIcon className="h-6 w-6 text-white" />
+        </Button>
       </SheetTrigger>
       <SheetContent side={"left"} className="w-full overflow-auto">
         <nav className="flex flex-col space-y-4 p-4 font-poppins lg:hidden">
@@ -69,7 +76,7 @@ export function MobileNav() {
                       </div>
                     </div>
                   ))}
-                  <div className="bg-blue-dark h-96 space-y-4 p-6">
+                  <div className="h-96 space-y-4 bg-blue-dark p-6">
                     <h3 className="font-roboto font-semibold text-white">
                       Featured Articles
                     </h3>
