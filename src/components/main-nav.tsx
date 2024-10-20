@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { headerNavLinks } from "@/data/header-nav-links";
 import { cn } from "@/lib/utils";
 import { hasNestedItems } from "@/types/header-nav";
@@ -52,9 +54,12 @@ export function MainNav() {
                               Featured Articles
                             </div>
                             <div className="flex h-[269px] flex-col items-start justify-start gap-4 self-stretch py-2">
-                              <img
-                                className="h-[120px] w-[178px]"
-                                src="https://via.placeholder.com/178x120"
+                              <Image
+                                className="object-cover"
+                                src="/img/business-solutions.jpg"
+                                alt="Image of partners shaking hands"
+                                height={120}
+                                width={178}
                               />
                               <div className="flex h-[78px] flex-col items-start justify-start gap-2 self-stretch">
                                 <div className="flex h-[49px] flex-col items-start justify-start gap-1 self-stretch">
