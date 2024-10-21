@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import React from "react";
 
 import { ChevronDownIcon, HamburgerMenuIcon } from "@radix-ui/react-icons";
 
@@ -16,8 +19,9 @@ import { BxBxsCube } from "./icons/cube";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 
 export function MobileNav() {
+  const [open, setOpen] = React.useState(false);
   return (
-    <Sheet>
+    <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild className="">
         <Button
           size={"icon"}
@@ -36,6 +40,7 @@ export function MobileNav() {
                 <Link
                   key={link.label}
                   href={link.href}
+                  onClick={() => setOpen(false)}
                   className="text-lg text-blue-light hover:text-primary"
                 >
                   {link.label}
@@ -97,6 +102,7 @@ export function MobileNav() {
                         </p>
                         <Link
                           href="#"
+                          onClick={() => setOpen(false)}
                           className="font-roboto text-sm text-[#009fba] underline"
                         >
                           Read more
