@@ -76,11 +76,13 @@ export function MobileNav() {
                             className="flex items-start gap-3"
                           >
                             <BxBxsCube className="h-6 w-6 text-primary" />
-                            <div>
-                              <h4 className="font-roboto text-base font-semibold text-[#009fba]">
-                                {item.title}
-                              </h4>
-                            </div>
+
+                            <Link
+                              href={item.href}
+                              className="font-roboto text-base font-semibold text-[#009fba]"
+                            >
+                              {item.title}
+                            </Link>
                           </div>
                         ))}
                       </div>

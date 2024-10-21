@@ -66,9 +66,12 @@ export function MainNav() {
                               >
                                 <BxBxsCube className="relative size-6 text-primary" />
                                 <div className="inline-flex shrink grow basis-0 flex-col items-start justify-start">
-                                  <div className="self-stretch font-['Roboto'] text-base font-semibold leading-normal text-[#009fba]">
+                                  <Link
+                                    href={item.href}
+                                    className="self-stretch font-['Roboto'] text-base font-semibold leading-normal text-[#009fba]"
+                                  >
                                     {item.title}
-                                  </div>
+                                  </Link>
                                   <div className="self-stretch font-['Poppins'] text-sm font-normal leading-[21px] text-white">
                                     {item.description}
                                   </div>

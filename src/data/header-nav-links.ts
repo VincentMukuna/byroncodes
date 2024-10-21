@@ -22,23 +22,23 @@ export const headerNavLinks: NavMenuItem[] = [
           {
             title: "Projects",
             description: "Discover my latest projects and achhievements.",
-            href: "/#",
+            href: "/blog",
           },
           {
             title: "Testimonials",
             description: "What my clients say about my work.",
-            href: "/#",
+            href: "/blog",
           },
 
           {
             title: "Contact Me",
             description: "Get in touch for collaboration opportunities.",
-            href: "/#",
+            href: "/blog",
           },
           {
             title: "Blog",
             description: "Insights and experiences shared through my blog.",
-            href: "/#",
+            href: "/blog",
           },
         ],
       },
@@ -48,22 +48,22 @@ export const headerNavLinks: NavMenuItem[] = [
           {
             title: "Tech Insights",
             description: "Thoughts on technology and development trends.",
-            href: "/#",
+            href: "/blog",
           },
           {
             title: "Coding Tips",
             description: "Helpful tips for aspiring developers.",
-            href: "/#",
+            href: "/blog",
           },
           {
             title: "Project Updates",
             description: "Stay updated on my current projects.",
-            href: "/#",
+            href: "/blog",
           },
           {
             title: "Personal Growth",
             description: "Reflections on my journey as a developer.",
-            href: "/#",
+            href: "/blog",
           },
         ],
       },
@@ -73,23 +73,23 @@ export const headerNavLinks: NavMenuItem[] = [
           {
             title: "Web Development",
             description: "Exploring the world of web technologies.",
-            href: "/#",
+            href: "/blog",
           },
           {
             title: "Coding Tips",
             description:
               "Principles and practices for effective software design.",
-            href: "/#",
+            href: "/blog",
           },
           {
             title: "Freelancing Tips",
             description: "Advice for successful freelancing in tech.",
-            href: "/#",
+            href: "/blog",
           },
           {
             title: "Resources",
             description: "Tools and resources I recommend for developers.",
-            href: "/#",
+            href: "/blog",
           },
         ],
       },
