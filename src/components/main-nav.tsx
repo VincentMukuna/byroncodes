@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 import { headerNavLinks } from "@/data/header-nav-links";
 import { cn } from "@/lib/utils";
@@ -16,6 +19,7 @@ import {
 } from "./ui/navigation-menu";
 
 export function MainNav() {
+  const pathName = usePathname();
   return (
     <div className="ml-4 hidden gap-3 font-poppins lg:flex">
       <NavigationMenu orientation="vertical">
@@ -28,7 +32,8 @@ export function MainNav() {
                     href={link.href}
                     className={cn(
                       navigationMenuTriggerStyle(),
-                      "bg-transparent text-blue-light decoration-primary hover:bg-transparent hover:underline"
+                      "bg-transparent text-blue-light decoration-primary underline-offset-8 transition-colors hover:bg-transparent hover:text-primary hover:underline active:bg-transparent active:text-primary",
+                      pathName === link.href && "text-primary"
                     )}
                   >
                     {link.label}
@@ -38,7 +43,7 @@ export function MainNav() {
             }
             return (
               <NavigationMenuItem key={link.label}>
-                <NavigationMenuTrigger className="bg-transparent text-blue-light decoration-primary hover:underline">
+                <NavigationMenuTrigger className="bg-transparent text-blue-light decoration-primary underline-offset-8 hover:underline">
                   {link.label}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent className="flex min-w-[100vw] gap-8 pl-8">

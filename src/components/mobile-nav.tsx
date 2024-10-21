@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React from "react";
 
 import { ChevronDownIcon, HamburgerMenuIcon } from "@radix-ui/react-icons";
@@ -13,6 +14,7 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import { headerNavLinks } from "@/data/header-nav-links";
+import { cn } from "@/lib/utils";
 import { hasNestedItems } from "@/types/header-nav";
 
 import { BxBxsCube } from "./icons/cube";
@@ -20,6 +22,7 @@ import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 
 export function MobileNav() {
   const [open, setOpen] = React.useState(false);
+  const pathName = usePathname();
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild className="">
@@ -40,7 +43,10 @@ export function MobileNav() {
                   key={link.label}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="text-lg text-blue-light hover:text-primary"
+                  className={cn(
+                    "text-lg text-blue-light hover:text-primary",
+                    pathName === link.href && "text-primary"
+                  )}
                 >
                   {link.label}
                 </Link>
