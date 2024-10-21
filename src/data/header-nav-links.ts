@@ -99,11 +99,11 @@ export const headerNavLinks: NavMenuItem[] = [
       title: "Tech Trends",
       description: "Latest trends shaping the tech industry.",
       image: {
-        src: "",
-        alt: "",
+        src: "/img/business-solutions.jpg",
+        alt: "Persons discussing business solutions",
       },
       link: {
-        href: "/#",
+        href: "/blog",
         label: "Read more",
       },
     },

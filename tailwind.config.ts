@@ -12,6 +12,7 @@ const config: Config = {
       fontFamily: {
         sans: ["var(--font-poppins)"],
         poppins: ["var(--font-poppins)"],
+        roboto: ["var(--font-roboto)"],
       },
       colors: {
         blue: {

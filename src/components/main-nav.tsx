@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import { headerNavLinks } from "@/data/header-nav-links";
@@ -83,36 +84,41 @@ export function MainNav() {
                       <div className="text-sm">{link.label}</div>
                     </div>
                   )}
-                  <div
-                    key={Math.random()}
-                    className="inline-flex w-[416px] flex-col items-start justify-start gap-4 bg-[#003146] py-8 pl-8 pr-24"
-                  >
-                    <div className="self-stretch font-['Roboto'] text-sm font-semibold leading-[21px] text-white">
-                      Featured Articles
-                    </div>
-                    <div className="flex flex-col items-start justify-start gap-4 self-stretch py-2">
-                      <Image
-                        className="object-cover"
-                        src="/img/business-solutions.jpg"
-                        alt="Image of partners shaking hands"
-                        height={120}
-                        width={178}
-                      />
-                      <div className="flex flex-col items-start justify-start gap-2 self-stretch">
-                        <div className="flex flex-col items-start justify-start gap-1 self-stretch">
-                          <div className="self-stretch font-['Roboto'] text-base font-semibold leading-normal text-[#ff8328]">
-                            Tech Trends
+                  {link.card && (
+                    <div
+                      key={Math.random()}
+                      className="inline-flex w-[416px] flex-col items-start justify-start gap-4 bg-[#003146] py-8 pl-8 pr-24"
+                    >
+                      <div className="self-stretch font-['Roboto'] text-sm font-semibold leading-[21px] text-white">
+                        {link.card.title}
+                      </div>
+                      <div className="flex flex-col items-start justify-start gap-4 self-stretch py-2">
+                        <Image
+                          className="object-cover"
+                          src={link.card.image.src}
+                          alt={link.card.image.alt}
+                          height={120}
+                          width={178}
+                        />
+                        <div className="flex flex-col items-start justify-start gap-2 self-stretch">
+                          <div className="flex flex-col items-start justify-start gap-1 self-stretch">
+                            <div className="self-stretch font-['Roboto'] text-base font-semibold leading-normal text-[#ff8328]">
+                              {link.card.label}
+                            </div>
+                            <div className="self-stretch font-['Poppins'] text-sm font-normal leading-[21px] text-white">
+                              {link.card.description}
+                            </div>
                           </div>
-                          <div className="self-stretch font-['Poppins'] text-sm font-normal leading-[21px] text-white">
-                            Latest trends shaping the tech industry.
-                          </div>
-                        </div>
-                        <div className="font-['Roboto'] text-sm font-normal leading-[21px] text-[#009fba] underline">
-                          Read more
+                          <Link
+                            href={link.card?.link.href}
+                            className="font-['Roboto'] text-sm font-normal leading-[21px] text-[#009fba] underline"
+                          >
+                            {link.card.link.label}
+                          </Link>
                         </div>
                       </div>
                     </div>
-                  </div>
+                  )}
                 </NavigationMenuContent>
               </NavigationMenuItem>
             );

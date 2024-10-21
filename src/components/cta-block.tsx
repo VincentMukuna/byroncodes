@@ -36,13 +36,13 @@ const Wrapper = ({ children, className = "" }: CtaBlockProps) => {
 };
 
 const Title = ({ children }: TitleProps) => (
-  <h2 className="font-['Poppins'] text-2xl font-semibold leading-tight text-white sm:text-3xl md:text-[38px] md:leading-[1.2]">
+  <h2 className="text-2xl font-semibold leading-tight text-white sm:text-3xl md:text-[38px] md:leading-[1.2]">
     {children}
   </h2>
 );
 
 const Description = ({ children }: DescriptionProps) => (
-  <p className="font-['Poppins'] text-lg font-normal leading-7 text-white sm:text-xl sm:leading-8">
+  <p className="text-lg font-normal leading-7 text-white sm:text-xl sm:leading-8">
     {children}
   </p>
 );

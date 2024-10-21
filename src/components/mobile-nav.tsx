@@ -86,35 +86,37 @@ export function MobileNav() {
                       </div>
                     </div>
                   ))}
-                  <div className="h-96 space-y-4 bg-blue-dark p-6">
-                    <h3 className="font-roboto font-semibold text-white">
-                      Featured Articles
-                    </h3>
-                    <div className="space-y-2">
-                      <Image
-                        src="/img/business-solutions.jpg"
-                        alt="Image of partners shaking hands"
-                        height={120}
-                        width={178}
-                        className="object-cover"
-                      />
-                      <div>
-                        <h4 className="font-roboto text-base font-semibold text-[#ff8328]">
-                          Tech Trends
-                        </h4>
-                        <p className="font-poppins text-sm text-white">
-                          Latest trends shaping the tech industry.
-                        </p>
-                        <Link
-                          href="#"
-                          onClick={() => setOpen(false)}
-                          className="font-roboto text-sm text-[#009fba] underline"
-                        >
-                          Read more
-                        </Link>
+                  {link.card && (
+                    <div className="h-96 space-y-4 bg-blue-dark p-6">
+                      <h3 className="font-roboto font-semibold text-white">
+                        {link.card.label}
+                      </h3>
+                      <div className="space-y-2">
+                        <Image
+                          src="/img/business-solutions.jpg"
+                          alt="Image of partners shaking hands"
+                          height={120}
+                          width={178}
+                          className="object-cover"
+                        />
+                        <div>
+                          <h4 className="font-roboto text-base font-semibold text-[#ff8328]">
+                            {link.card.title}
+                          </h4>
+                          <p className="font-poppins text-sm text-white">
+                            {link.card.description}
+                          </p>
+                          <Link
+                            href={link.card.link.href}
+                            onClick={() => setOpen(false)}
+                            className="font-roboto text-sm text-[#009fba] underline"
+                          >
+                            {link.card.link.label}
+                          </Link>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  )}
                 </CollapsibleContent>
               </Collapsible>
             );
