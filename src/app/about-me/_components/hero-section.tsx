@@ -20,7 +20,8 @@ export function HeroSection() {
           <div className="relative aspect-square w-full overflow-hidden rounded-[30px] lg:w-[45%]">
             <Image
               className="object-cover object-[left_30%] opacity-80 transition-transform duration-300 ease-in-out hover:scale-105"
-              alt="Image of developer working on laptop"
+              alt="Image of byron smiling at the camera"
+              priority
               fill
               src="/img/byron-about.jpg"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

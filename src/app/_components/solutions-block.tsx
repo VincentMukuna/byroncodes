@@ -54,7 +54,6 @@ export function SolutionsBlock() {
               <div className="relative aspect-[16/9] w-full overflow-hidden rounded-lg">
                 <Image
                   src={solution.image}
-                  unoptimized
                   alt={`Illustration for ${solution.title}`}
                   className="object-cover"
                   fill

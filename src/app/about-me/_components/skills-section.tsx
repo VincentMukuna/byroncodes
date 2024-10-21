@@ -52,7 +52,6 @@ export function SkillsSection() {
               <div key={index} className="flex flex-col items-center gap-6">
                 <Image
                   src={skill.image}
-                  unoptimized
                   alt={skill.title}
                   width={405}
                   height={240}
