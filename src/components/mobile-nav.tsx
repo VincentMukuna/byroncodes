@@ -24,12 +24,11 @@ export function MobileNav() {
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild className="">
         <Button
-          size={"icon"}
           variant={"ghost"}
-          className="lg:hidden"
+          className="size-10 p-0 lg:hidden"
           aria-label="Menu"
         >
-          <HamburgerMenuIcon className="h-6 w-6 text-white" />
+          <HamburgerMenuIcon className="size-7 text-white" />
         </Button>
       </SheetTrigger>
       <SheetContent side={"left"} className="w-full overflow-auto">
