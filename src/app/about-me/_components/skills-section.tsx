@@ -36,13 +36,13 @@ export function SkillsSection() {
       <div className="mx-auto max-w-7xl">
         <div className="flex flex-col items-center justify-start gap-12 text-center">
           <div className="space-y-4">
-            <h2 className="font-roboto text-base font-semibold leading-normal text-white">
+            <h2 className="font-roboto text-base font-semibold leading-normal">
               {skillsConfig.title}
             </h2>
             <h3 className="font-poppins text-3xl font-semibold leading-tight text-[#ff8328] sm:text-4xl md:text-[45px] md:leading-[1.2]">
               {skillsConfig.heading}
             </h3>
-            <p className="mx-auto max-w-3xl font-poppins text-lg font-normal leading-relaxed text-white sm:text-xl">
+            <p className="mx-auto max-w-3xl font-poppins text-lg font-normal leading-relaxed sm:text-xl">
               {skillsConfig.description}
             </p>
           </div>
@@ -58,10 +58,10 @@ export function SkillsSection() {
                   className="object-cover"
                 />
                 <div className="space-y-4 text-center">
-                  <h4 className="font-poppins text-2xl font-semibold leading-tight text-white">
+                  <h4 className="font-poppins text-2xl font-semibold leading-tight">
                     {skill.title}
                   </h4>
-                  <p className="font-poppins text-base font-normal leading-normal text-white">
+                  <p className="font-poppins text-base font-normal leading-normal">
                     {skill.description}
                   </p>
                 </div>

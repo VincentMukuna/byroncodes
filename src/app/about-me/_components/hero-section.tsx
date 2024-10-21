@@ -10,7 +10,7 @@ export function HeroSection() {
               Discover My Journey: A Passionate Software Developer Committed to
               Excellence
             </h1>
-            <p className="font-poppins text-lg font-normal leading-relaxed text-white">
+            <p className="font-poppins text-lg font-normal leading-relaxed">
               With a background in computer science and years of hands-on
               experience, I specialize in creating innovative software
               solutions. My journey has equipped me with the skills to tackle
