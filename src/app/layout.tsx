@@ -66,9 +66,11 @@ export default function RootLayout({
           "dark font-sans antialiased"
         )}
       >
-        <SiteHeader />
-        {children}
-        <SiteFooter />
+        <div className="flex min-h-[100dvh] flex-col">
+          <SiteHeader />
+          <div className="flex-1">{children}</div>
+          <SiteFooter />
+        </div>
         <TailwindIndicator />
       </body>
     </html>

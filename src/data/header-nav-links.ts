@@ -7,7 +7,7 @@ export const headerNavLinks: NavMenuItem[] = [
   },
   {
     label: "About Me",
-    href: "/#",
+    href: "/about-me",
   },
   {
     label: "My Work",
