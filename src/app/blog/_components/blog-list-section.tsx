@@ -107,7 +107,7 @@ export function BlogListSection() {
               <div className="flex flex-1 flex-col justify-between gap-6 p-6">
                 <div className="space-y-4">
                   <div className="flex items-center gap-4">
-                    <span className="font-roboto bg-[#003146] px-2 py-1 text-sm font-semibold leading-[21px] text-[#ff8328]">
+                    <span className="bg-[#003146] px-2 py-1 font-roboto text-sm font-semibold leading-[21px] text-[#ff8328]">
                       {post.category}
                     </span>
                     <span className="font-roboto text-sm font-semibold leading-[21px] text-white">

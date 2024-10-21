@@ -29,7 +29,7 @@ export function ProjectListBlock() {
     <section className="bg-black px-4 py-12 sm:px-6 sm:py-16 md:px-8 md:py-20 lg:px-16 lg:py-28">
       <div className="mx-auto max-w-7xl">
         <div className="mb-12 text-center md:mb-16 lg:mb-20">
-          <h2 className="font-roboto mb-2 text-base font-semibold leading-normal text-white">
+          <h2 className="mb-2 font-roboto text-base font-semibold leading-normal text-white">
             {projectListConfig.title}
           </h2>
           <h3 className="mb-4 font-poppins text-3xl font-semibold leading-tight text-[#ff8328] sm:text-4xl md:text-[45px] md:leading-[1.2]">
@@ -59,7 +59,7 @@ export function ProjectListBlock() {
                     {project.tags.map((tag, tagIndex) => (
                       <span
                         key={tagIndex}
-                        className="font-roboto bg-[#003146] px-2 py-1 text-sm font-semibold leading-[21px] text-[#ff8328]"
+                        className="bg-[#003146] px-2 py-1 font-roboto text-sm font-semibold leading-[21px] text-[#ff8328]"
                       >
                         {tag}
                       </span>

@@ -30,7 +30,7 @@ export function BlogHighlight() {
           <div className="flex flex-col justify-between p-6 lg:w-1/2 lg:p-12">
             <div className="space-y-4">
               <div className="flex items-center gap-4">
-                <span className="font-roboto bg-[#003146] px-2 py-1 text-sm font-semibold leading-[21px] text-primary">
+                <span className="bg-[#003146] px-2 py-1 font-roboto text-sm font-semibold leading-[21px] text-primary">
                   {blogHighlightConfig.category}
                 </span>
                 <span className="font-roboto text-sm font-semibold leading-[21px]">
