@@ -37,7 +37,7 @@ export function SiteFooter() {
                   />
                 </div>
                 <Button className="bg-background-secondary" variant={"outline"}>
-                  Join
+                  Subscribe
                 </Button>
               </div>
               <p className="font-['Roboto'] text-xs font-normal leading-[18px] text-white">
