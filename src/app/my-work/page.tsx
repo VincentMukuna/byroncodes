@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { HeaderSection } from "./_components/header-section";
 import { ProjectListBlock } from "./_components/projects-list-block";
 
-export const metatdata: Metadata = {
+export const metadata: Metadata = {
   title: "My Work",
   description: "View projects I've worked on so far.",
 };
