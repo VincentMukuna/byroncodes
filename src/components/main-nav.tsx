@@ -28,7 +28,7 @@ export function MainNav() {
                     href={link.href}
                     className={cn(
                       navigationMenuTriggerStyle(),
-                      "bg-transparent text-blue-light"
+                      "bg-transparent text-blue-light decoration-primary hover:bg-transparent hover:underline"
                     )}
                   >
                     {link.label}
@@ -38,7 +38,7 @@ export function MainNav() {
             }
             return (
               <NavigationMenuItem key={link.label}>
-                <NavigationMenuTrigger className="bg-transparent text-blue-light">
+                <NavigationMenuTrigger className="bg-transparent text-blue-light decoration-primary hover:underline">
                   {link.label}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent className="flex min-w-[100vw] gap-8 pl-8">
