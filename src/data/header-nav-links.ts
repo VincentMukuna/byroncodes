@@ -11,7 +11,7 @@ export const headerNavLinks: NavMenuItem[] = [
   },
   {
     label: "My Work",
-    href: "/#",
+    href: "/my-work",
   },
   {
     label: "Blog",
