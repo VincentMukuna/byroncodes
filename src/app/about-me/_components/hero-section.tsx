@@ -6,7 +6,7 @@ export function HeroSection() {
       <div className="mx-auto max-w-7xl">
         <div className="flex flex-col items-start justify-between gap-12 lg:flex-row lg:items-center">
           <div className="flex flex-col items-start justify-start gap-8 lg:max-w-[50%]">
-            <h1 className="font-poppins text-3xl font-medium leading-tight text-[#ff8328]">
+            <h1 className="font-poppins text-3xl font-semibold leading-tight">
               Discover My Journey: A Passionate Software Developer Committed to
               Excellence
             </h1>
@@ -19,7 +19,7 @@ export function HeroSection() {
           </div>
           <div className="relative aspect-square w-full overflow-hidden rounded-[30px] lg:w-[45%]">
             <Image
-              className="object-cover object-[left_30%] opacity-80 transition-transform duration-300 ease-in-out hover:scale-105"
+              className="object-cover object-[left_30%] transition-transform duration-300 ease-in-out hover:scale-105"
               alt="Image of byron smiling at the camera"
               priority
               fill
