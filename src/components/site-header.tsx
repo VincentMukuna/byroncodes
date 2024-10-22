@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Logo } from "./icons/logo";
 import { MainNav } from "./main-nav";
 import { MobileNav } from "./mobile-nav";
-import { Button } from "./ui/button";
+import { Button, buttonVariants } from "./ui/button";
 
 export function SiteHeader() {
   return (
@@ -17,7 +17,9 @@ export function SiteHeader() {
       <MobileNav />
       <div className="hidden gap-4 lg:flex">
         <Button variant={"outline"}>Join</Button>
-        <Button>Explore</Button>
+        <Link href={"/my-work"} className={buttonVariants()}>
+          Explore
+        </Link>
       </div>
     </header>
   );
