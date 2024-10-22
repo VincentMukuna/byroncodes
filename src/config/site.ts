@@ -7,7 +7,7 @@ export const siteConfig = {
   links: {
     twitter: "https://twitter.com/mandela_byron",
     linkedin: "https://www.linkedin.com/in/byron-mandela-b2835a218/",
-    upwork: "https://www.upwork.com/workwith/byron1",
+    upwork: "https://upwork.com/freelancers/byron1",
   },
 };
 

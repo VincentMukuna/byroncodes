@@ -1,6 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
 
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 
 export function HeroSection() {
   return (
@@ -16,21 +17,24 @@ export function HeroSection() {
       <div className="mx-auto max-w-7xl md:mx-0">
         <div className="flex flex-col gap-8 py-12 sm:py-16 md:max-w-[560px] lg:py-20">
           <div className="flex flex-col items-start justify-start gap-6 self-stretch">
-            <h1 className="self-stretch font-['Poppins'] text-4xl font-semibold leading-tight text-white md:text-5xl lg:text-[56px] lg:leading-[1.2]">
-              Crafting Innovative Software Solutions for You
+            <h1 className="self-stretch text-4xl font-semibold leading-tight text-white md:text-5xl lg:text-[56px] lg:leading-[1.2]">
+              Mastering Development for Innovative Solutions
             </h1>
-            <p className="self-stretch font-['Poppins'] text-base font-normal leading-relaxed text-white sm:text-lg md:text-xl md:leading-[30px]">
-              Welcome to my portfolio! As a freelance software developer, I
-              specialize in creating custom applications that meet your unique
-              needs.
+            <p className="self-stretch text-base font-normal leading-relaxed text-white sm:text-lg md:text-xl md:leading-[30px]">
+              Byron Mandela specializes in web scraping, data extraction, and
+              Django backend development—delivering automation and scalable
+              solutions to clients worldwide.
             </p>
           </div>
           <div className="flex items-start justify-start gap-4">
-            <Button variant="secondary" size="lg">
+            <Link
+              href={"/about-me"}
+              className={buttonVariants({ size: "lg", variant: "secondary" })}
+            >
               Learn More
-            </Button>
+            </Link>
             <Button variant="secondaryOutline" size="lg">
-              Contact
+              Contact Me
             </Button>
           </div>
         </div>

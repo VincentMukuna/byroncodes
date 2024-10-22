@@ -22,9 +22,9 @@ export function SiteFooter() {
               height={134}
               className="max-w-full"
             />
-            <p className="font-['Poppins'] text-base font-normal leading-normal text-white">
-              Subscribe to our newsletter for the latest updates on features and
-              releases.
+            <p className="text-base font-normal leading-normal text-white">
+              Subscribe to my newsletter for the latest industry trends and
+              insights.
             </p>
             <div className="flex flex-col gap-3">
               <div className="flex flex-col gap-4 sm:flex-row">
@@ -32,7 +32,7 @@ export function SiteFooter() {
                   <input
                     type="email"
                     placeholder="Your email here"
-                    className="w-full bg-transparent font-['Poppins'] text-base font-normal leading-normal text-[#82cbe4] placeholder-[#82cbe4] focus:outline-none"
+                    className="w-full bg-transparent text-base font-normal leading-normal text-[#82cbe4] placeholder-[#82cbe4] focus:outline-none"
                     aria-label="Email for newsletter"
                   />
                 </div>
@@ -40,7 +40,7 @@ export function SiteFooter() {
                   Subscribe
                 </Button>
               </div>
-              <p className="font-['Roboto'] text-xs font-normal leading-[18px] text-white">
+              <p className="font-roboto text-xs font-normal leading-[18px] text-white">
                 By subscribing, you consent to our Privacy Policy and agree to
                 receive updates.
               </p>
@@ -48,7 +48,7 @@ export function SiteFooter() {
           </div>
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 lg:flex-1">
             <div className="flex flex-col gap-4">
-              <h2 className="font-['Roboto'] text-base font-semibold leading-normal text-white">
+              <h2 className="font-roboto text-base font-semibold leading-normal text-white">
                 Resources Links
               </h2>
               <nav className="flex flex-col gap-2">
@@ -62,7 +62,7 @@ export function SiteFooter() {
                   <a
                     key={index}
                     href="#"
-                    className="py-2 font-['Poppins'] text-sm font-normal leading-[21px] text-[#009fba]"
+                    className="py-2 text-sm font-normal leading-[21px] text-[#009fba]"
                   >
                     {item}
                   </a>
@@ -70,7 +70,7 @@ export function SiteFooter() {
               </nav>
             </div>
             <div className="flex flex-col gap-4">
-              <h2 className="font-['Roboto'] text-base font-semibold leading-normal text-white">
+              <h2 className="font-roboto text-base font-semibold leading-normal text-white">
                 Connect With
               </h2>
               <nav className="flex flex-col gap-2">
@@ -79,7 +79,7 @@ export function SiteFooter() {
                     <a
                       key={index}
                       href="#"
-                      className="py-2 font-['Poppins'] text-sm font-normal leading-[21px] text-[#009fba]"
+                      className="py-2 text-sm font-normal leading-[21px] text-[#009fba]"
                     >
                       {item}
                     </a>
@@ -88,7 +88,7 @@ export function SiteFooter() {
               </nav>
             </div>
             <div className="flex flex-col gap-4">
-              <h2 className="font-['Roboto'] text-base font-semibold leading-normal text-white">
+              <h2 className="font-roboto text-base font-semibold leading-normal text-white">
                 Stay Social
               </h2>
               <nav className="flex flex-col gap-2">
@@ -105,7 +105,7 @@ export function SiteFooter() {
                     className="flex items-center gap-3 py-2"
                   >
                     <item.icon className="size-6 text-primary" />
-                    <span className="font-['Poppins'] text-sm font-normal leading-[21px] text-[#009fba]">
+                    <span className="text-sm font-normal leading-[21px] text-[#009fba]">
                       {item.name}
                     </span>
                   </a>
@@ -117,7 +117,7 @@ export function SiteFooter() {
         <div className="mt-8 flex flex-col gap-8 lg:mt-20">
           <hr className="border-t border-black" />
           <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
-            <p className="font-['Poppins'] text-sm font-normal leading-[21px] text-white">
+            <p className="text-sm font-normal leading-[21px] text-white">
               © 2024 ByronCodes. All rights reserved.
             </p>
             <nav className="flex flex-wrap gap-4 sm:gap-6">
@@ -126,7 +126,7 @@ export function SiteFooter() {
                   <a
                     key={index}
                     href="#"
-                    className="font-['Roboto'] text-sm font-normal leading-[21px] text-[#009fba] underline"
+                    className="font-roboto text-sm font-normal leading-[21px] text-[#009fba] underline"
                   >
                     {item}
                   </a>

@@ -21,12 +21,12 @@ export function ProjectShowcaseBlock() {
           <div className="flex w-full flex-col items-start justify-start gap-8 lg:w-1/2">
             <div className="flex flex-col items-start justify-start gap-4 self-stretch">
               <div className="inline-flex items-center justify-start">
-                <h2 className="font-['Roboto'] text-base font-semibold leading-normal text-white">
+                <h2 className="font-roboto text-base font-semibold leading-normal text-white">
                   Innovative
                 </h2>
               </div>
               <div className="flex flex-col items-start justify-start gap-6 self-stretch">
-                <h3 className="self-stretch font-['Poppins'] text-3xl font-semibold leading-tight text-[#ff8328] sm:text-4xl md:text-[45px] md:leading-[54px]">
+                <h3 className="self-stretch text-3xl font-semibold leading-tight text-[#ff8328] sm:text-4xl md:text-[45px] md:leading-[54px]">
                   Transforming Ideas into Exceptional Software Solutions
                 </h3>
                 <p className="self-stretch text-lg font-normal leading-relaxed text-white sm:text-xl sm:leading-[30px]">

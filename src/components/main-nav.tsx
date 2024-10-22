@@ -55,7 +55,7 @@ export function MainNav() {
                           key={menuItem.title}
                           className="inline-flex flex-col items-start justify-start gap-4 py-8"
                         >
-                          <div className="self-stretch font-['Roboto'] text-sm font-semibold leading-[21px] text-white">
+                          <div className="self-stretch font-roboto text-sm font-semibold leading-[21px] text-white">
                             {menuItem.title}
                           </div>
                           <div className="flex flex-col items-start justify-start gap-4">
@@ -68,11 +68,11 @@ export function MainNav() {
                                 <div className="inline-flex shrink grow basis-0 flex-col items-start justify-start">
                                   <Link
                                     href={item.href}
-                                    className="self-stretch font-['Roboto'] text-base font-semibold leading-normal text-[#009fba]"
+                                    className="self-stretch font-roboto text-base font-semibold leading-normal text-[#009fba]"
                                   >
                                     {item.title}
                                   </Link>
-                                  <div className="self-stretch font-['Poppins'] text-sm font-normal leading-[21px] text-white">
+                                  <div className="self-stretch text-sm font-normal leading-[21px] text-white">
                                     {item.description}
                                   </div>
                                 </div>
@@ -92,7 +92,7 @@ export function MainNav() {
                       key={Math.random()}
                       className="inline-flex w-[416px] flex-col items-start justify-start gap-4 bg-[#003146] py-8 pl-8 pr-24"
                     >
-                      <div className="self-stretch font-['Roboto'] text-sm font-semibold leading-[21px] text-white">
+                      <div className="self-stretch font-roboto text-sm font-semibold leading-[21px] text-white">
                         {link.card.title}
                       </div>
                       <div className="flex flex-col items-start justify-start gap-4 self-stretch py-2">
@@ -105,16 +105,16 @@ export function MainNav() {
                         />
                         <div className="flex flex-col items-start justify-start gap-2 self-stretch">
                           <div className="flex flex-col items-start justify-start gap-1 self-stretch">
-                            <div className="self-stretch font-['Roboto'] text-base font-semibold leading-normal text-[#ff8328]">
+                            <div className="self-stretch font-roboto text-base font-semibold leading-normal text-[#ff8328]">
                               {link.card.label}
                             </div>
-                            <div className="self-stretch font-['Poppins'] text-sm font-normal leading-[21px] text-white">
+                            <div className="self-stretch text-sm font-normal leading-[21px] text-white">
                               {link.card.description}
                             </div>
                           </div>
                           <Link
                             href={link.card?.link.href}
-                            className="font-['Roboto'] text-sm font-normal leading-[21px] text-[#009fba] underline"
+                            className="font-roboto text-sm font-normal leading-[21px] text-[#009fba] underline"
                           >
                             {link.card.link.label}
                           </Link>

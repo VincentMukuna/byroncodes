@@ -81,10 +81,10 @@ export function TestimonialsBlock() {
                         className="rounded-full"
                       />
                       <div className="">
-                        <p className="font-['Roboto'] text-base font-semibold leading-normal text-white">
+                        <p className="font-roboto text-base font-semibold leading-normal text-white">
                           {testimonial.name}
                         </p>
-                        <p className="font-['Poppins'] text-sm font-normal leading-normal text-white sm:text-base">
+                        <p className="text-sm font-normal leading-normal text-white sm:text-base">
                           {testimonial.role}
                         </p>
                       </div>
