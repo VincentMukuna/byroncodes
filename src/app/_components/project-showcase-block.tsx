@@ -1,8 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import { ChevronRightIcon } from "@radix-ui/react-icons";
 
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 
 export function ProjectShowcaseBlock() {
   return (
@@ -38,11 +39,19 @@ export function ProjectShowcaseBlock() {
               </div>
             </div>
             <div className="mt-4 flex flex-wrap items-center gap-4 sm:gap-6">
-              <Button variant="outline">View</Button>
-              <Button variant="ghost">
+              <Link
+                href={"/my-work"}
+                className={buttonVariants({ variant: "outline" })}
+              >
+                View
+              </Link>
+              <Link
+                href={"/my-work"}
+                className={buttonVariants({ variant: "ghost" })}
+              >
                 Explore{" "}
                 <ChevronRightIcon className="ml-2 size-4 text-primary" />
-              </Button>
+              </Link>
             </div>
           </div>
         </div>
