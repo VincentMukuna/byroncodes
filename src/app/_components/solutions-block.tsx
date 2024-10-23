@@ -69,7 +69,7 @@ export function SolutionsBlock() {
               </div>
               <a
                 href="#"
-                className="inline-flex items-center text-base font-normal leading-normal text-white transition-colors hover:text-[#ff8328]"
+                className="mt-auto inline-flex items-center text-base font-normal leading-normal text-white transition-colors hover:text-[#ff8328]"
                 aria-label={`${solution.cta} ${solution.title}`}
               >
                 {solution.cta}
