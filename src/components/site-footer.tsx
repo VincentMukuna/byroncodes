@@ -7,7 +7,7 @@ import {
 } from "@radix-ui/react-icons";
 
 import { FacebookIcon, YoutubeFilledIcon } from "./icons/logos";
-import { Button } from "./ui/button";
+import { NewsletterForm } from "./newsletter-form";
 
 export function SiteFooter() {
   return (
@@ -22,29 +22,7 @@ export function SiteFooter() {
               height={134}
               className="max-w-full"
             />
-            <p className="text-base font-normal leading-normal text-white">
-              Subscribe to my newsletter for the latest industry trends and
-              insights.
-            </p>
-            <div className="flex flex-col gap-3">
-              <div className="flex flex-col gap-4 sm:flex-row">
-                <div className="flex h-12 grow items-center justify-start gap-2 border border-primary p-3">
-                  <input
-                    type="email"
-                    placeholder="Your email here"
-                    className="w-full bg-transparent text-base font-normal leading-normal text-[#82cbe4] placeholder-[#82cbe4] focus:outline-none"
-                    aria-label="Email for newsletter"
-                  />
-                </div>
-                <Button className="bg-background-secondary" variant={"outline"}>
-                  Subscribe
-                </Button>
-              </div>
-              <p className="font-roboto text-xs font-normal leading-[18px] text-white">
-                By subscribing, you consent to our Privacy Policy and agree to
-                receive updates.
-              </p>
-            </div>
+            <NewsletterForm />
           </div>
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 lg:flex-1">
             <div className="flex flex-col gap-4">
