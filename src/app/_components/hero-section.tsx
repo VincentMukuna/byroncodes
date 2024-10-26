@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 
 export function HeroSection() {
   return (
-    <section className="relative flex min-h-[90svh] items-center justify-start bg-black/80 px-4 sm:px-8 md:px-12 lg:px-16">
+    <section className="relative flex min-h-[90svh] items-center justify-start bg-black/80 px-4 pt-[80px] sm:px-8 md:px-12 lg:px-16">
       <Image
         src="/img/header.jpg"
         alt="Background image of a mountain"

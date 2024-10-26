@@ -13,7 +13,9 @@ import { SolutionsBlock } from "./_components/solutions-block";
 export default function Home() {
   return (
     <main className="grid">
-      <HeroSection />
+      <div className="-mt-[74px]">
+        <HeroSection />
+      </div>
       <ProjectShowcaseBlock />
       <SolutionsBlock />
       <TestimonialsBlock />
