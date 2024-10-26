@@ -1,12 +1,11 @@
 import Image from "next/image";
 
 import {
-  InstagramLogoIcon,
-  LinkedInLogoIcon,
-  TwitterLogoIcon,
-} from "@radix-ui/react-icons";
+  resourcesLinks,
+  siteResources,
+  socialLinks,
+} from "@/data/footer-links";
 
-import { FacebookIcon, YoutubeFilledIcon } from "./icons/logos";
 import { NewsletterForm } from "./newsletter-form";
 
 export function SiteFooter() {
@@ -30,19 +29,13 @@ export function SiteFooter() {
                 Resources Links
               </h2>
               <nav className="flex flex-col gap-2">
-                {[
-                  "Portfolio Site",
-                  "Blog Posts",
-                  "Contact Me",
-                  "My Work",
-                  "Testimonials",
-                ].map((item, index) => (
+                {resourcesLinks.map((item, index) => (
                   <a
                     key={index}
-                    href="#"
+                    href={item.href}
                     className="py-2 text-sm font-normal leading-[21px] text-[#009fba]"
                   >
-                    {item}
+                    {item.title}
                   </a>
                 ))}
               </nav>
@@ -70,13 +63,7 @@ export function SiteFooter() {
                 Stay Social
               </h2>
               <nav className="flex flex-col gap-2">
-                {[
-                  { name: "Facebook", icon: FacebookIcon },
-                  { name: "Instagram", icon: InstagramLogoIcon },
-                  { name: "X", icon: TwitterLogoIcon },
-                  { name: "LinkedIn", icon: LinkedInLogoIcon },
-                  { name: "YouTube", icon: YoutubeFilledIcon },
-                ].map((item, index) => (
+                {socialLinks.map((item, index) => (
                   <a
                     key={index}
                     href="#"
@@ -99,17 +86,15 @@ export function SiteFooter() {
               © 2024 ByronCodes. All rights reserved.
             </p>
             <nav className="flex flex-wrap gap-4 sm:gap-6">
-              {["Privacy Policy", "Terms of Service", "Cookie Settings"].map(
-                (item, index) => (
-                  <a
-                    key={index}
-                    href="#"
-                    className="font-roboto text-sm font-normal leading-[21px] text-[#009fba] underline"
-                  >
-                    {item}
-                  </a>
-                )
-              )}
+              {siteResources.map((item, index) => (
+                <a
+                  key={index}
+                  href={item.href}
+                  className="font-roboto text-sm font-normal leading-[21px] text-[#009fba] underline"
+                >
+                  {item.title}
+                </a>
+              ))}
             </nav>
           </div>
         </div>
