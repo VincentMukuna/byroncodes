@@ -2,16 +2,17 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { Button, buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 export function HeroSection() {
   return (
     <section className="relative flex min-h-[90svh] items-center justify-start bg-black/80 px-4 sm:px-8 md:px-12 lg:px-16">
       <Image
-        src="/img/bot.jpg"
-        alt="Background image of a bot"
+        src="/img/header.jpg"
+        alt="Background image of a mountain"
         priority
         fill
-        className="-z-10 object-cover"
+        className="-z-10 object-cover object-bottom"
         sizes="100vw"
       />
       <div className="mx-auto max-w-7xl md:mx-0">
@@ -29,7 +30,10 @@ export function HeroSection() {
           <div className="flex items-start justify-start gap-4">
             <Link
               href={"/about-me"}
-              className={buttonVariants({ size: "lg", variant: "secondary" })}
+              className={cn(
+                buttonVariants({ size: "lg", variant: "secondary" }),
+                "border border-[#009fba] bg-[#003146] text-white"
+              )}
             >
               Learn More
             </Link>
