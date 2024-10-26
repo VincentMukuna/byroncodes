@@ -19,7 +19,7 @@ export function NewsletterForm() {
             Subscribe
           </Button>
         </div>
-        <p className="font-roboto text-xs font-normal leading-[18px] text-white">
+        <p className="text-xs font-normal leading-[18px] text-muted-foreground">
           By subscribing, you consent to our Privacy Policy and agree to receive
           updates.
         </p>
