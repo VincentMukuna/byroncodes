@@ -33,7 +33,7 @@ const blogPostConfig = {
 
 export function BlogPostHeader() {
   return (
-    <header className="bg-[#201b1b] px-4 py-12 sm:px-6 sm:py-16 md:px-8 md:py-20 lg:px-16 lg:py-28">
+    <header className="-mt-[76px] bg-background-secondary px-4 py-[124px] sm:px-6 sm:py-16 md:px-8 md:py-20 lg:px-16 lg:py-28">
       <div className="mx-auto max-w-7xl">
         <div className="flex flex-col gap-8 lg:flex-row lg:gap-20">
           <div className="flex flex-col justify-between gap-8 lg:w-[420px]">
