@@ -1,8 +1,4 @@
-import Image from "next/image";
-import Link from "next/link";
-
-import { ChevronRightIcon } from "@radix-ui/react-icons";
-
+import { BlogPostCard } from "@/components/blog-post-card";
 import { Button } from "@/components/ui/button";
 
 const blogConfig = {
@@ -91,45 +87,7 @@ export function BlogListSection() {
 
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {blogConfig.posts.map((post, index) => (
-            <article
-              key={index}
-              className="flex flex-col overflow-hidden rounded-lg border border-black"
-            >
-              <div className="relative h-64 w-full">
-                <Image
-                  src={post.image}
-                  alt={post.title}
-                  unoptimized
-                  layout="fill"
-                  objectFit="cover"
-                />
-              </div>
-              <div className="flex flex-1 flex-col justify-between gap-6 p-6">
-                <div className="space-y-4">
-                  <div className="flex items-center gap-4">
-                    <span className="bg-[#003146] px-2 py-1 font-roboto text-sm font-semibold leading-[21px] text-[#ff8328]">
-                      {post.category}
-                    </span>
-                    <span className="font-roboto text-sm font-semibold leading-[21px] text-white">
-                      {post.readTime}
-                    </span>
-                  </div>
-                  <h2 className="font-poppins text-2xl font-semibold leading-tight text-white">
-                    {post.title}
-                  </h2>
-                  <p className="font-poppins text-base font-normal leading-normal text-white">
-                    {post.description}
-                  </p>
-                </div>
-                <Link
-                  href={post.link}
-                  className="inline-flex items-center font-poppins text-base font-normal leading-normal text-white transition-colors hover:text-[#ff8328]"
-                >
-                  Read more
-                  <ChevronRightIcon className="ml-2 h-5 w-5" />
-                </Link>
-              </div>
-            </article>
+            <BlogPostCard key={index} {...post} />
           ))}
         </div>
       </div>

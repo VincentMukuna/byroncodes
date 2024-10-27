@@ -15,7 +15,7 @@ export function HeroSection() {
               Join Me on My Journey: A Passionate Software Developer Committed
               to Crafting Excellence.
             </h1>
-            <div className="prose lg:prose-xl dark:prose-invert">
+            <div className="prose dark:prose-invert lg:prose-xl">
               <p className="font-poppins text-lg font-normal leading-relaxed">
                 I’m Byron Mandela, a developer passionate about building
                 efficient solutions for real-world problems. My expertise spans
