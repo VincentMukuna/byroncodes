@@ -12,7 +12,7 @@ export function HeroSection() {
         alt="Background image of a mountain"
         priority
         fill
-        className="-z-10 object-cover object-bottom"
+        className="-z-10 select-none object-cover object-bottom"
         sizes="100vw"
       />
       <div className="mx-auto max-w-7xl md:mx-0">

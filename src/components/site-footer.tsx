@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import {
   resourcesLinks,
@@ -13,14 +14,16 @@ export function SiteFooter() {
     <footer className="bg-background-secondary px-4 py-8 sm:px-8 lg:px-16 lg:py-20">
       <div className="mx-auto max-w-7xl">
         <div className="flex flex-col gap-8 lg:flex-row lg:gap-32">
-          <div className="flex flex-col gap-6">
-            <Image
-              src="/logo.png"
-              alt="Logo"
-              width={134}
-              height={134}
-              className="max-w-full"
-            />
+          <div className="flex select-none flex-col gap-6">
+            <Link href="/" className="w-fit">
+              <Image
+                src="/logo.png"
+                alt="Logo"
+                width={134}
+                height={134}
+                className=""
+              />
+            </Link>
             <NewsletterForm />
           </div>
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 lg:flex-1">
