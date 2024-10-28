@@ -65,12 +65,10 @@ export function BlogPostContent() {
               </p>
               <figure>
                 <Image
-                  unoptimized
-                  src="https://via.placeholder.com/768x480"
+                  src="/img/collaboration.jpg"
                   alt="Placeholder image"
                   width={768}
                   height={480}
-                  layout="responsive"
                 />
                 <figcaption>Image caption goes here</figcaption>
               </figure>

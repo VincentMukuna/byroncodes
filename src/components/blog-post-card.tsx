@@ -21,8 +21,8 @@ export const BlogPostCard: React.FC<BlogPost> = ({
   link,
 }) => {
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-lg border shadow-lg transition-all duration-300 ease-in-out hover:scale-[1.02] hover:shadow-2xl">
-      <div className="relative h-64 w-full overflow-hidden">
+    <article className="group flex h-full flex-col overflow-hidden rounded-lg transition-all duration-300 ease-in-out hover:scale-[1.02] hover:shadow-2xl">
+      <div className="relative z-20 h-64 w-full overflow-hidden">
         <Image
           src={image}
           alt={title}
@@ -31,7 +31,7 @@ export const BlogPostCard: React.FC<BlogPost> = ({
         />
         <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-60" />
       </div>
-      <div className="flex flex-1 flex-col justify-between gap-6 p-6">
+      <div className="flex flex-1 flex-col justify-between gap-6 border-[.5px] border-t-0 border-black/60 p-6">
         <div className="space-y-4">
           <div className="flex items-center gap-4">
             <span className="rounded bg-[#003146] px-2 py-1 font-roboto text-sm font-semibold leading-[21px] text-[#ff8328]">
