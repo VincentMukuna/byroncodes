@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { Link2Icon, LinkedInLogoIcon } from "@radix-ui/react-icons";
+import { Share2Icon } from "lucide-react";
 
 import { FacebookIcon, TwitterXIcon } from "@/components/icons/logos";
 import {
@@ -11,6 +12,7 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { WebShare } from "@/components/web-share";
 
 const blogPostConfig = {
   breadcrumbs: [
@@ -24,10 +26,10 @@ const blogPostConfig = {
   image: "/img/big-data.jpg",
   imageAlt: "Future of Software Development",
   shareLinks: [
-    { icon: Link2Icon, href: "/#", label: "Copy link" },
-    { icon: LinkedInLogoIcon, href: "/#", label: "Share on LinkedIn" },
-    { icon: TwitterXIcon, href: "/#", label: "Share on Twitter" },
-    { icon: FacebookIcon, href: "/#", label: "Share on Facebook" },
+    { icon: Link2Icon, href: "#", label: "Copy link" },
+    { icon: LinkedInLogoIcon, href: "#", label: "Share on LinkedIn" },
+    { icon: TwitterXIcon, href: "#", label: "Share on Twitter" },
+    { icon: FacebookIcon, href: "#", label: "Share on Facebook" },
   ],
 };
 
@@ -39,7 +41,7 @@ export function BlogPostHeader() {
           <div className="flex flex-col justify-between gap-8 lg:w-[420px]">
             <div className="space-y-8">
               <Breadcrumb>
-                <BreadcrumbList suppressHydrationWarning>
+                <BreadcrumbList>
                   {blogPostConfig.breadcrumbs.map((crumb, index) => (
                     <>
                       <BreadcrumbItem key={index}>
@@ -77,6 +79,18 @@ export function BlogPostHeader() {
                   Share this post
                 </h2>
                 <div className="flex flex-wrap gap-2">
+                  <WebShare
+                    data={{
+                      title: blogPostConfig.title,
+                      text: "Check out this blog post",
+                      url: "/blog/tech/exploring-the-future-of-software-development",
+                    }}
+                    variant={"secondary"}
+                    size={"icon"}
+                    className="inline-flex items-center justify-center rounded-full bg-[#009fba] p-5 text-primary transition-colors hover:bg-[#007a91]"
+                  >
+                    <Share2Icon />
+                  </WebShare>
                   {blogPostConfig.shareLinks.map((link, index) => (
                     <Link
                       key={index}
