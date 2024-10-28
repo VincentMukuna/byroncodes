@@ -32,7 +32,7 @@ export const metadata: Metadata = {
       "Read my latest blog posts on fullstack development, coding tutorials, and insights on software development.",
     images: [
       {
-        url: new URL("/img/og/opengraph-image.jpeg", siteConfig.url).toString(),
+        url: new URL("/img/blog.jpg", siteConfig.url).toString(),
         width: 1200,
         height: 630,
         alt: "Blog",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
       "Read my latest blog posts on fullstack development, coding tutorials, and insights on software development.",
     images: [
       {
-        url: new URL("/img/og/opengraph-image.jpeg", siteConfig.url).toString(),
+        url: new URL("/img/blog.jpg", siteConfig.url).toString(),
         width: 1200,
         height: 630,
         alt: "Blog",
