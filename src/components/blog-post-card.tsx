@@ -26,9 +26,8 @@ export const BlogPostCard: React.FC<BlogPost> = ({
         <Image
           src={image}
           alt={title}
-          layout="fill"
-          objectFit="cover"
-          className="transition-transform duration-300 ease-in-out group-hover:scale-110"
+          fill
+          className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-60" />
       </div>

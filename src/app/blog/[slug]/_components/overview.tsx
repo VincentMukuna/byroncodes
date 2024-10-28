@@ -13,6 +13,7 @@ import {
 export interface Heading {
   title: string;
   level: number;
+  id?: string;
   children?: Heading[];
 }
 
@@ -49,7 +50,7 @@ const HeadingItem: React.FC<{ heading: Heading; level: number }> = ({
               </span>
             )}
             <a
-              href={`#${heading.title.toLowerCase().replace(/\s+/g, "-")}`}
+              href={`#${heading.id ? heading.id : heading.title.toLowerCase().replace(/\s+/g, "-")}`}
               className="font-poppins text-white transition-colors hover:text-[#ff8328]"
             >
               {heading.title}

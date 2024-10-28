@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins, Roboto } from "next/font/google";
 
+import ScrollTop from "@/components/scroll-top";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { TailwindIndicator } from "@/components/tailwind-indicator";
@@ -72,6 +73,7 @@ export default function RootLayout({
           <SiteFooter />
         </div>
         <TailwindIndicator />
+        <ScrollTop />
       </body>
     </html>
   );

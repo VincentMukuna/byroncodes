@@ -47,7 +47,7 @@ export function HeroSection() {
               alt="Image of byron smiling at the camera"
               priority
               fill
-              src="/img/byron-about.jpg"
+              src="/img/profile-image.jpg"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </div>

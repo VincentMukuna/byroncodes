@@ -7,11 +7,12 @@ export function BlogPostContent() {
     {
       title: "Section Title",
       level: 1,
+      id: "section-title",
       children: [
-        { title: "Subheading One", level: 2 },
-        { title: "Subheading Two", level: 2 },
-        { title: "Subheading Three", level: 2 },
-        { title: "Final Thoughts", level: 2 },
+        { title: "Subheading One", id: "heading-2", level: 2 },
+        { title: "Subheading Two", id: "heading-3", level: 2 },
+        { title: "Subheading Three", id: "heading-4", level: 2 },
+        { title: "Final Thoughts", id: "heading-5", level: 2 },
       ],
     },
   ];
