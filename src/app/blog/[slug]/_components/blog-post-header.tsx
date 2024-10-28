@@ -41,14 +41,16 @@ export function BlogPostHeader() {
               <Breadcrumb>
                 <BreadcrumbList suppressHydrationWarning>
                   {blogPostConfig.breadcrumbs.map((crumb, index) => (
-                    <BreadcrumbItem key={index}>
-                      <BreadcrumbLink href={crumb.href} active={crumb.active}>
-                        {crumb.label}
-                      </BreadcrumbLink>
+                    <>
+                      <BreadcrumbItem key={index}>
+                        <BreadcrumbLink href={crumb.href} active={crumb.active}>
+                          {crumb.label}
+                        </BreadcrumbLink>
+                      </BreadcrumbItem>
                       {index < blogPostConfig.breadcrumbs.length - 1 && (
                         <BreadcrumbSeparator />
                       )}
-                    </BreadcrumbItem>
+                    </>
                   ))}
                 </BreadcrumbList>
               </Breadcrumb>
@@ -94,6 +96,7 @@ export function BlogPostHeader() {
               src={blogPostConfig.image}
               alt={blogPostConfig.imageAlt}
               layout="fill"
+              priority
               objectFit="cover"
               className="rounded-lg"
             />
