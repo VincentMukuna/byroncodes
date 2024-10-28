@@ -1,15 +1,11 @@
 import { Metadata } from "next";
 
+import { siteConfig } from "@/config/site";
+
 import { BlogCta } from "./_components/blog-cta";
 import { BlogHighlight } from "./_components/blog-highlight";
 import { BlogListSection } from "./_components/blog-list-section";
 import { HeaderSection } from "./_components/header-section";
-
-export const metadata: Metadata = {
-  title: "Blog",
-  description:
-    "Incididunt cupidatat id nulla eu est dolor occaecat est sit tempor eu.",
-};
 
 export default function BlogPage() {
   return (
@@ -23,3 +19,39 @@ export default function BlogPage() {
     </main>
   );
 }
+
+export const metadata: Metadata = {
+  title: "Blog",
+  description:
+    "Read my latest blog posts on fullstack development, coding tutorials, and insights on software development.",
+  openGraph: {
+    title: "Blog",
+    siteName: siteConfig.name,
+    url: `${siteConfig.url}/blog`,
+    description:
+      "Read my latest blog posts on fullstack development, coding tutorials, and insights on software development.",
+    images: [
+      {
+        url: new URL("/img/og/opengraph-image.jpeg", siteConfig.url).toString(),
+        width: 1200,
+        height: 630,
+        alt: "Blog",
+      },
+    ],
+  },
+  twitter: {
+    site: "@mandela_byron",
+    title: "Blog",
+    card: "summary_large_image",
+    description:
+      "Read my latest blog posts on fullstack development, coding tutorials, and insights on software development.",
+    images: [
+      {
+        url: new URL("/img/og/opengraph-image.jpeg", siteConfig.url).toString(),
+        width: 1200,
+        height: 630,
+        alt: "Blog",
+      },
+    ],
+  },
+};

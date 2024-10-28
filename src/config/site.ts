@@ -3,7 +3,7 @@ export const siteConfig = {
   url: "https://staging.byroncodes.com",
   ogImage: "",
   description:
-    "Byron is a fullstack software developer specializing in building high-performance web applications with modern technologies like Next.js, Bun, and JavaScript. Explore Byron’s portfolio, coding tutorials, and insights on fullstack development.",
+    "Fullstack developer. Explore my portfolio, coding tutorials, and insights on fullstack development.",
   links: {
     twitter: "https://twitter.com/mandela_byron",
     linkedin: "https://www.linkedin.com/in/byron-mandela-b2835a218/",

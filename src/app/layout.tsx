@@ -24,6 +24,32 @@ const poppinsFont = Poppins({
   variable: "--font-poppins",
 });
 
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en">
+      <body
+        className={cn(
+          robotoFont.variable,
+          poppinsFont.variable,
+          "dark font-sans antialiased"
+        )}
+      >
+        <div className="flex min-h-[100dvh] flex-col">
+          <SiteHeader />
+          <div className="flex-1">{children}</div>
+          <SiteFooter />
+        </div>
+        <TailwindIndicator />
+        <ScrollTop />
+      </body>
+    </html>
+  );
+}
+
 export const metadata: Metadata = {
   title: {
     default: siteConfig.name,
@@ -51,30 +77,32 @@ export const metadata: Metadata = {
     "Web development best practices",
     "Frontend and backend development",
   ],
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    siteName: siteConfig.name,
+    images: [
+      {
+        url: new URL("/img/og/opengraph-image.jpeg", siteConfig.url).toString(),
+        width: 1200,
+        height: 630,
+        alt: "ByronCodes",
+      },
+    ],
+  },
+  twitter: {
+    site: "@mandela_byron",
+    title: "ByronCodes",
+    card: "summary_large_image",
+    description:
+      "Fullstack developer. Explore my portfolio, coding tutorials, and insights on fullstack development.",
+    images: [
+      {
+        url: new URL("/img/og/opengraph-image.jpeg", siteConfig.url).toString(),
+        width: 1200,
+        height: 630,
+        alt: "ByronCodes",
+      },
+    ],
+  },
 };
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html lang="en">
-      <body
-        className={cn(
-          robotoFont.variable,
-          poppinsFont.variable,
-          "dark font-sans antialiased"
-        )}
-      >
-        <div className="flex min-h-[100dvh] flex-col">
-          <SiteHeader />
-          <div className="flex-1">{children}</div>
-          <SiteFooter />
-        </div>
-        <TailwindIndicator />
-        <ScrollTop />
-      </body>
-    </html>
-  );
-}
