@@ -11,10 +11,6 @@ import { HeaderSection } from "./_components/header-section";
 import { HeroSection } from "./_components/hero-section";
 import { SkillsSection } from "./_components/skills-section";
 
-export const metadata: Metadata = {
-  title: "About Me",
-  description: "Learn more about my journey and progress so far.",
-};
 export default function AboutMePage() {
   return (
     <main className="grid">
@@ -46,3 +42,36 @@ export default function AboutMePage() {
     </main>
   );
 }
+
+export const metadata: Metadata = {
+  title: "About Me",
+  description: "Learn more about my journey and progress so far.",
+  openGraph: {
+    title: "About Me",
+    siteName: siteConfig.name,
+    url: `${siteConfig.url}/about-me`,
+    description: "Learn more about my journey and progress so far.",
+    images: [
+      {
+        url: new URL("/img/og/opengraph-image.jpeg", siteConfig.url).toString(),
+        width: 1200,
+        height: 630,
+        alt: "About Me",
+      },
+    ],
+  },
+  twitter: {
+    site: "@mandela_byron",
+    title: "About Me",
+    card: "summary_large_image",
+    description: "Learn more about my journey and progress so far.",
+    images: [
+      {
+        url: new URL("/img/og/opengraph-image.jpeg", siteConfig.url).toString(),
+        width: 1200,
+        height: 630,
+        alt: "About Me",
+      },
+    ],
+  },
+};
