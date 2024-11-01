@@ -1,0 +1,13 @@
+.tmp
+**/.git
+**/.hg
+**/.pnp.*
+**/.svn
+**/.yarn/**
+**/build
+**/dist/**
+**/node_modules
+**/temp
+playwright.config.ts
+jest.config.js
+src/app/(payload)
