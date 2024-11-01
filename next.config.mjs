@@ -1,3 +1,4 @@
+import { withPayload } from "@payloadcms/next/withPayload";
 import { createJiti } from "jiti";
 import { fileURLToPath } from "node:url";
 
@@ -8,4 +9,4 @@ await jiti.import("./src/env/server.ts");
  */
 const nextConfig = {};
 
-export default nextConfig;
+export default withPayload(nextConfig);

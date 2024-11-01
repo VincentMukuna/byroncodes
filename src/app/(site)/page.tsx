@@ -1,11 +1,11 @@
 import Link from "next/link";
 
+import { CtaBlock } from "@/components/cta-block";
+import { TestimonialsBlock } from "@/components/testimonials-block";
 import { buttonVariants } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 
-import { CtaBlock } from "../components/cta-block";
-import { TestimonialsBlock } from "../components/testimonials-block";
 import { HeroSection } from "./_components/hero-section";
 import { ProjectShowcaseBlock } from "./_components/project-showcase-block";
 import { SolutionsBlock } from "./_components/solutions-block";

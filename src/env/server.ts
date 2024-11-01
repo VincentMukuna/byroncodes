@@ -4,6 +4,14 @@ import { ZodError, z } from "zod";
 export const env = createEnv({
   server: {
     NODE_ENV: z.enum(["development", "production"]).default("development"),
+
+    DATABASE_URI: z.string(),
+    PAYLOAD_SECRET: z.string(),
+
+    PAYLOAD_PUBLIC_SERVER_URL: z.string(),
+  },
+  client: {
+    NEXT_PUBLIC_SERVER_URL: z.string(),
   },
   onValidationError: (error: ZodError) => {
     console.error(

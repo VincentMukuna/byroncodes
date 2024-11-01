@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import React from "react";
 
 import { Link2Icon, LinkedInLogoIcon } from "@radix-ui/react-icons";
 import { Share2Icon } from "lucide-react";
@@ -43,16 +44,16 @@ export function BlogPostHeader() {
               <Breadcrumb>
                 <BreadcrumbList>
                   {blogPostConfig.breadcrumbs.map((crumb, index) => (
-                    <>
+                    <React.Fragment key={index}>
                       <BreadcrumbItem key={index}>
                         <BreadcrumbLink href={crumb.href} active={crumb.active}>
                           {crumb.label}
                         </BreadcrumbLink>
                       </BreadcrumbItem>
                       {index < blogPostConfig.breadcrumbs.length - 1 && (
-                        <BreadcrumbSeparator />
+                        <BreadcrumbSeparator key={`bcListSeperator-${index}`} />
                       )}
-                    </>
+                    </React.Fragment>
                   ))}
                 </BreadcrumbList>
               </Breadcrumb>
@@ -109,10 +110,9 @@ export function BlogPostHeader() {
             <Image
               src={blogPostConfig.image}
               alt={blogPostConfig.imageAlt}
-              layout="fill"
               priority
-              objectFit="cover"
-              className="rounded-lg"
+              fill
+              className="rounded-lg object-cover"
             />
           </div>
         </div>
