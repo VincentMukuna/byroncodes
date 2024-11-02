@@ -11,8 +11,9 @@ import { db } from "./config/payload/db";
 import { lexicalEditorConfig } from "./config/payload/editor";
 import { getEmailAdapter } from "./config/payload/email";
 import { livePreview } from "./config/payload/live-preview";
-import { siteConfig } from "./config/site";
+import { env as clientEnv } from "./env/client";
 import { env } from "./env/server";
+import { Project } from "./payload-types";
 import { collections } from "./payload/collections";
 import { Users } from "./payload/collections/Users";
 import { revalidateRedirects } from "./payload/hooks/revalidate-redirects";
@@ -20,16 +21,16 @@ import { revalidateRedirects } from "./payload/hooks/revalidate-redirects";
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 
-const generateTitle: GenerateTitle = ({ doc }) => {
+const generateTitle: GenerateTitle<Project> = ({ doc }) => {
   return doc?.title
-    ? `${doc.title} | ${siteConfig.name}`
-    : `${siteConfig.name} | Fullstack Developer`;
+    ? `${doc.title} | ByronCodes`
+    : "ByronCodes | Fullstack Developer";
 };
 
-const generateURL: GenerateURL = ({ doc }) => {
+const generateURL: GenerateURL<Project> = ({ doc }) => {
   return doc?.slug
-    ? `${env.PAYLOAD_PUBLIC_SERVER_URL}/${doc.slug}`
-    : env.PAYLOAD_PUBLIC_SERVER_URL;
+    ? `${clientEnv.NEXT_PUBLIC_SERVER_URL}/my-work/${doc.slug}`
+    : clientEnv.NEXT_PUBLIC_SERVER_URL;
 };
 
 export default buildConfig({
@@ -61,9 +62,6 @@ export default buildConfig({
   editor: lexicalEditorConfig,
 
   secret: env.PAYLOAD_SECRET || "",
-  typescript: {
-    outputFile: path.resolve(dirname, "payload-types.ts"),
-  },
   // database-adapter-config-start
   db: db,
   // database-adapter-config-end
@@ -77,7 +75,7 @@ export default buildConfig({
       generateURL,
     }),
     redirectsPlugin({
-      collections: [],
+      collections: ["projects"],
       overrides: {
         // @ts-expect-error hello
         fields: ({ defaultFields }) => {
@@ -100,16 +98,7 @@ export default buildConfig({
       },
     }),
   ],
+  typescript: {
+    outputFile: path.resolve(dirname, "payload-types.ts"),
+  },
 });
-
-// const generateTitle: GenerateTitle<Project | Blog> = ({ doc }) => {
-//   return doc?.title
-//     ? `${doc.title} | ByronCodes`
-//     : "ByronCodes | Fullstack Developer";
-// };
-
-// const generateURL: GenerateURL<Project | Blog> = ({ doc }) => {
-//   return doc?.slug
-//     ? `${clientEnv.NEXT_PUBLIC_SERVER_URL}/${doc.slug}`
-//     : clientEnv.NEXT_PUBLIC_SERVER_URL;
-// };

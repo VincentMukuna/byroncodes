@@ -1,29 +1,28 @@
-import type { Block } from 'payload'
-
 import {
   FixedToolbarFeature,
   HeadingFeature,
   InlineToolbarFeature,
   lexicalEditor,
-} from '@payloadcms/richtext-lexical'
+} from "@payloadcms/richtext-lexical";
+import type { Block } from "payload";
 
 export const FormBlock: Block = {
-  slug: 'formBlock',
+  slug: "formBlock",
   fields: [
     {
-      name: 'form',
-      type: 'relationship',
-      relationTo: 'forms',
+      name: "form",
+      type: "relationship",
+      relationTo: "forms",
       required: true,
     },
     {
-      name: 'enableIntro',
-      type: 'checkbox',
-      label: 'Enable Intro Content',
+      name: "enableIntro",
+      type: "checkbox",
+      label: "Enable Intro Content",
     },
     {
-      name: 'introContent',
-      type: 'richText',
+      name: "introContent",
+      type: "richText",
       admin: {
         condition: (_, { enableIntro }) => Boolean(enableIntro),
       },
@@ -31,20 +30,20 @@ export const FormBlock: Block = {
         features: ({ rootFeatures }) => {
           return [
             ...rootFeatures,
-            HeadingFeature({ enabledHeadingSizes: ['h1', 'h2', 'h3', 'h4'] }),
+            HeadingFeature({ enabledHeadingSizes: ["h1", "h2", "h3", "h4"] }),
             FixedToolbarFeature(),
             InlineToolbarFeature(),
-          ]
+          ];
         },
       }),
-      label: 'Intro Content',
+      label: "Intro Content",
     },
   ],
   graphQL: {
-    singularName: 'FormBlock',
+    singularName: "FormBlock",
   },
   labels: {
-    plural: 'Form Blocks',
-    singular: 'Form Block',
+    plural: "Form Blocks",
+    singular: "Form Block",
   },
-}
+};

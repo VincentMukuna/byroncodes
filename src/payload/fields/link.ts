@@ -83,7 +83,7 @@ export const link: LinkType = ({
       },
       label: "Document to link to",
       maxDepth: 1,
-      relationTo: ["projects"],
+      relationTo: [],
       required: true,
     },
     {

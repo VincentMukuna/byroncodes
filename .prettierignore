@@ -12,3 +12,4 @@
 **/docs/**
 tsconfig.json
 src/app/(payload)
+src/migrations

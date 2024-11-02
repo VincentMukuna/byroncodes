@@ -11,7 +11,9 @@
     "**/app/**/page.tsx": "${dirname} - Page",
     "**/app/**/layout.tsx": "${dirname} - Layout",
     "**/components/**/index.tsx": "${dirname} - Component",
-    "**/payload/collections/**/index.ts": "${dirname} - Collection"
+    "**/payload/collections/**/index.ts": "${dirname} - Collection",
+    "**/payload/fields/**/index.ts": "${dirname} - Field",
+    "**/payload/blocks/**/index.ts": "${dirname} - Block"
   },
   "typescript.tsdk": "node_modules/typescript/lib"
 }

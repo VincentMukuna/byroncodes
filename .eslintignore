@@ -11,3 +11,4 @@
 playwright.config.ts
 jest.config.js
 src/app/(payload)
+src/migrations
