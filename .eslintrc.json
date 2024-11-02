@@ -10,7 +10,7 @@
     "check-file/filename-naming-convention": [
       "error",
       {
-        "**/*.{ts,tsx}": "KEBAB_CASE"
+        "**/app/*.{ts,tsx}": "KEBAB_CASE"
       },
       {
         "ignoreMiddleExtensions": true

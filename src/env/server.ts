@@ -9,9 +9,16 @@ export const env = createEnv({
     PAYLOAD_SECRET: z.string(),
 
     PAYLOAD_PUBLIC_SERVER_URL: z.string(),
-  },
-  client: {
-    NEXT_PUBLIC_SERVER_URL: z.string(),
+
+    EMAIL_ADAPTER: z.enum(["resend", "smtp"]).optional(),
+    EMAIL_FROM: z.string(),
+
+    RESEND_API_KEY: z.string().optional(),
+
+    SMTP_HOST: z.string().optional(),
+    SMTP_PORT: z.string().optional(),
+    SMTP_USER: z.string().optional(),
+    SMTP_PASS: z.string().optional(),
   },
   onValidationError: (error: ZodError) => {
     console.error(

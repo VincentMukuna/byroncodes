@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins, Roboto } from "next/font/google";
 
+import { LivePreviewListener } from "@/components/live-preview-listener";
 import ScrollTop from "@/components/scroll-top";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -38,6 +39,7 @@ export default function RootLayout({
           "dark font-sans antialiased"
         )}
       >
+        <LivePreviewListener />
         <div className="flex min-h-[100dvh] flex-col">
           <SiteHeader />
           <div className="flex-1">{children}</div>
