@@ -1,3 +1,5 @@
+"use client";
+
 import { IconProps } from "@/types/icons";
 
 export function Logo(props: IconProps) {

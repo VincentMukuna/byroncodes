@@ -9,8 +9,9 @@
   },
   "workbench.editor.customLabels.patterns": {
     "**/app/**/page.tsx": "${dirname} - Page",
-    "**/app/**/layout.tsx": "${dirname - Layout}",
-    "**/components/**/index.tsx": "${dirname} - Component"
+    "**/app/**/layout.tsx": "${dirname} - Layout",
+    "**/components/**/index.tsx": "${dirname} - Component",
+    "**/payload/collections/**/index.ts": "${dirname} - Collection"
   },
   "typescript.tsdk": "node_modules/typescript/lib"
 }
