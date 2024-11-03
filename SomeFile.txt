@@ -1,1 +1,0 @@
-bash: SomeCommand: command not found
