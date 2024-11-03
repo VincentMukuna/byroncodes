@@ -12,6 +12,7 @@ Make sure you have the following installed:
 
 - [Bun](https://bun.sh/docs/install) - Fast all-in-one JavaScript runtime
 - Node.js (optional if using Bun)
+- Postgres
 
 ### Installation
 
@@ -27,13 +28,20 @@ Make sure you have the following installed:
    bun install
    ```
 
-3. Run the development server
+3. Copy the `.env.example` file to `.env` and update the environment variables
+
+   ```bash
+   cp .env.example .env
+
+   ```
+
+4. Run the development server
 
    ```bash
    bun dev
    ```
 
-4. Your app should be running on <http://localhost:300>
+5. Your app should be running on <http://localhost:300>
 
 ### Contributing
 
