@@ -1,7 +1,10 @@
 import type { CollectionConfig } from "payload";
 
+import admin from "@/payload/access/admin";
 import { checkRole } from "@/payload/access/check-role";
 
+import adminsAndUser from "./access/adminsAndUser";
+import adminsOrAnon from "./access/adminsOrAnon";
 import { protectRoles } from "./hooks/protect-roles";
 
 export const Users: CollectionConfig = {
@@ -11,6 +14,11 @@ export const Users: CollectionConfig = {
   },
   access: {
     admin: ({ req }) => checkRole(["admin"], req.user),
+    create: adminsOrAnon,
+    delete: admin,
+    read: adminsAndUser,
+    update: adminsAndUser,
+    unlock: admin,
   },
   auth: true,
   fields: [
