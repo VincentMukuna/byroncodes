@@ -31,7 +31,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
           robotoFont.variable,
@@ -39,8 +39,8 @@ export default function RootLayout({
           "dark font-sans antialiased"
         )}
       >
-        <LivePreviewListener />
         <div className="flex min-h-[100dvh] flex-col">
+          <LivePreviewListener />
           <SiteHeader />
           <div className="flex-1">{children}</div>
           <SiteFooter />
