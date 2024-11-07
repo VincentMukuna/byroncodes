@@ -7,10 +7,10 @@ import { buildConfig } from "payload";
 import sharp from "sharp";
 import { fileURLToPath } from "url";
 
-import { db } from "./config/payload/db";
+import { db as dbConfig } from "./config/payload/db";
 import { lexicalEditorConfig } from "./config/payload/editor";
 import { getEmailAdapter } from "./config/payload/email";
-import { livePreview } from "./config/payload/live-preview";
+import { livePreview as livePreviewConfig } from "./config/payload/live-preview";
 import { env as clientEnv } from "./env/client";
 import { env } from "./env/server";
 import { Project } from "./payload-types";
@@ -54,7 +54,7 @@ export default buildConfig({
         },
       },
     },
-    livePreview,
+    livePreview: livePreviewConfig,
   },
   collections: collections,
   email: getEmailAdapter(),
@@ -63,7 +63,7 @@ export default buildConfig({
 
   secret: env.PAYLOAD_SECRET || "",
   // database-adapter-config-start
-  db: db,
+  db: dbConfig,
   // database-adapter-config-end
   cors: [env.PAYLOAD_PUBLIC_SERVER_URL].filter(Boolean),
   csrf: [env.PAYLOAD_PUBLIC_SERVER_URL].filter(Boolean),
