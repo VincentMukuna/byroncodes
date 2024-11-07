@@ -36,6 +36,7 @@ export const Projects: CollectionConfig = {
     read: authenticatedOrPublished,
     delete: admin,
     update: admin,
+    create: admin,
   },
   admin: {
     defaultColumns: ["title", "slug", "publishedAt"],
