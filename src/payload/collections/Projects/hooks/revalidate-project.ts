@@ -2,7 +2,9 @@ import { revalidatePath } from "next/cache";
 
 import { CollectionAfterChangeHook } from "payload";
 
-export const revalidateProject: CollectionAfterChangeHook<any> = ({
+import { Project } from "@/payload-types";
+
+export const revalidateProject: CollectionAfterChangeHook<Project> = ({
   doc,
   previousDoc,
   req: { payload },
