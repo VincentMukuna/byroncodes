@@ -11,7 +11,7 @@ interface ProjectPageProps {
   }>;
 }
 
-export async function getStaticParams() {
+export async function generateStaticParams() {
   const payload = await buildPayloadHMR();
   const projects = await payload.find({
     collection: "projects",
@@ -54,7 +54,7 @@ const queryProjectBySlug = async ({ slug }: { slug: string }) => {
     collection: "projects",
     draft,
     limit: 1,
-    overrideAccess: true,
+    overrideAccess: draft,
     where: {
       slug: {
         equals: slug,
