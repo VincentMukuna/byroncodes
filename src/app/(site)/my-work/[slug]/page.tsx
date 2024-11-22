@@ -1,9 +1,13 @@
 import { Metadata } from "next";
 import { draftMode } from "next/headers";
 
+import { LivePreviewListener } from "@/components/live-preview-listener";
 import { PayloadRedirects } from "@/components/payload-redirects";
+import RichText from "@/components/rich-text";
 import { buildPayloadHMR } from "@/utilities/buildPayloadHMR";
 import { generateMeta } from "@/utilities/generateMeta";
+
+import { PortfolioHeader } from "./_components/portfolio-header";
 
 interface ProjectPageProps {
   params: Promise<{
@@ -33,7 +37,26 @@ export default async function ProjectPage(props: ProjectPageProps) {
   if (!project) {
     return <PayloadRedirects url={url} />;
   }
-  return <div>Project: {slug}</div>;
+  return (
+    <article className="pb-16 pt-16">
+      <LivePreviewListener />
+      <PayloadRedirects disableNotFound url={url} />
+      <PortfolioHeader project={project} />
+      <div className="pt-8">
+        <div className="container grid-rows-[1fr] lg:grid lg:grid-cols-[1fr_48rem_1fr]">
+          <RichText
+            className="col-span-3 col-start-1 grid-rows-[1fr] lg:grid lg:grid-cols-subgrid"
+            content={project.content}
+            enableGutter={true}
+          />
+        </div>
+        {/* <RelatedPosts
+          className="mt-12"
+          docs={post.relatedPosts.filter((post) => typeof post === 'object')}
+        /> */}
+      </div>
+    </article>
+  );
 }
 
 export async function generateMetadata({

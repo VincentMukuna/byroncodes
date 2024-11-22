@@ -4,6 +4,7 @@
   "rules": {
     "quotes": ["error", "double"],
     "semi": ["error"],
+    "@typescript-eslint/no-explicit-any": "off",
     "prefer-arrow-callback": ["error"],
     "prefer-template": ["error"],
     "n/no-process-env": ["error"],
