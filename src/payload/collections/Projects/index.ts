@@ -17,7 +17,7 @@ import { CollectionConfig } from "payload";
 
 import { env } from "@/env/client";
 import admin from "@/payload/access/admin";
-import { authenticatedOrPublished } from "@/payload/access/authenticated-or-published";
+import { adminOrPublished } from "@/payload/access/adminOrPublished";
 import { checkRole } from "@/payload/access/check-role";
 import { Banner } from "@/payload/blocks/Banner";
 import { Code } from "@/payload/blocks/Code";
@@ -33,7 +33,7 @@ export const Projects: CollectionConfig = {
   slug: "projects",
   access: {
     admin: ({ req: { user } }) => checkRole(["admin"], user),
-    read: authenticatedOrPublished,
+    read: adminOrPublished,
     delete: admin,
     update: admin,
     create: admin,
