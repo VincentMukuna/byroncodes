@@ -1,9 +1,16 @@
 import { Metadata } from "next";
 import { draftMode } from "next/headers";
+import Link from "next/link";
+import { Fragment } from "react";
 
+import { CtaBlock } from "@/components/cta-block";
 import { LivePreviewListener } from "@/components/live-preview-listener";
 import { PayloadRedirects } from "@/components/payload-redirects";
 import RichText from "@/components/rich-text";
+import { TestimonialsBlock } from "@/components/testimonials-block";
+import { buttonVariants } from "@/components/ui/button";
+import { siteConfig } from "@/config/site";
+import { cn } from "@/lib/utils";
 import { buildPayloadHMR } from "@/utilities/buildPayloadHMR";
 import { generateMeta } from "@/utilities/generateMeta";
 
@@ -38,24 +45,59 @@ export default async function ProjectPage(props: ProjectPageProps) {
     return <PayloadRedirects url={url} />;
   }
   return (
-    <article className="pb-16 pt-16">
+    <Fragment>
       <LivePreviewListener />
-      <PayloadRedirects disableNotFound url={url} />
-      <PortfolioHeader project={project} />
-      <div className="pt-8">
-        <div className="container grid-rows-[1fr] lg:grid lg:grid-cols-[1fr_48rem_1fr]">
-          <RichText
-            className="col-span-3 col-start-1 grid-rows-[1fr] lg:grid lg:grid-cols-subgrid"
-            content={project.content}
-            enableGutter={true}
-          />
-        </div>
-        {/* <RelatedPosts
+      <article className="pb-16">
+        <PayloadRedirects disableNotFound url={url} />
+        <PortfolioHeader project={project} />
+        <div className="pt-8">
+          <div className="container grid-rows-[1fr] lg:grid lg:grid-cols-[1fr_48rem_1fr]">
+            <RichText
+              className="col-span-3 col-start-1 grid-rows-[1fr] lg:grid lg:grid-cols-subgrid"
+              content={project.content}
+              enableGutter={true}
+            />
+          </div>
+          {/* <RelatedPosts
           className="mt-12"
           docs={post.relatedPosts.filter((post) => typeof post === 'object')}
         /> */}
-      </div>
-    </article>
+        </div>
+      </article>
+      <TestimonialsBlock />
+      <CtaBlock className="grid">
+        <CtaBlock.Header>
+          <CtaBlock.Title>Explore My Project Portfolio</CtaBlock.Title>
+          <CtaBlock.Description>
+            Discover my work and get in touch for similar projects tailored to
+            your needs.
+          </CtaBlock.Description>
+        </CtaBlock.Header>
+        <div className="flex gap-4">
+          <CtaBlock.Actions>
+            <Link
+              href={siteConfig.links.upwork}
+              target={"_blank"}
+              className={cn(buttonVariants(), "inline-flex gap-1")}
+            >
+              View
+            </Link>
+          </CtaBlock.Actions>
+          <CtaBlock.Actions>
+            <Link
+              href={siteConfig.links.upwork}
+              target={"_blank"}
+              className={cn(
+                buttonVariants({ variant: "outline" }),
+                "inline-flex gap-1"
+              )}
+            >
+              Contact
+            </Link>
+          </CtaBlock.Actions>
+        </div>
+      </CtaBlock>
+    </Fragment>
   );
 }
 
