@@ -1,23 +1,12 @@
 import RichText from "@/components/rich-text";
+import { HierarchyBuilder } from "@/lib/hierarchy/hierarchy";
 import { Post } from "@/payload-types";
 
-import Overview, { Heading } from "./overview";
+import Overview from "./overview";
 
 export function BlogPostContent({ blog }: { blog: Post }) {
-  const headings: Heading[] = [
-    {
-      title: "Section Title",
-      level: 1,
-      id: "section-title",
-      children: [
-        { title: "Subheading One", id: "heading-2", level: 2 },
-        { title: "Subheading Two", id: "heading-3", level: 2 },
-        { title: "Subheading Three", id: "heading-4", level: 2 },
-        { title: "Final Thoughts", id: "heading-5", level: 2 },
-      ],
-    },
-  ];
-
+  const hierarchyBuilder = new HierarchyBuilder();
+  const headings = hierarchyBuilder.build(blog.content.root.children as any);
   return (
     <div className="bg-black px-4 py-12 sm:px-6 sm:py-16 md:px-8 md:py-20 lg:px-16 lg:py-28">
       <div className="mx-auto max-w-7xl">

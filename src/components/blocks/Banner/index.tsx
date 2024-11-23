@@ -15,9 +15,9 @@ export const BannerBlock: React.FC<Props> = ({ className, content, style }) => {
       <div
         className={cn("flex items-center rounded border px-6 py-3", {
           "border-border bg-card": style === "info",
-          "border-error bg-error/30": style === "error",
-          "border-success bg-success/30": style === "success",
-          "border-warning bg-warning/30": style === "warning",
+          "border-error/30 bg-red-700/10": style === "error",
+          "border-green-300/30 bg-green-600/10": style === "success",
+          "border-warning/30 bg-amber-400/10": style === "warning",
         })}
       >
         <RichText content={content} enableGutter={false} enableProse={false} />

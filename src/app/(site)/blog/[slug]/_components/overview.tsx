@@ -9,6 +9,7 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
+import { cn } from "@/lib/utils";
 
 export interface Heading {
   title: string;
@@ -59,7 +60,12 @@ const HeadingItem: React.FC<{ heading: Heading; level: number }> = ({
         </CollapsibleTrigger>
         {hasChildren && (
           <CollapsibleContent>
-            <ul className={`space-y-2 ${level > 0 ? "ml-4" : ""}`}>
+            <ul
+              className={cn("space-y-2")}
+              style={{
+                paddingLeft: `${4 + level * 56}px`,
+              }}
+            >
               {heading.children!.map((child, index) => (
                 <HeadingItem key={index} heading={child} level={level + 1} />
               ))}
