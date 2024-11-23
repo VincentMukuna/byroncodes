@@ -192,15 +192,7 @@ export interface Post {
     };
     [k: string]: unknown;
   };
-  relatedPosts?:
-    | ({
-        relationTo: 'projects';
-        value: number | Project;
-      } | null)
-    | ({
-        relationTo: 'posts';
-        value: number | Post;
-      } | null);
+  relatedPosts?: (number | Post)[] | null;
   categories?: (number | Category)[] | null;
   meta?: {
     title?: string | null;

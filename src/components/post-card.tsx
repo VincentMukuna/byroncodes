@@ -1,55 +1,63 @@
-import Image from "next/image";
 import Link from "next/link";
 
 import { ChevronRightIcon } from "@radix-ui/react-icons";
 
+import { Post } from "@/payload-types";
+
+import { Media } from "./Media";
+
 interface BlogPost {
-  image: string;
-  category: string;
-  readTime: string;
-  title: string;
-  description: string;
-  link: string;
+  post: Post;
 }
 
-export const BlogPostCard: React.FC<BlogPost> = ({
-  image,
-  category,
-  readTime,
-  title,
-  description,
-  link,
-}) => {
+export const PostCard: React.FC<BlogPost> = ({ post }) => {
+  if (!post) return null;
+  const { meta, categories: rawCategories, slug, title } = post;
+  const { description, image: metaImage } = meta || {};
+
+  const categories = rawCategories
+    ? rawCategories
+        .filter((c) => typeof c === "object")
+        .map((c) => {
+          return c.title;
+        })
+    : [];
+
   return (
     <article className="group flex h-full flex-col overflow-hidden rounded-lg transition-all duration-300 ease-in-out hover:scale-[1.02] hover:shadow-2xl">
-      <div className="relative z-20 h-64 w-full overflow-hidden">
-        <Image
-          src={image}
-          alt={title}
-          fill
-          className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
-        />
+      <div className="relative z-20 w-full overflow-hidden">
+        <div className="relative w-full transition-transform duration-500 ease-in-out group-hover:scale-105 group-focus:scale-105">
+          {!metaImage && <div className="">No image</div>}
+          {metaImage && typeof metaImage !== "string" && (
+            <Media resource={metaImage} />
+          )}
+        </div>
         <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-60" />
       </div>
       <div className="flex flex-1 flex-col justify-between gap-6 border-[.5px] border-t-0 border-black/60 p-6">
         <div className="space-y-4">
           <div className="flex items-center gap-4">
-            <span className="rounded bg-[#003146] px-2 py-1 font-roboto text-sm font-semibold leading-[21px] text-[#ff8328]">
-              {category}
-            </span>
+            {categories.map((category, index) => (
+              <span
+                key={index}
+                className="rounded bg-[#003146] px-2 py-1 font-roboto text-sm font-semibold leading-[21px] text-[#ff8328]"
+              >
+                {category}
+              </span>
+            ))}
             <span className="font-roboto text-sm font-semibold leading-[21px] text-gray-300">
-              {readTime}
+              2 Min Read
             </span>
           </div>
           <h2 className="font-poppins text-2xl font-semibold leading-tight text-white transition-colors duration-300 ease-in-out group-hover:text-[#ff8328]">
             {title}
           </h2>
-          <p className="font-poppins text-base font-normal leading-normal text-gray-300">
+          <p className="line-clamp-3 font-poppins text-base font-normal leading-normal text-gray-300">
             {description}
           </p>
         </div>
         <Link
-          href={link}
+          href={`/blog/${slug}`}
           className="inline-flex items-center font-poppins text-base font-normal leading-normal text-white transition-colors duration-300 ease-in-out hover:text-[#ff8328]"
         >
           Read more

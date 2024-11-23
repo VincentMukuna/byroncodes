@@ -1,55 +1,71 @@
 import { Metadata } from "next";
+import { draftMode } from "next/headers";
+import { cache } from "react";
 
-import { siteConfig } from "@/config/site";
+import { PayloadRedirects } from "@/components/payload-redirects";
+import { buildPayloadHMR } from "@/utilities/buildPayloadHMR";
+import { generateMeta } from "@/utilities/generateMeta";
 
 import { BlogPostContent } from "./_components/blog-post-content";
 import { BlogPostCta } from "./_components/blog-post-cta";
 import { BlogPostHeader } from "./_components/blog-post-header";
 import { RelatedPosts } from "./_components/related-posts";
 
-export default function BlogPostPage() {
+export async function generateStaticParams() {
+  const payload = await buildPayloadHMR();
+  const posts = await payload.find({
+    collection: "posts",
+    draft: false,
+    limit: 1000,
+    overrideAccess: false,
+  });
+  return posts.docs?.map(({ slug }) => ({ slug }));
+}
+
+type Props = {
+  params: Promise<{
+    slug: string;
+  }>;
+};
+
+export default async function BlogPostPage({ params }: Props) {
+  const { slug } = await params;
+  const url = `/blog/${slug}`;
+  const blog = await queryPostBySlug({ slug });
+  const relatedPosts = blog?.relatedPosts || [];
+  if (!blog) return <PayloadRedirects url={url} />;
   return (
     <main>
-      <BlogPostHeader />
-      <BlogPostContent />
+      <PayloadRedirects url={url} disableNotFound={true} />
+      <BlogPostHeader blog={blog} />
+      <BlogPostContent blog={blog} />
       <BlogPostCta />
-      <RelatedPosts />
+      <RelatedPosts relatedPosts={relatedPosts} />
     </main>
   );
 }
 
-export const metadata: Metadata = {
-  title: "Blog",
-  description:
-    "Read my latest blog posts on fullstack development, coding tutorials, and insights on software development.",
-  openGraph: {
-    title: "Blog",
-    siteName: siteConfig.name,
-    url: `${siteConfig.url}/blog`,
-    description:
-      "Read my latest blog posts on fullstack development, coding tutorials, and insights on software development.",
-    images: [
-      {
-        url: new URL("/img/blog.jpg", siteConfig.url).toString(),
-        width: 1200,
-        height: 630,
-        alt: "Blog",
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const post = await queryPostBySlug({ slug });
+
+  return generateMeta({ doc: post });
+}
+
+const queryPostBySlug = cache(async ({ slug }: { slug: string }) => {
+  const { isEnabled: draft } = await draftMode();
+  const payload = await buildPayloadHMR();
+
+  const result = await payload.find({
+    collection: "posts",
+    draft,
+    limit: 1,
+    overrideAccess: true,
+    where: {
+      slug: {
+        equals: slug,
       },
-    ],
-  },
-  twitter: {
-    site: "@mandela_byron",
-    title: "Blog",
-    card: "summary_large_image",
-    description:
-      "Read my latest blog posts on fullstack development, coding tutorials, and insights on software development.",
-    images: [
-      {
-        url: new URL("/img/blog.jpg", siteConfig.url).toString(),
-        width: 1200,
-        height: 630,
-        alt: "Blog",
-      },
-    ],
-  },
-};
+    },
+  });
+  return result.docs?.[0] || null;
+});
