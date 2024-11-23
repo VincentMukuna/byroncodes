@@ -1,19 +1,24 @@
 import { Metadata } from "next";
+import { Suspense } from "react";
 
 import { siteConfig } from "@/config/site";
+import { getHighlightedPost } from "@/data/posts";
 
 import { BlogCta } from "./_components/blog-cta";
 import { BlogHighlight } from "./_components/blog-highlight";
 import { BlogListSection } from "./_components/blog-list-section";
 import { HeaderSection } from "./_components/header-section";
 
-export default function BlogPage() {
+export default async function BlogPage() {
+  const highlightedPost = await getHighlightedPost();
   return (
     <main className="grid">
       <HeaderSection />
       <div className="grid gap-12 bg-background-secondary">
-        <BlogHighlight />
-        <BlogListSection />
+        <BlogHighlight highlight={highlightedPost} />
+        <Suspense fallback={null}>
+          <BlogListSection />
+        </Suspense>
       </div>
       <BlogCta />
     </main>

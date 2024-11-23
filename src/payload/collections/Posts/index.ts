@@ -26,17 +26,17 @@ import { SocialMediaEmbed } from "@/payload/blocks/SocialMediaEmbed";
 import { slugField } from "@/payload/fields/slug";
 import { generatePreviewPath } from "@/payload/utilities/generatePreviewPath";
 
-import { populateAuthors } from "../Posts/hooks/populate-authors";
-import { revalidateProject } from "../Posts/hooks/revalidate-post";
+import { populateAuthors } from "./hooks/populate-authors";
+import { revalidateProject } from "./hooks/revalidate-post";
 
-export const Projects: CollectionConfig = {
-  slug: "projects",
+export const Posts: CollectionConfig = {
+  slug: "posts",
   access: {
     admin: ({ req: { user } }) => checkRole(["admin"], user),
     read: adminOrPublished,
-    delete: admin,
-    update: admin,
     create: admin,
+    update: admin,
+    delete: admin,
   },
   admin: {
     defaultColumns: ["title", "slug", "publishedAt"],
@@ -44,7 +44,7 @@ export const Projects: CollectionConfig = {
       url: ({ data }) => {
         const path = generatePreviewPath({
           slug: typeof data?.slug === "string" ? data.slug : "",
-          collection: "projects",
+          collection: "posts",
         });
 
         return `${env.NEXT_PUBLIC_SERVER_URL}${path}`;
@@ -52,7 +52,7 @@ export const Projects: CollectionConfig = {
     },
     preview: (doc) =>
       generatePreviewPath({
-        collection: "projects",
+        collection: "posts",
         slug: typeof doc?.slug === "string" ? doc.slug : "",
       }),
     useAsTitle: "title",
@@ -73,6 +73,7 @@ export const Projects: CollectionConfig = {
             {
               name: "content",
               type: "richText",
+              required: true,
               editor: lexicalEditor({
                 features: ({ rootFeatures }) => {
                   return [
@@ -89,8 +90,6 @@ export const Projects: CollectionConfig = {
                   ];
                 },
               }),
-              label: false,
-              required: true,
             },
           ],
         },
@@ -98,7 +97,7 @@ export const Projects: CollectionConfig = {
           label: "Meta",
           fields: [
             {
-              name: "relatedProjects",
+              name: "relatedPosts",
               type: "relationship",
               admin: {
                 position: "sidebar",
@@ -110,7 +109,7 @@ export const Projects: CollectionConfig = {
                   },
                 };
               },
-              relationTo: "projects",
+              relationTo: "posts",
               hasMany: true,
             },
             {
@@ -142,7 +141,6 @@ export const Projects: CollectionConfig = {
             PreviewField({
               // if the `generateUrl` function is configured
               hasGenerateFn: true,
-
               // field paths to match the target field for data
               titlePath: "meta.title",
               descriptionPath: "meta.description",

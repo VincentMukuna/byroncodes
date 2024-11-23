@@ -1,8 +1,9 @@
 import Link from "next/link";
 
-import { BlogPostCard } from "@/components/blog-post-card";
+import { PostCard } from "@/components/post-card";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { Post } from "@/payload-types";
 
 const relatedPostsConfig = {
   title: "Blog",
@@ -37,7 +38,14 @@ const relatedPostsConfig = {
   ],
 };
 
-export function RelatedPosts() {
+export function RelatedPosts({
+  relatedPosts: relatedPostsRaw,
+}: {
+  relatedPosts: Post["relatedPosts"];
+}) {
+  const relatedPosts =
+    relatedPostsRaw?.filter((post) => typeof post === "object") || [];
+
   return (
     <section className="bg-[#201b1b] px-4 py-12 sm:px-6 sm:py-16 md:px-8 md:py-20 lg:px-16 lg:py-28">
       <div className="mx-auto max-w-7xl">
@@ -54,8 +62,8 @@ export function RelatedPosts() {
         </div>
 
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {relatedPostsConfig.posts.map((post, index) => (
-            <BlogPostCard key={index} {...post} />
+          {relatedPosts.map((post, index) => (
+            <PostCard key={index} post={post} />
           ))}
         </div>
 
