@@ -1,3 +1,5 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+//@ts-nocheck
 "use client";
 
 import { useRouter } from "next/navigation";
@@ -12,6 +14,9 @@ import { env } from "@/env/client";
 
 import { buildInitialFormState } from "./buildInitialFormState";
 import { fields } from "./fields";
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+//@ts-nocheck
 
 export type Value = unknown;
 

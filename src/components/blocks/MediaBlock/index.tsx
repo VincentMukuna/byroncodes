@@ -4,9 +4,15 @@ import React from "react";
 import { Media } from "@/components/Media";
 import RichText from "@/components/rich-text";
 import { cn } from "@/lib/utils";
-import { Project } from "@/payload-types";
+import { type Media as MediaType } from "@/payload-types";
 
-type Props = Extract<Project["layout"][0], { blockType: "mediaBlock" }> & {
+type Props = {
+  position?: ("default" | "fullscreen") | null;
+  media: number | MediaType;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: "mediaBlock";
+} & {
   breakout?: boolean;
   captionClassName?: string;
   className?: string;
