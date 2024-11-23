@@ -1,5 +1,7 @@
 import React from "react";
 
+import { cn } from "@/lib/utils";
+
 interface CtaBlockProps {
   children: React.ReactNode;
   className?: string;
@@ -24,10 +26,17 @@ interface ActionsProps {
 const Wrapper = ({ children, className = "" }: CtaBlockProps) => {
   return (
     <section
-      className={`bg-black px-4 py-12 sm:px-8 sm:py-16 md:px-12 md:py-20 lg:px-16 lg:py-28 ${className}`}
+      className={
+        "bg-black px-4 py-12 sm:px-8 sm:py-16 md:px-12 md:py-20 lg:px-16 lg:py-28"
+      }
     >
       <div className="mx-auto max-w-7xl">
-        <div className="flex flex-col items-center justify-between gap-8 rounded-lg border border-gray-800 p-6 sm:p-8 md:p-12 lg:flex-row">
+        <div
+          className={cn(
+            "flex flex-col items-center justify-between gap-8 rounded-lg border border-gray-800 p-6 sm:p-8 md:p-12 lg:flex-row",
+            className
+          )}
+        >
           {children}
         </div>
       </div>

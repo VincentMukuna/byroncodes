@@ -22,6 +22,9 @@ const config: Config = {
         orange: {
           main: "#FF8328",
         },
+        success: "hsl(var(--success))",
+        error: "hsl(var(--error))",
+        warning: "hsl(var(--warning))",
         background: {
           DEFAULT: "hsla(var(--background))",
           secondary: "#201b1b",

@@ -43,14 +43,17 @@ export const Projects: CollectionConfig = {
     livePreview: {
       url: ({ data }) => {
         const path = generatePreviewPath({
-          path: `/my-work/${typeof data?.slug === "string" ? data.slug : ""}`,
+          slug: typeof data?.slug === "string" ? data.slug : "",
+          collection: "projects",
         });
+
         return `${env.NEXT_PUBLIC_SERVER_URL}${path}`;
       },
     },
     preview: (doc) =>
       generatePreviewPath({
-        path: `/my-work/${typeof doc.slug === "string" ? doc.slug : ""}`,
+        collection: "projects",
+        slug: typeof doc?.slug === "string" ? doc.slug : "",
       }),
     useAsTitle: "title",
   },
