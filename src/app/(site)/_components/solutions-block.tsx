@@ -1,6 +1,10 @@
+"use client";
+
 import Image from "next/image";
+import { useEffect, useRef } from "react";
 
 import { ChevronRightIcon } from "@radix-ui/react-icons";
+import { motion, useAnimation, useInView } from "framer-motion";
 
 const solutionsConfig = {
   title:
@@ -36,21 +40,73 @@ const solutionsConfig = {
 };
 
 export function SolutionsBlock() {
+  const controls = useAnimation();
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
+
+  useEffect(() => {
+    if (isInView) {
+      controls.start("visible");
+    }
+  }, [controls, isInView]);
+
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut",
+      },
+    },
+  };
+
   return (
     <section className="bg-black px-4 py-12 sm:px-6 sm:py-16 md:px-8 md:py-20 lg:px-16 lg:py-28">
       <div className="mx-auto max-w-7xl">
-        <div className="grid gap-8 md:grid-cols-2 md:gap-12 lg:gap-20">
-          <h2 className="text-[32px] font-semibold leading-10 text-[#ff8328] md:text-4xl lg:text-[38px] lg:leading-[1.2]">
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={containerVariants}
+          className="grid gap-8 md:grid-cols-2 md:gap-12 lg:gap-20"
+        >
+          <motion.h2
+            variants={itemVariants}
+            className="text-[32px] font-semibold leading-10 text-[#ff8328] md:text-4xl lg:text-[38px] lg:leading-[1.2]"
+          >
             {solutionsConfig.title}
-          </h2>
-          <p className="text-lg font-normal leading-relaxed text-white md:text-xl">
+          </motion.h2>
+          <motion.p
+            variants={itemVariants}
+            className="text-lg font-normal leading-relaxed text-white md:text-xl"
+          >
             {solutionsConfig.description}
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
-        <div className="mt-12 grid gap-x-8 gap-y-10 sm:mt-16 md:mt-20 md:grid-cols-2 lg:grid-cols-3">
+        <motion.div
+          ref={ref}
+          initial="hidden"
+          animate={controls}
+          variants={containerVariants}
+          className="mt-12 grid gap-x-8 gap-y-10 sm:mt-16 md:mt-20 md:grid-cols-2 lg:grid-cols-3"
+        >
           {solutionsConfig.solutions.map((solution, index) => (
-            <div key={index} className="flex flex-col gap-3">
+            <motion.div
+              key={index}
+              variants={itemVariants}
+              className="flex flex-col gap-3"
+            >
               <div className="relative aspect-[16/9] w-full overflow-hidden rounded-lg">
                 <Image
                   src={solution.image}
@@ -67,17 +123,19 @@ export function SolutionsBlock() {
                   {solution.description}
                 </p>
               </div>
-              <a
+              <motion.a
                 href="#"
                 className="mt-auto inline-flex items-center text-base font-normal leading-normal text-white transition-colors hover:text-[#ff8328]"
                 aria-label={`${solution.cta} ${solution.title}`}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
                 {solution.cta}
                 <ChevronRightIcon className="ml-2 h-5 w-5 text-primary" />
-              </a>
-            </div>
+              </motion.a>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

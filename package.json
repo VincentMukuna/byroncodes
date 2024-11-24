@@ -43,6 +43,7 @@
     "cross-env": "^7.0.3",
     "embla-carousel-autoplay": "^8.3.0",
     "embla-carousel-react": "^8.3.0",
+    "framer-motion": "^11.11.17",
     "graphql": "^16.8.1",
     "jiti": "^2.3.3",
     "jsonwebtoken": "^9.0.2",
