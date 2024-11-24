@@ -63,7 +63,7 @@ const HeadingItem: React.FC<{ heading: Heading; level: number }> = ({
             <ul
               className={cn("space-y-2")}
               style={{
-                paddingLeft: `${4 + level * 56}px`,
+                paddingLeft: `${4 + level * 20}px`,
               }}
             >
               {heading.children!.map((child, index) => (
