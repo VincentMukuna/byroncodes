@@ -11,6 +11,8 @@ import { BlogPostCta } from "./_components/blog-post-cta";
 import { BlogPostHeader } from "./_components/blog-post-header";
 import { RelatedPosts } from "./_components/related-posts";
 
+export const dynamic = "force-static";
+
 export async function generateStaticParams() {
   const payload = await buildPayloadHMR();
   const posts = await payload.find({
