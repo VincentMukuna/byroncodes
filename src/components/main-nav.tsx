@@ -64,7 +64,7 @@ export function MainNav({
     },
     {
       title: "Latest Blog Posts",
-      items: latestBlogPosts.map((post) => ({
+      items: latestBlogPosts.slice(0, 4).map((post) => ({
         title: post.title,
         id: `latest-${post.id}`,
         description: post.meta?.description,
@@ -73,7 +73,7 @@ export function MainNav({
     },
     {
       title: "More Blog Topics",
-      items: categories.map((category) => ({
+      items: categories.slice(0, 4).map((category) => ({
         title: category.title,
         id: `moreblog-${category.id}`,
         description: category.description || "",

@@ -8,6 +8,7 @@ type PostsQuery = {
   author?: string;
   category?: string;
   page?: number;
+  limit?: number;
 };
 export const queryPosts = cache(async (query: PostsQuery) => {
   const payload = await buildPayloadHMR();
@@ -34,7 +35,7 @@ export const queryPosts = cache(async (query: PostsQuery) => {
       ],
     },
     depth: 1,
-    limit: 12,
+    limit: query.limit || 12,
     page: query.page || 1,
     sort: "-createdAt",
   });
