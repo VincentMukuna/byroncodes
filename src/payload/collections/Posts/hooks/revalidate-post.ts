@@ -1,4 +1,4 @@
-import { revalidatePath } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 
 import { CollectionAfterChangeHook } from "payload";
 
@@ -13,7 +13,8 @@ export const revalidateProject: CollectionAfterChangeHook<Post> = ({
     const path = `/blog/${doc.slug}`;
 
     payload.logger.info(`Revalidating blog post at path: ${path}`);
-
+    revalidatePath("/blog");
+    revalidateTag("featured-article");
     revalidatePath(path);
   }
 
@@ -22,7 +23,8 @@ export const revalidateProject: CollectionAfterChangeHook<Post> = ({
     const previousPath = `/blog/${previousDoc.slug}`;
 
     payload.logger.info(`Revalidating blog post at path: ${previousPath}`);
-
+    revalidatePath("/blog");
+    revalidateTag("featured-article");
     revalidatePath(previousPath);
   }
 

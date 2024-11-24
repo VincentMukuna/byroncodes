@@ -54,6 +54,6 @@ export const getHighlightedPost = unstable_cache(
 
     return res.docs[0];
   },
-  ["highlighted-post"],
-  { revalidate: 60 * 60, tags: ["highlighted-post"] }
+  ["highlighted-post", "featured-article"],
+  { revalidate: 60 * 60, tags: ["highlighted-post", "featured-article"] }
 );

@@ -1,3 +1,5 @@
+import { revalidateTag } from "next/cache";
+
 import type { CollectionConfig } from "payload";
 
 import admin from "../access/admin";
@@ -26,6 +28,14 @@ const Categories: CollectionConfig = {
       type: "textarea",
     },
   ],
+  hooks: {
+    afterChange: [
+      //revalidate categories cache
+      async ({}) => {
+        revalidateTag("categories");
+      },
+    ],
+  },
 };
 
 export default Categories;
