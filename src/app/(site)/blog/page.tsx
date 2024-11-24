@@ -15,7 +15,7 @@ export default async function BlogPage() {
     <main className="grid">
       <HeaderSection />
       <div className="grid gap-12 bg-background-secondary">
-        <BlogHighlight highlight={highlightedPost} />
+        {highlightedPost && <BlogHighlight highlight={highlightedPost} />}
         <Suspense fallback={null}>
           <BlogListSection />
         </Suspense>

@@ -47,5 +47,7 @@ export const getHighlightedPost = async () => {
     limit: 1,
   });
 
+  if (!res.docs.length) return null;
+
   return res.docs[0];
 };
