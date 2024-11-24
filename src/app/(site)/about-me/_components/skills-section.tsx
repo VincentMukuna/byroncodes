@@ -1,6 +1,10 @@
+"use client";
+
 import Image from "next/image";
+import { useEffect, useRef } from "react";
 
 import { ChevronRightIcon } from "@radix-ui/react-icons";
+import { motion, useAnimation, useInView } from "framer-motion";
 
 import { Button } from "@/components/ui/button";
 
@@ -31,25 +35,69 @@ const skillsConfig = {
 };
 
 export function SkillsSection() {
+  const controls = useAnimation();
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
+
+  useEffect(() => {
+    if (isInView) {
+      controls.start("visible");
+    }
+  }, [controls, isInView]);
+
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.3,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut",
+      },
+    },
+  };
+
   return (
     <section className="bg-black px-4 py-12 sm:px-6 sm:py-16 md:px-8 md:py-20 lg:px-16 lg:py-28">
-      <div className="mx-auto max-w-7xl">
+      <motion.div
+        ref={ref}
+        initial="hidden"
+        animate={controls}
+        variants={containerVariants}
+        className="mx-auto max-w-7xl"
+      >
         <div className="flex flex-col items-center justify-start gap-12 text-center">
-          <div className="space-y-4">
-            <h2 className="font-roboto text-base font-semibold leading-normal">
+          <motion.div variants={itemVariants} className="space-y-4">
+            <h2 className="font-roboto text-base font-semibold leading-normal text-white">
               {skillsConfig.title}
             </h2>
             <h3 className="font-poppins text-3xl font-semibold leading-tight text-[#ff8328] sm:text-4xl md:text-[45px] md:leading-[1.2]">
               {skillsConfig.heading}
             </h3>
-            <p className="mx-auto max-w-3xl font-poppins text-lg font-normal leading-relaxed sm:text-xl">
+            <p className="mx-auto max-w-3xl font-poppins text-lg font-normal leading-relaxed text-white sm:text-xl">
               {skillsConfig.description}
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
+          <motion.div
+            variants={containerVariants}
+            className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3"
+          >
             {skillsConfig.skills.map((skill, index) => (
-              <div key={index} className="flex flex-col items-center gap-6">
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                className="flex flex-col items-center gap-6"
+              >
                 <Image
                   src={skill.image}
                   alt={skill.title}
@@ -58,26 +106,29 @@ export function SkillsSection() {
                   className="object-cover"
                 />
                 <div className="space-y-4 text-center">
-                  <h4 className="font-poppins text-2xl font-semibold leading-tight">
+                  <h4 className="font-poppins text-2xl font-semibold leading-tight text-white">
                     {skill.title}
                   </h4>
-                  <p className="font-poppins text-base font-normal leading-normal">
+                  <p className="font-poppins text-base font-normal leading-normal text-white">
                     {skill.description}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
 
-          <div className="flex flex-col gap-4 sm:flex-row sm:gap-6">
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-col gap-4 sm:flex-row sm:gap-6"
+          >
             <Button variant="default">Learn</Button>
             <Button variant="outline">
               Connect
               <ChevronRightIcon className="ml-2 h-4 w-4" />
             </Button>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
