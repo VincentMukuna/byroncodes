@@ -13,11 +13,6 @@ export async function SiteHeader({ className }: { className?: string }) {
   const latestBlogPosts = await queryPosts({ title: "" });
   const categories = await getCategories();
   const featuredArticle = await getHighlightedPost();
-  console.log({
-    latestBlogPosts: latestBlogPosts.docs,
-    categories,
-    featuredArticle,
-  });
   return (
     <header
       className={cn(
