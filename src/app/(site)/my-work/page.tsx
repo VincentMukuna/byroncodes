@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { Suspense } from "react";
 
 import { CtaBlock } from "@/components/cta-block";
 import { TestimonialsBlock } from "@/components/testimonials-block";
@@ -12,7 +13,9 @@ export default function MyWorkPage() {
   return (
     <main className="grid">
       <HeaderSection />
-      <ProjectListBlock />
+      <Suspense>
+        <ProjectListBlock />
+      </Suspense>
       <TestimonialsBlock />
       <CtaBlock>
         <CtaBlock.Header>

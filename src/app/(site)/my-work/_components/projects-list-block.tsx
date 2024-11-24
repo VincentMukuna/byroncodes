@@ -1,6 +1,7 @@
-import Image from "next/image";
-
 import { Button } from "@/components/ui/button";
+import { queryProjects } from "@/data/projects";
+
+import { ProjectItem } from "./project-list-item";
 
 const projectListConfig = {
   title: "Portfolio",
@@ -24,7 +25,8 @@ const projectListConfig = {
   ],
 };
 
-export function ProjectListBlock() {
+export async function ProjectListBlock() {
+  const projects = await queryProjects();
   return (
     <section className="bg-black px-4 py-12 sm:px-6 sm:py-16 md:px-8 md:py-20 lg:px-16 lg:py-28">
       <div className="mx-auto max-w-7xl">
@@ -41,36 +43,8 @@ export function ProjectListBlock() {
         </div>
 
         <div className="space-y-12 md:space-y-16 lg:space-y-20">
-          {projectListConfig.projects.map((project, index) => (
-            <div key={index} className="space-y-6">
-              <Image
-                src={project.image}
-                alt={project.title}
-                width={1312}
-                height={738}
-                className="rounded-[30px] object-cover"
-              />
-              <div className="flex flex-col gap-6 lg:flex-row lg:justify-between">
-                <div className="space-y-4">
-                  <h4 className="font-poppins text-2xl font-semibold leading-tight text-white">
-                    {project.title}
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag, tagIndex) => (
-                      <span
-                        key={tagIndex}
-                        className="bg-[#003146] px-2 py-1 font-roboto text-sm font-semibold leading-[21px] text-[#ff8328]"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-                <p className="font-poppins text-base font-normal leading-normal text-white lg:max-w-xl">
-                  {project.description}
-                </p>
-              </div>
-            </div>
+          {projects.map((project) => (
+            <ProjectItem project={project} key={project.id} />
           ))}
         </div>
 
