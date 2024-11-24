@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/collapsible";
 import { headerNavLinks } from "@/data/header-nav-links";
 import { cn } from "@/lib/utils";
-import { Category, Post } from "@/payload-types";
+import { Category, Media, Post } from "@/payload-types";
 
 import { BxBxsCube } from "./icons/cube";
 import {
@@ -86,7 +86,7 @@ export function MobileNav({
         title: category.title,
         id: `moreblog-${category.id}`,
         description: category.description || "Description",
-        href: `/blog/categories?category=${category.id}`,
+        href: `/blog?category=${category.id}`,
       })),
     },
   ];
@@ -96,9 +96,12 @@ export function MobileNav({
     title: "Tech Trends",
     description: featuredArticle.meta?.description || "Description",
     image: {
-      src: featuredArticle.meta?.image?.url || "/img/business-solutions.jpg",
+      src:
+        (featuredArticle.meta?.image as Media)?.url ||
+        "/img/business-solutions.jpg",
       alt:
-        featuredArticle.meta?.image?.alt || "Image of partners shaking hands",
+        (featuredArticle.meta?.image as Media)?.alt ||
+        "Image of partners shaking hands",
     },
     link: {
       href: `/blog/${featuredArticle.slug}`,
