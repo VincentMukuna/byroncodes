@@ -76,8 +76,8 @@ export function MainNav({
       items: categories.map((category) => ({
         title: category.title,
         id: `moreblog-${category.id}`,
-        description: category.description || "Description",
-        href: `/blog/categories?category=${category.id}`,
+        description: category.description || "",
+        href: `/blog?category=${category.id}`,
       })),
     },
   ];

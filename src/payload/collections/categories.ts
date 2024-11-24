@@ -21,6 +21,10 @@ const Categories: CollectionConfig = {
       required: true,
       index: true,
     },
+    {
+      name: "description",
+      type: "textarea",
+    },
   ],
 };
 

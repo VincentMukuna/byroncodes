@@ -125,6 +125,7 @@ export interface Media {
 export interface Category {
   id: number;
   title: string;
+  description?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -345,6 +346,7 @@ export interface MediaSelect<T extends boolean = true> {
  */
 export interface CategoriesSelect<T extends boolean = true> {
   title?: T;
+  description?: T;
   updatedAt?: T;
   createdAt?: T;
 }
