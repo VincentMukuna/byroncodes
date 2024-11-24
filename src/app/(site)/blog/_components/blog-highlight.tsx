@@ -33,7 +33,7 @@ export function BlogHighlight({ highlight }: { highlight: Post }) {
       <div className="mx-auto max-w-7xl">
         <div className="flex flex-col lg:flex-row">
           <div className="relative aspect-[4/3] w-full lg:w-1/2">
-            {metaImage && <Media resource={metaImage} />}
+            {metaImage && <Media resource={metaImage} fill />}
             {!metaImage && <span>No Image</span>}
           </div>
           <div className="flex flex-col justify-between p-6 lg:w-1/2 lg:p-12">

@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { draftMode } from "next/headers";
 import { cache } from "react";
 
+import BuyMeCoffeeButton from "@/components/buy-me-a-coffee";
 import { PayloadRedirects } from "@/components/payload-redirects";
 import { buildPayloadHMR } from "@/utilities/buildPayloadHMR";
 import { generateMeta } from "@/utilities/generateMeta";
@@ -41,6 +42,9 @@ export default async function BlogPostPage({ params }: Props) {
       <PayloadRedirects url={url} disableNotFound={true} />
       <BlogPostHeader blog={blog} />
       <BlogPostContent blog={blog} />
+      <div className="flex flex-row-reverse">
+        <BuyMeCoffeeButton />
+      </div>
       <BlogPostCta />
       <RelatedPosts relatedPosts={relatedPosts} />
     </main>

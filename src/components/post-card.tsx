@@ -25,14 +25,11 @@ export const PostCard: React.FC<BlogPost> = ({ post }) => {
 
   return (
     <article className="group flex h-full flex-col overflow-hidden rounded-lg transition-all duration-300 ease-in-out hover:scale-[1.02] hover:shadow-2xl">
-      <div className="relative z-20 w-full overflow-hidden">
-        <div className="relative w-full transition-transform duration-500 ease-in-out group-hover:scale-105 group-focus:scale-105">
-          {!metaImage && <div className="">No image</div>}
-          {metaImage && typeof metaImage !== "string" && (
-            <Media resource={metaImage} />
-          )}
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-60" />
+      <div className="relative h-[20rem] transition-transform duration-500 ease-in-out group-hover:scale-105 group-focus:scale-105">
+        {!metaImage && <div className="">No image</div>}
+        {metaImage && typeof metaImage !== "string" && (
+          <Media resource={metaImage} fill className="object-cover" />
+        )}
       </div>
       <div className="flex flex-1 flex-col justify-between gap-6 border-[.5px] border-t-0 border-black/60 p-6">
         <div className="space-y-4">

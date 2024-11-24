@@ -52,7 +52,7 @@ const HeadingItem: React.FC<{ heading: Heading; level: number }> = ({
             )}
             <a
               href={`#${heading.id ? heading.id : heading.title.toLowerCase().replace(/\s+/g, "-")}`}
-              className="font-poppins text-white transition-colors hover:text-[#ff8328]"
+              className="overflow-hidden font-poppins text-white transition-colors hover:text-[#ff8328]"
             >
               {heading.title}
             </a>
@@ -79,7 +79,6 @@ const HeadingItem: React.FC<{ heading: Heading; level: number }> = ({
 
 const Overview: React.FC<OverviewProps> = ({ headings }) => {
   const [isMainOpen, setIsMainOpen] = useState(true);
-
   return (
     <Collapsible open={isMainOpen} onOpenChange={setIsMainOpen}>
       <CollapsibleTrigger className="flex w-full items-center justify-between text-left">
