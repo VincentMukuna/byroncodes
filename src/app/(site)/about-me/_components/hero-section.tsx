@@ -1,34 +1,14 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
 
 import { ExternalLinkIcon } from "@radix-ui/react-icons";
-import { motion, useAnimation, useInView } from "framer-motion";
 
+import { FadeInWhenVisible } from "@/components/animations/fade-in-when-visible";
+import { ScaleWhenVisible } from "@/components/animations/scale-when-visible";
+import { StaggerChildren } from "@/components/animations/stagger-children";
 import { siteConfig } from "@/config/site";
 
 export function HeroSection() {
-  const controls = useAnimation();
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
-
-  useEffect(() => {
-    if (isInView) {
-      controls.start("visible");
-    }
-  }, [controls, isInView]);
-
-  const containerVariants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -55,23 +35,17 @@ export function HeroSection() {
 
   return (
     <section className="bg-[#201b1b] px-5 py-16 sm:px-8 md:px-12 lg:px-16 xl:px-20">
-      <motion.div
-        ref={ref}
-        initial="hidden"
-        animate={controls}
-        variants={containerVariants}
-        className="mx-auto max-w-7xl"
-      >
+      <StaggerChildren className="mx-auto max-w-7xl">
         <div className="flex flex-col items-start justify-between gap-12 lg:flex-row lg:items-center">
-          <div className="flex flex-col items-start justify-start gap-8 lg:max-w-[50%]">
-            <motion.h1
+          <StaggerChildren className="flex flex-col items-start justify-start gap-8 lg:max-w-[50%]">
+            <FadeInWhenVisible
               variants={itemVariants}
               className="font-poppins text-3xl font-semibold leading-tight"
             >
               Join Me on My Journey: A Passionate Software Developer Committed
               to Crafting Excellence.
-            </motion.h1>
-            <motion.div
+            </FadeInWhenVisible>
+            <FadeInWhenVisible
               variants={itemVariants}
               className="prose dark:prose-invert lg:prose-xl"
             >
@@ -98,9 +72,9 @@ export function HeroSection() {
                 designing robust backends, I take pride in transforming
                 challenges into actionable solutions.
               </p>
-            </motion.div>
-          </div>
-          <motion.div
+            </FadeInWhenVisible>
+          </StaggerChildren>
+          <ScaleWhenVisible
             variants={imageVariants}
             className="relative aspect-square w-full overflow-hidden rounded-[30px] lg:w-[45%]"
           >
@@ -112,9 +86,9 @@ export function HeroSection() {
               src="/img/profile-image.jpg"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
-          </motion.div>
+          </ScaleWhenVisible>
         </div>
-      </motion.div>
+      </StaggerChildren>
     </section>
   );
 }

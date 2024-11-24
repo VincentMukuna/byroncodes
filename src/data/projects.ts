@@ -1,4 +1,4 @@
-import { buildPayloadHMR } from "@/utilities/buildPayloadHMR";
+import { buildPayloadHMR } from "@/utils/buildPayloadHMR";
 
 export const queryProjects = async () => {
   const payload = await buildPayloadHMR();

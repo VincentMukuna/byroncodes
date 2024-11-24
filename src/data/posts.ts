@@ -1,6 +1,6 @@
 import { cache } from "react";
 
-import { buildPayloadHMR } from "@/utilities/buildPayloadHMR";
+import { buildPayloadHMR } from "@/utils/buildPayloadHMR";
 
 type PostsQuery = {
   title: string;

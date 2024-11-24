@@ -4,8 +4,8 @@ import { cache } from "react";
 
 import BuyMeCoffeeButton from "@/components/buy-me-a-coffee";
 import { PayloadRedirects } from "@/components/payload-redirects";
-import { buildPayloadHMR } from "@/utilities/buildPayloadHMR";
-import { generateMeta } from "@/utilities/generateMeta";
+import { buildPayloadHMR } from "@/utils/buildPayloadHMR";
+import { generateMeta } from "@/utils/generateMeta";
 
 import { BlogPostContent } from "./_components/blog-post-content";
 import { BlogPostCta } from "./_components/blog-post-cta";

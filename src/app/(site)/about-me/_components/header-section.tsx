@@ -1,20 +1,7 @@
-"use client";
-
-import { useEffect, useRef } from "react";
-
-import { motion, useAnimation, useInView } from "framer-motion";
+import { FadeIn } from "@/components/animations/fade-in";
+import { StaggerChildren } from "@/components/animations/stagger-children";
 
 export function HeaderSection() {
-  const controls = useAnimation();
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
-
-  useEffect(() => {
-    if (isInView) {
-      controls.start("visible");
-    }
-  }, [controls, isInView]);
-
   const containerVariants = {
     hidden: {},
     visible: {
@@ -38,38 +25,29 @@ export function HeaderSection() {
 
   return (
     <div className="inline-flex flex-col items-start justify-start gap-20 bg-black px-4 py-28 md:px-16">
-      <motion.div
-        ref={ref}
-        initial="hidden"
-        animate={controls}
+      <StaggerChildren
         variants={containerVariants}
         className="mx-auto inline-flex max-w-7xl flex-col items-start justify-start gap-x-20 gap-y-8 self-stretch md:flex-row"
       >
-        <motion.div
+        <FadeIn
           variants={itemVariants}
           className="inline-flex flex-col items-start justify-start gap-6"
         >
-          <motion.div
-            variants={itemVariants}
-            className="self-stretch text-[56px] font-normal leading-[67.20px] text-primary"
-          >
+          <div className="self-stretch text-[56px] font-normal leading-[67.20px] text-primary">
             Meet Your Developer
-          </motion.div>
-        </motion.div>
-        <motion.div
+          </div>
+        </FadeIn>
+        <FadeIn
           variants={itemVariants}
           className="inline-flex shrink grow basis-0 flex-col items-start justify-start gap-6"
         >
-          <motion.div
-            variants={itemVariants}
-            className="self-stretch text-xl font-normal leading-[30px] text-white"
-          >
+          <div className="self-stretch text-xl font-normal leading-[30px] text-white">
             I&apos;m a passionate freelance software developer dedicated to
             crafting innovative solutions. With a focus on quality and user
             experience, I bring ideas to life through code.
-          </motion.div>
-        </motion.div>
-      </motion.div>
+          </div>
+        </FadeIn>
+      </StaggerChildren>
     </div>
   );
 }

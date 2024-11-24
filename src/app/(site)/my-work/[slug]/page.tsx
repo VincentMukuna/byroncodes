@@ -11,8 +11,8 @@ import { TestimonialsBlock } from "@/components/testimonials-block";
 import { buttonVariants } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
-import { buildPayloadHMR } from "@/utilities/buildPayloadHMR";
-import { generateMeta } from "@/utilities/generateMeta";
+import { buildPayloadHMR } from "@/utils/buildPayloadHMR";
+import { generateMeta } from "@/utils/generateMeta";
 
 import { PortfolioHeader } from "./_components/portfolio-header";
 

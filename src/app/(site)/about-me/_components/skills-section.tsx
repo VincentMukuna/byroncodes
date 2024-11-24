@@ -1,11 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef } from "react";
 
 import { ChevronRightIcon } from "@radix-ui/react-icons";
-import { motion, useAnimation, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 
+import { FadeInWhenVisible } from "@/components/animations/fade-in-when-visible";
+import { StaggerChildren } from "@/components/animations/stagger-children";
 import { Button } from "@/components/ui/button";
 
 const skillsConfig = {
@@ -35,25 +36,6 @@ const skillsConfig = {
 };
 
 export function SkillsSection() {
-  const controls = useAnimation();
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
-
-  useEffect(() => {
-    if (isInView) {
-      controls.start("visible");
-    }
-  }, [controls, isInView]);
-
-  const containerVariants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.3,
-      },
-    },
-  };
-
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -68,15 +50,9 @@ export function SkillsSection() {
 
   return (
     <section className="bg-black px-4 py-12 sm:px-6 sm:py-16 md:px-8 md:py-20 lg:px-16 lg:py-28">
-      <motion.div
-        ref={ref}
-        initial="hidden"
-        animate={controls}
-        variants={containerVariants}
-        className="mx-auto max-w-7xl"
-      >
+      <FadeInWhenVisible className="mx-auto max-w-7xl">
         <div className="flex flex-col items-center justify-start gap-12 text-center">
-          <motion.div variants={itemVariants} className="space-y-4">
+          <StaggerChildren className="space-y-4">
             <h2 className="font-roboto text-base font-semibold leading-normal text-white">
               {skillsConfig.title}
             </h2>
@@ -86,12 +62,9 @@ export function SkillsSection() {
             <p className="mx-auto max-w-3xl font-poppins text-lg font-normal leading-relaxed text-white sm:text-xl">
               {skillsConfig.description}
             </p>
-          </motion.div>
+          </StaggerChildren>
 
-          <motion.div
-            variants={containerVariants}
-            className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3"
-          >
+          <StaggerChildren className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
             {skillsConfig.skills.map((skill, index) => (
               <motion.div
                 key={index}
@@ -115,20 +88,17 @@ export function SkillsSection() {
                 </div>
               </motion.div>
             ))}
-          </motion.div>
+          </StaggerChildren>
 
-          <motion.div
-            variants={itemVariants}
-            className="flex flex-col gap-4 sm:flex-row sm:gap-6"
-          >
+          <FadeInWhenVisible className="flex flex-col gap-4 sm:flex-row sm:gap-6">
             <Button variant="default">Learn</Button>
             <Button variant="outline">
               Connect
               <ChevronRightIcon className="ml-2 h-4 w-4" />
             </Button>
-          </motion.div>
+          </FadeInWhenVisible>
         </div>
-      </motion.div>
+      </FadeInWhenVisible>
     </section>
   );
 }
