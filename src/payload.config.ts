@@ -2,6 +2,7 @@
 import { redirectsPlugin } from "@payloadcms/plugin-redirects";
 import { seoPlugin } from "@payloadcms/plugin-seo";
 import { GenerateTitle, GenerateURL } from "@payloadcms/plugin-seo/types";
+import { s3Storage } from "@payloadcms/storage-s3";
 import path from "path";
 import { buildConfig } from "payload";
 import sharp from "sharp";
@@ -70,6 +71,19 @@ export default buildConfig({
   sharp,
   plugins: [
     // storage-adapter-placeholder
+    s3Storage({
+      enabled: env.NODE_ENV === "production",
+      bucket: env.S3_BUCKET,
+      collections: {
+        media: true,
+      },
+      config: {
+        credentials: {
+          accessKeyId: env.S3_ACCESS_KEY_ID,
+          secretAccessKey: env.S3_SECRET_ACCESS_KEY,
+        },
+      },
+    }),
     seoPlugin({
       generateTitle,
       generateURL,
