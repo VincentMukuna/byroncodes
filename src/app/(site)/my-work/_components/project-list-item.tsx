@@ -25,6 +25,7 @@ export const ProjectItem = ({ project }: { project: Project }) => {
             resource={metaImage!}
             fill
             className="rounded-[30px] object-cover"
+            imgClassName="rounded-[30px] object-cover"
           />
         )}
       </div>

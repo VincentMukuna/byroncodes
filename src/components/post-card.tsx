@@ -28,7 +28,12 @@ export const PostCard: React.FC<BlogPost> = ({ post }) => {
       <div className="relative h-[20rem] transition-transform duration-500 ease-in-out group-hover:scale-105 group-focus:scale-105">
         {!metaImage && <div className="">No image</div>}
         {metaImage && typeof metaImage !== "string" && (
-          <Media resource={metaImage} fill className="object-cover" />
+          <Media
+            resource={metaImage}
+            fill
+            className="object-cover"
+            imgClassName="object-cover"
+          />
         )}
       </div>
       <div className="flex flex-1 flex-col justify-between gap-6 border-[.5px] border-t-0 border-black/60 p-6">
