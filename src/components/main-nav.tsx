@@ -22,7 +22,7 @@ import {
 type Props = {
   latestBlogPosts: Post[];
   categories: Category[];
-  featuredArticle: Post;
+  featuredArticle?: Post | null;
 };
 
 export function MainNav({
@@ -85,17 +85,17 @@ export function MainNav({
   const featuredArticleCard = {
     label: "Featured Articles",
     title: "Tech Trends",
-    description: featuredArticle.meta?.description || "Description",
+    description: featuredArticle?.meta?.description || "Description",
     image: {
       src:
-        (featuredArticle.meta?.image as Media)?.url ||
+        (featuredArticle?.meta?.image as Media)?.url ||
         "/img/business-solutions.jpg",
       alt:
-        (featuredArticle.meta?.image as Media)?.alt ||
+        (featuredArticle?.meta?.image as Media)?.alt ||
         "Image of partners shaking hands",
     },
     link: {
-      href: `/blog/${featuredArticle.slug}`,
+      href: `/blog/${featuredArticle?.slug || ""}`,
       label: "Read more",
     },
   };

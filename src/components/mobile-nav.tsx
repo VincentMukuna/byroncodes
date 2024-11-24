@@ -30,7 +30,7 @@ import {
 type Props = {
   latestBlogPosts: Post[];
   categories: Category[];
-  featuredArticle?: Post;
+  featuredArticle?: Post | null;
 };
 
 export function MobileNav({

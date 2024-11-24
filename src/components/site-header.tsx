@@ -10,7 +10,7 @@ import { MobileNav } from "./mobile-nav";
 import { Button, buttonVariants } from "./ui/button";
 
 export async function SiteHeader({ className }: { className?: string }) {
-  const latestBlogPosts = await queryPosts({ title: "" });
+  const latestBlogPosts = await queryPosts({ title: "", limit: 4 });
   const categories = await getCategories();
   const featuredArticle = await getHighlightedPost();
   return (
@@ -27,13 +27,13 @@ export async function SiteHeader({ className }: { className?: string }) {
         <MainNav
           categories={categories}
           latestBlogPosts={latestBlogPosts.docs}
-          featuredArticle={featuredArticle!}
+          featuredArticle={featuredArticle}
         />
       </div>
       <MobileNav
         categories={categories}
         latestBlogPosts={latestBlogPosts.docs}
-        featuredArticle={featuredArticle!}
+        featuredArticle={featuredArticle}
       />
       <div className="hidden gap-4 lg:flex">
         <Button variant={"outline"}>Join</Button>
