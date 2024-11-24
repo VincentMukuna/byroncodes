@@ -4,15 +4,10 @@ import { HEADING_LEVEL_MAP } from "./constants";
 
 export class HeadingUtils {
   static getTitle(node: SerializedHeadingNode): string {
-    const firstChild = node.children[0];
-    if (
-      !firstChild ||
-      typeof firstChild !== "object" ||
-      !("text" in firstChild)
-    ) {
-      throw new Error("Invalid heading node structure");
-    }
-    return firstChild.text as string;
+    const headingText = node.children.find(
+      (child) => child.type === "text"
+    ) as SerializedHeadingNode;
+    return (headingText as any)?.text || "Heading";
   }
 
   static generateId(node: SerializedHeadingNode): string {
