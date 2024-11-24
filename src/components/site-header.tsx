@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import { getCategories } from "@/data/categories";
+import { getHighlightedPost, queryPosts } from "@/data/posts";
 import { cn } from "@/lib/utils";
 
 import { Logo } from "./icons/logo";
@@ -7,7 +9,15 @@ import { MainNav } from "./main-nav";
 import { MobileNav } from "./mobile-nav";
 import { Button, buttonVariants } from "./ui/button";
 
-export function SiteHeader({ className }: { className?: string }) {
+export async function SiteHeader({ className }: { className?: string }) {
+  const latestBlogPosts = await queryPosts({ title: "" });
+  const categories = await getCategories();
+  const featuredArticle = await getHighlightedPost();
+  console.log({
+    latestBlogPosts: latestBlogPosts.docs,
+    categories,
+    featuredArticle,
+  });
   return (
     <header
       className={cn(
@@ -19,9 +29,17 @@ export function SiteHeader({ className }: { className?: string }) {
         <Link href="/">
           <Logo className="size-20" />
         </Link>
-        <MainNav />
+        <MainNav
+          categories={categories}
+          latestBlogPosts={latestBlogPosts.docs}
+          featuredArticle={featuredArticle!}
+        />
       </div>
-      <MobileNav />
+      <MobileNav
+        categories={categories}
+        latestBlogPosts={latestBlogPosts.docs}
+        featuredArticle={featuredArticle!}
+      />
       <div className="hidden gap-4 lg:flex">
         <Button variant={"outline"}>Join</Button>
         <Link href={"/my-work"} className={buttonVariants()}>
