@@ -170,6 +170,7 @@ export function MobileNav({
 
                           <Link
                             href={item.href}
+                            onClick={() => setOpen(false)}
                             className="font-roboto text-base font-semibold text-[#009fba]"
                           >
                             {item.title}
