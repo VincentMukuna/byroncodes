@@ -41,7 +41,7 @@ Make sure you have the following installed:
    bun dev
    ```
 
-5. Your app should be running on <http://localhost:300>
+5. Your app should be running on <http://localhost:3000>
 
 ### Contributing
 
