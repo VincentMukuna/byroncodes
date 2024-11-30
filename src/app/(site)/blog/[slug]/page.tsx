@@ -42,7 +42,7 @@ export default async function BlogPostPage({ params }: Props) {
       <PayloadRedirects url={url} disableNotFound={true} />
       <BlogPostHeader blog={blog} />
       <BlogPostContent blog={blog} />
-      <div className="flex flex-row-reverse">
+      <div className="flex items-center justify-center">
         <BuyMeCoffeeButton />
       </div>
       <BlogPostCta />

@@ -50,7 +50,7 @@ export default async function ProjectPage(props: ProjectPageProps) {
       <article className="pb-16">
         <PayloadRedirects disableNotFound url={url} />
         <PortfolioHeader project={project} />
-        <div className="px-4 py-12 pt-8 sm:px-6 sm:py-16 md:px-8 md:py-20 lg:px-16 lg:py-28">
+        <div className="px-4 pt-8 sm:px-6 md:px-8 lg:px-16">
           <div className="container grid-rows-[1fr] lg:grid lg:grid-cols-[1fr_48rem_1fr]">
             <RichText
               className="col-span-3 col-start-1 grid-rows-[1fr] lg:grid lg:grid-cols-subgrid"
