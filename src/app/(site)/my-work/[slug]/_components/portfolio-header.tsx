@@ -7,7 +7,7 @@ export function PortfolioHeader({ project }: { project: Project }) {
 
   return (
     <header className="bg-black">
-      <div className="">
+      <div className="w-full">
         {!metaImage && (
           <div className="mb-8 text-center text-white">No image available</div>
         )}
@@ -15,6 +15,8 @@ export function PortfolioHeader({ project }: { project: Project }) {
           <div className="relative">
             <Media
               className="aspect-video max-h-[65dvh] w-full overflow-hidden rounded-lg object-cover"
+              imgClassName="object-cover w-full"
+              priority
               resource={metaImage}
             />
           </div>

@@ -38,10 +38,13 @@ const HeadingItem: React.FC<{ heading: Heading; level: number }> = ({
             className={`flex items-center ${
               level === 0
                 ? "w-full bg-[#009fba] px-3 py-2"
-                : `px-${4 + level * 4} py-2`
+                : `px-${2 + level * 2} py-2`
             }`}
+            style={{
+              paddingLeft: `${4 + level * 1}px`,
+            }}
           >
-            {hasChildren && (
+            {hasChildren ? (
               <span className="mr-2">
                 {isOpen ? (
                   <ChevronDownIcon className="h-4 w-4 text-white" />
@@ -49,6 +52,8 @@ const HeadingItem: React.FC<{ heading: Heading; level: number }> = ({
                   <ChevronRightIcon className="h-4 w-4 text-white" />
                 )}
               </span>
+            ) : (
+              <div className="h-4 w-4"></div>
             )}
             <a
               href={`#${heading.id ? heading.id : heading.title.toLowerCase().replace(/\s+/g, "-")}`}
@@ -63,7 +68,7 @@ const HeadingItem: React.FC<{ heading: Heading; level: number }> = ({
             <ul
               className={cn("space-y-2")}
               style={{
-                paddingLeft: `${4 + level * 20}px`,
+                paddingLeft: `${4 + level * 2}px`,
               }}
             >
               {heading.children!.map((child, index) => (

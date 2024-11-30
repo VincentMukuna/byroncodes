@@ -55,13 +55,9 @@ export default async function ProjectPage(props: ProjectPageProps) {
             <RichText
               className="col-span-3 col-start-1 grid-rows-[1fr] lg:grid lg:grid-cols-subgrid"
               content={project.content}
-              enableGutter={true}
+              enableGutter={false}
             />
           </div>
-          {/* <RelatedPosts
-          className="mt-12"
-          docs={post.relatedPosts.filter((post) => typeof post === 'object')}
-        /> */}
         </div>
       </article>
       <TestimonialsBlock />
