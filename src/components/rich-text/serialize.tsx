@@ -121,14 +121,14 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
                   imgClassName="m-0"
                   key={index}
                   {...block}
-                  captionClassName="mx-auto max-w-[48rem]"
+                  captionClassName="mx-auto max-w-[48rem] my-8"
                   enableGutter={false}
                 />
               );
             case "banner":
               return (
                 <BannerBlock
-                  className="col-start-2 mb-4"
+                  className="col-start-2 my-8 mb-4"
                   key={index}
                   {...block}
                 />
@@ -139,7 +139,7 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
               );
             case "socialMediaEmbed":
               return (
-                <div className="container col-start-2 flex items-center justify-center">
+                <div className="container col-start-2 my-8 flex items-center justify-center">
                   <SocialMediaEmbedBlock key={index} {...block} />
                 </div>
               );
@@ -162,7 +162,7 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
               const Tag = node?.tag;
               return (
                 <Tag
-                  className="col-start-2 text-blue-light"
+                  className="col-start-2 my-4 text-blue-light"
                   key={index}
                   id={HeadingUtils.generateId(node)}
                 >

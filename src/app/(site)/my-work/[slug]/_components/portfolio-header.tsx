@@ -22,7 +22,7 @@ export function PortfolioHeader({ project }: { project: Project }) {
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/0" />
         <div className="absolute inset-0 flex flex-col items-center justify-end pb-8">
-          <div className="z-10 mx-auto max-w-3xl px-4 text-center">
+          <div className="z-10 mx-auto max-w-5xl px-4 text-center">
             <h1 className="mb-4 font-poppins text-3xl font-semibold leading-tight text-[#ff8328] sm:text-4xl md:text-5xl lg:text-6xl">
               {title}
             </h1>
