@@ -37,7 +37,7 @@ const HeadingItem: React.FC<{ heading: Heading; level: number }> = ({
           <div
             className={`flex items-center ${
               level === 0
-                ? "w-full bg-[#009fba] px-4 py-3"
+                ? "w-full bg-[#009fba] px-3 py-2"
                 : `px-${4 + level * 4} py-2`
             }`}
           >
@@ -82,7 +82,7 @@ const Overview: React.FC<OverviewProps> = ({ headings }) => {
   return (
     <Collapsible open={isMainOpen} onOpenChange={setIsMainOpen}>
       <CollapsibleTrigger className="flex w-full items-center justify-between text-left">
-        <h2 className="font-poppins text-2xl font-semibold text-white">
+        <h2 className="font-poppins text-xl font-semibold text-white">
           Contents Overview
         </h2>
         {isMainOpen ? (

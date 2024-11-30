@@ -14,7 +14,7 @@ export const Code: React.FC<Props> = ({ code, language }) => {
     <Highlight
       code={code}
       language={language || "JavaScript"}
-      theme={themes.dracula}
+      theme={themes.nightOwl}
     >
       {({ getLineProps, getTokenProps, tokens }) => (
         <pre className="overflow-x-auto rounded border border-border bg-black p-4">
