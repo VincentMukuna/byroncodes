@@ -14,10 +14,10 @@ export const Code: React.FC<Props> = ({ code, language }) => {
     <Highlight
       code={code}
       language={language || "JavaScript"}
-      theme={themes.vsDark}
+      theme={themes.dracula}
     >
       {({ getLineProps, getTokenProps, tokens }) => (
-        <pre className="overflow-x-auto rounded border border-border bg-black p-4 text-xs">
+        <pre className="overflow-x-auto rounded border border-border bg-black p-4">
           {tokens.map((line, i) => (
             <div key={i} {...getLineProps({ className: "table-row", line })}>
               <span className="table-cell select-none text-right text-white/25">
