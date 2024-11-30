@@ -10,12 +10,12 @@ export function BlogPostContent({ blog }: { blog: Post }) {
   return (
     <div className="bg-black px-4 py-12 sm:px-6 sm:py-16 md:px-8 md:py-20 lg:px-16 lg:py-28">
       <div className="mx-auto max-w-7xl">
-        <div className="flex flex-col lg:flex-row lg:gap-12">
-          <aside className="mb-8 basis-1/4 overflow-hidden lg:mb-0">
+        <div className="grid gap-4 md:grid-cols-[1fr_3fr]">
+          <aside className="mb-8 overflow-hidden lg:mb-0">
             <Overview headings={headings} />
           </aside>
-          <main className="dark lg:flex-1">
-            <RichText content={blog.content} enableGutter={false} />
+          <main className="dark">
+            <RichText content={blog.content} enableGutter={true} />
           </main>
         </div>
       </div>
