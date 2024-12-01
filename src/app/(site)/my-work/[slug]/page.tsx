@@ -40,7 +40,6 @@ export default async function ProjectPage(props: ProjectPageProps) {
   const { slug } = await props.params;
   const url = `/my-work/${slug}`;
   const project = await queryProjectBySlug({ slug });
-  console.log({ project });
   if (!project) {
     return <PayloadRedirects url={url} />;
   }

@@ -7,6 +7,7 @@ import ScrollTop from "@/components/scroll-top";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { TailwindIndicator } from "@/components/tailwind-indicator";
+import { Toaster } from "@/components/ui/sonner";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 
@@ -40,13 +41,14 @@ export default function RootLayout({
           "dark font-sans antialiased"
         )}
       >
-        <div className="flex min-h-[100dvh] flex-col">
+        <div className="dark flex min-h-[100dvh] flex-col">
           <LivePreviewListener />
           <Suspense fallback={null}>
             <SiteHeader />
           </Suspense>
           <div className="flex-1">{children}</div>
           <SiteFooter />
+          <Toaster richColors position="top-right" />
         </div>
         <TailwindIndicator />
         <ScrollTop />
