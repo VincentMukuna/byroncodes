@@ -39,6 +39,7 @@ Make sure you have the following installed:
 
    ```bash
    bun dev
+   
    ```
 
 5. Your app should be running on <http://localhost:3000>
