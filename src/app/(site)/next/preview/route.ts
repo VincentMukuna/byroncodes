@@ -31,22 +31,27 @@ export async function GET(
     });
   } else {
     if (!path) {
+      console.log("No path provided");
       return new Response("No path provided", { status: 404 });
     }
 
     if (!collection) {
+      console.log("No collection provided");
       return new Response("No path provided", { status: 404 });
     }
 
     if (!slug) {
+      console.log("No slug provided");
       return new Response("No path provided", { status: 404 });
     }
 
     if (!token) {
+      console.log("No token provided");
       new Response("You are not allowed to preview this page", { status: 403 });
     }
 
     if (!path.startsWith("/")) {
+      console.log("Invalid path provided", path);
       new Response("This endpoint can only be used for internal previews", {
         status: 500,
       });
@@ -65,6 +70,7 @@ export async function GET(
     // You can add additional checks here to see if the user is allowed to preview this page
     if (!user) {
       draft.disable();
+      console.log("User not found");
       return new Response("You are not allowed to preview this page", {
         status: 403,
       });
@@ -90,6 +96,8 @@ export async function GET(
     }
 
     draft.enable();
+    payload.logger.info("User is allowed to preview this page");
+    payload.logger.info("Redirecting to:", path);
 
     redirect(path);
   }
