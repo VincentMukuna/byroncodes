@@ -5,13 +5,18 @@ import { type VariantProps, cva } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const alertVariants = cva(
-  "relative w-full rounded-lg border px-4 py-3 text-sm [&>svg+div]:translate-y-[-3px] [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 [&>svg]:text-foreground [&>svg~*]:pl-7",
+  "relative w-full rounded-lg border p-4 [&>svg~*]:pl-7 [&>svg]:text-foreground",
   {
     variants: {
       variant: {
-        default: "bg-background text-foreground",
+        default:
+          "bg-blue-600/10 border-blue-600 text-blue-700 dark:border-blue-600 [&>svg]:text-blue-600",
         destructive:
-          "border-destructive/50 text-destructive dark:border-destructive [&>svg]:text-destructive",
+          "bg-red-600/5 border-red-600 text-red-600 dark:border-red-600 [&>svg]:text-red-600",
+        success:
+          "bg-emerald-600/10 border-emerald-600 text-emerald-700 dark:border-emerald-600 [&>svg]:text-emerald-600",
+        warning:
+          "bg-amber-500/10 dark:bg-amber-900/10 border-amber-600 text-amber-600 [&>svg]:text-amber-600",
       },
     },
     defaultVariants: {
@@ -57,4 +62,4 @@ const AlertDescription = React.forwardRef<
 ));
 AlertDescription.displayName = "AlertDescription";
 
-export { Alert, AlertTitle, AlertDescription };
+export { Alert, AlertDescription, AlertTitle };

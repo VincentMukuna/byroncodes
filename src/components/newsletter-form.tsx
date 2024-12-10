@@ -7,6 +7,8 @@ import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
 
+import { subscribeToNewsletter } from "@/actions/newsletter";
+
 import { Button } from "./ui/button";
 import { Form, FormControl, FormField, FormItem, FormMessage } from "./ui/form";
 import { Input } from "./ui/input";
@@ -29,15 +31,18 @@ export function NewsletterForm() {
 
   const onSubmit = async (values: FormValues) => {
     setIsSubmitting(true);
-    // Simulate API call with artificial delay
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    console.log("Form submitted:", values);
-    setIsSubmitting(false);
-    //Show a success message ask the user to complete by verifying their email
-    toast.success(
-      "Thank you for subscribing! Please check your email to confirm your subscription."
-    );
 
+    const res = await subscribeToNewsletter(values.email);
+
+    if (!res.success) {
+      toast.error("Failed!", { description: res.message });
+    } else {
+      toast.success("Success!", {
+        description: res.message,
+      });
+    }
+
+    setIsSubmitting(false);
     form.reset();
   };
 
