@@ -1,6 +1,5 @@
 import React from "react";
 
-import { cva } from "class-variance-authority";
 import {
   BadgeAlertIcon,
   CheckCircleIcon,
@@ -11,20 +10,6 @@ import {
 import { cn } from "@/lib/utils";
 
 import { Alert, AlertDescription } from "./ui/alert";
-
-const messageVariants = cva("rounded p-2 text-sm w-full p-3", {
-  defaultVariants: {
-    variant: "default",
-  },
-  variants: {
-    variant: {
-      default: "bg-primary text-primary-foreground",
-      error: "bg-destructive text-destructive-foreground",
-      success: "bg-success text-success-foreground",
-      warning: "bg-warning text-warning-foreground",
-    },
-  },
-});
 
 export const Message: React.FC<{
   message?: React.ReactNode;
