@@ -48,6 +48,7 @@ export async function subscribeToNewsletter(email: string) {
       message: "Subscribed successfully! Please check your email to confirm.",
     };
   } catch (error) {
+    payload.logger.error("Error subscribing: ", error);
     return {
       success: false,
       message: "Error subscribing!",
@@ -96,6 +97,7 @@ export async function confirmNewsletterSubscription(subscriptionToken: string) {
       message: "Subscription confirmed!",
     };
   } catch (error) {
+    payload.logger.error("Error confirming subscription: ", error);
     return {
       success: false,
       message: "Error confirming subscription!",
@@ -134,6 +136,7 @@ export async function unsubscribeFromNewsletter(subscriptionToken: string) {
       message: "Unsubscribed successfully!",
     };
   } catch (error) {
+    payload.logger.error("Error unsubscribing: ", error);
     return {
       success: false,
       message: "Error unsubscribing!",
