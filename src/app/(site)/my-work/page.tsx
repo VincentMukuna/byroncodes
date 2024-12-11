@@ -1,8 +1,9 @@
 import { Metadata } from "next";
 import { Suspense } from "react";
 
+import { TestimonialsBlock } from "@/components/Testimonials/testimonials.server";
+import { TestimonialsSkeleton } from "@/components/Testimonials/testimonials.skeleton";
 import { CtaBlock } from "@/components/cta-block";
-import { TestimonialsBlock } from "@/components/testimonials-block";
 import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 
@@ -16,7 +17,9 @@ export default function MyWorkPage() {
       <Suspense>
         <ProjectListBlock />
       </Suspense>
-      <TestimonialsBlock />
+      <Suspense fallback={<TestimonialsSkeleton />}>
+        <TestimonialsBlock />
+      </Suspense>
       <CtaBlock>
         <CtaBlock.Header>
           <CtaBlock.Title>Explore My Work and Collaborate!</CtaBlock.Title>

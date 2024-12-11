@@ -1,7 +1,9 @@
 import Link from "next/link";
+import { Suspense } from "react";
 
+import { TestimonialsBlock } from "@/components/Testimonials/testimonials.server";
+import { TestimonialsSkeleton } from "@/components/Testimonials/testimonials.skeleton";
 import { CtaBlock } from "@/components/cta-block";
-import { TestimonialsBlock } from "@/components/testimonials-block";
 import { buttonVariants } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
@@ -18,7 +20,9 @@ export default function Home() {
       </div>
       <ProjectShowcaseBlock />
       <SolutionsBlock />
-      <TestimonialsBlock />
+      <Suspense fallback={<TestimonialsSkeleton />}>
+        <TestimonialsBlock />
+      </Suspense>
       <CtaBlock>
         <CtaBlock.Header>
           <CtaBlock.Title>Let&apos;s Connect and Collaborate!</CtaBlock.Title>

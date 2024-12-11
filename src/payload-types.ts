@@ -497,11 +497,14 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
  */
 export interface Testimonial {
   id: number;
-  name: string;
-  quote: string;
-  role: string;
-  rating: number;
-  image: number | Media;
+  items: {
+    name: string;
+    quote: string;
+    role: string;
+    rating: number;
+    image: number | Media;
+    id?: string | null;
+  }[];
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -510,11 +513,16 @@ export interface Testimonial {
  * via the `definition` "testimonials_select".
  */
 export interface TestimonialsSelect<T extends boolean = true> {
-  name?: T;
-  quote?: T;
-  role?: T;
-  rating?: T;
-  image?: T;
+  items?:
+    | T
+    | {
+        name?: T;
+        quote?: T;
+        role?: T;
+        rating?: T;
+        image?: T;
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

@@ -1,13 +1,14 @@
 import { Metadata } from "next";
 import { draftMode } from "next/headers";
 import Link from "next/link";
-import { Fragment } from "react";
+import { Fragment, Suspense } from "react";
 
+import { TestimonialsBlock } from "@/components/Testimonials/testimonials.server";
+import { TestimonialsSkeleton } from "@/components/Testimonials/testimonials.skeleton";
 import { CtaBlock } from "@/components/cta-block";
 import { LivePreviewListener } from "@/components/live-preview-listener";
 import { PayloadRedirects } from "@/components/payload-redirects";
 import RichText from "@/components/rich-text";
-import { TestimonialsBlock } from "@/components/testimonials-block";
 import { buttonVariants } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
@@ -59,7 +60,9 @@ export default async function ProjectPage(props: ProjectPageProps) {
           </div>
         </div>
       </article>
-      <TestimonialsBlock />
+      <Suspense fallback={<TestimonialsSkeleton />}>
+        <TestimonialsBlock />
+      </Suspense>
       <CtaBlock className="grid">
         <CtaBlock.Header>
           <CtaBlock.Title>Explore My Project Portfolio</CtaBlock.Title>

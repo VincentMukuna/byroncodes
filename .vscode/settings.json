@@ -13,7 +13,8 @@
     "**/components/**/index.tsx": "${dirname} - Component",
     "**/payload/collections/**/index.ts": "${dirname} - Collection",
     "**/payload/fields/**/index.ts": "${dirname} - Field",
-    "**/payload/blocks/**/index.ts": "${dirname} - Block"
+    "**/payload/blocks/**/index.ts": "${dirname} - Block",
+    "**/payload/globals/**/index.ts": "${dirname} - Global"
   },
   "typescript.tsdk": "node_modules/typescript/lib"
 }

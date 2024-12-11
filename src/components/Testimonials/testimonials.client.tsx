@@ -18,10 +18,10 @@ import {
 import { cn } from "@/lib/utils";
 import { Testimonial } from "@/payload-types";
 
-export function TestimonialsBlock({
+export function TestimonialsClient({
   testimonials,
 }: {
-  testimonials: Testimonial[];
+  testimonials: Testimonial["items"];
 }) {
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);
