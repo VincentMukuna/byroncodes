@@ -23,6 +23,7 @@ export async function subscribeToNewsletter(email: string) {
       message: "Email already subscribed!",
     };
   }
+  const transactionId = await payload.db.beginTransaction();
 
   try {
     const subscription = await payload.create({
@@ -43,12 +44,14 @@ export async function subscribeToNewsletter(email: string) {
       ),
     });
 
+    await payload.db.commitTransaction(transactionId!);
     return {
       success: true,
       message: "Subscribed successfully! Please check your email to confirm.",
     };
   } catch (error) {
     payload.logger.error("Error subscribing: ", error);
+    payload.db.rollbackTransaction(transactionId!);
     return {
       success: false,
       message: "Error subscribing!",
