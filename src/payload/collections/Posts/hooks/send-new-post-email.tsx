@@ -14,7 +14,7 @@ export const sendNewPostEmail: CollectionAfterChangeHook<Post> = async ({
     const { docs: subscribers } = await payload.find({
       collection: "subscribers",
       where: {
-        subscripiton_verified_at: {
+        subscription_confirmed_at: {
           exists: true,
         },
       },
