@@ -12,13 +12,13 @@ export const getEmailAdapter: () =>
     case "resend":
       return resendAdapter({
         defaultFromAddress: env.EMAIL_FROM,
-        defaultFromName: "Fixing Health",
+        defaultFromName: "ByronCodes",
         apiKey: env.RESEND_API_KEY || "",
       });
     case "smtp":
       return nodemailerAdapter({
         defaultFromAddress: env.EMAIL_FROM,
-        defaultFromName: "Fixing Health",
+        defaultFromName: "ByronCodes",
         transportOptions: {
           host: env.SMTP_HOST,
           port: env.SMTP_PORT || 587,
