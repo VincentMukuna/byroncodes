@@ -17,7 +17,10 @@ export async function subscribeToNewsletter(email: string) {
     },
   });
 
-  if (subscribers.length > 0) {
+  if (
+    subscribers.length > 0 &&
+    subscribers[0].subscription_confirmed_at !== null
+  ) {
     return {
       success: false,
       message: "Email already subscribed!",
@@ -26,13 +29,16 @@ export async function subscribeToNewsletter(email: string) {
   const transactionId = await payload.db.beginTransaction();
 
   try {
-    const subscription = await payload.create({
-      collection: "subscribers",
-      data: {
-        email,
-        subscription_token: nanoid(),
-      },
-    });
+    let subscription = subscribers[0];
+    if (subscribers.length > 0) {
+      subscription = await payload.create({
+        collection: "subscribers",
+        data: {
+          email,
+          subscription_token: nanoid(),
+        },
+      });
+    }
 
     await payload.sendEmail({
       to: email,
