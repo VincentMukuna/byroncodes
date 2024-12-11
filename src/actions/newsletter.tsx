@@ -54,7 +54,7 @@ export async function subscribeToNewsletter(email: string) {
     payload.db.rollbackTransaction(transactionId!);
     return {
       success: false,
-      message: "Error subscribing!",
+      message: "Error subscribing! Don't worry, you can try again.",
     };
   }
 }
