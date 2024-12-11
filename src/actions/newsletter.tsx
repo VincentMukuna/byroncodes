@@ -16,7 +16,6 @@ export async function subscribeToNewsletter(email: string) {
       },
     },
   });
-
   if (
     subscribers.length > 0 &&
     subscribers[0].subscription_confirmed_at !== null
@@ -30,7 +29,7 @@ export async function subscribeToNewsletter(email: string) {
 
   try {
     let subscription = subscribers[0];
-    if (subscribers.length > 0) {
+    if (subscribers.length === 0) {
       subscription = await payload.create({
         collection: "subscribers",
         data: {
