@@ -4,6 +4,7 @@ import { render } from "@react-email/components";
 import { nanoid } from "nanoid";
 
 import ConfirmSubscriptionEmail from "@/payload/emails/confirm-subscription";
+import { NewPostEmail } from "@/payload/emails/new-post";
 import { buildPayloadHMR } from "@/utils/buildPayloadHMR";
 
 export async function subscribeToNewsletter(email: string) {
@@ -156,4 +157,41 @@ export async function unsubscribeFromNewsletter(subscriptionToken: string) {
       message: "Error unsubscribing!",
     };
   }
+}
+
+export async function notifySubscribersAboutNewPost(postId: string | number) {
+  const payload = await buildPayloadHMR();
+  const post = await payload.findByID({
+    collection: "posts",
+    id: postId,
+    depth: 4,
+  });
+  const { docs: subscribers } = await payload.find({
+    collection: "subscribers",
+    where: {
+      subscription_confirmed_at: {
+        exists: true,
+      },
+    },
+  });
+
+  async function sendEmail(subscriber: any) {
+    await payload.sendEmail({
+      to: subscriber.email,
+      subject: `New Post: ${post.title}`,
+      html: render(<NewPostEmail post={post} subscriber={subscriber} />),
+    });
+  }
+
+  await Promise.all(
+    subscribers.map((subscriber: any) => sendEmail(subscriber))
+  );
+
+  await payload.update({
+    collection: "posts",
+    id: post.id,
+    data: {
+      notifications_sent_at: new Date().toUTCString(),
+    },
+  });
 }

@@ -28,7 +28,6 @@ import { generatePreviewPath } from "@/payload/utilities/generatePreviewPath";
 
 import { populateAuthors } from "./hooks/populate-authors";
 import { revalidateProject } from "./hooks/revalidate-post";
-import { sendNewPostEmail } from "./hooks/send-new-post-email";
 
 export const Posts: CollectionConfig = {
   slug: "posts",
@@ -212,12 +211,31 @@ export const Posts: CollectionConfig = {
       type: "date",
       admin: {
         readOnly: true,
+        position: "sidebar",
       },
     },
     slugField(),
+    {
+      type: "ui",
+      name: "sendNotificationsButton",
+
+      admin: {
+        condition: (data, siblingData) => {
+          return (
+            siblingData.notifications_sent_at === null &&
+            siblingData._status === "published"
+          );
+        },
+        components: {
+          Field:
+            "@/components/Fields/send-new-post-notification#SendNewPostNotifications",
+        },
+        position: "sidebar",
+      },
+    },
   ],
   hooks: {
-    afterChange: [revalidateProject, sendNewPostEmail],
+    afterChange: [revalidateProject],
     afterRead: [populateAuthors],
   },
   versions: {

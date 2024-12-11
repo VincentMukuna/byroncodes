@@ -14,6 +14,7 @@ import { MetaTitleComponent as MetaTitleComponent_a8a977ebc872c5d5ea7ee689724c08
 import { MetaImageComponent as MetaImageComponent_a8a977ebc872c5d5ea7ee689724c0860 } from '@payloadcms/plugin-seo/client'
 import { MetaDescriptionComponent as MetaDescriptionComponent_a8a977ebc872c5d5ea7ee689724c0860 } from '@payloadcms/plugin-seo/client'
 import { PreviewComponent as PreviewComponent_a8a977ebc872c5d5ea7ee689724c0860 } from '@payloadcms/plugin-seo/client'
+import { SendNewPostNotifications as SendNewPostNotifications_117ab25abf8f72cbc35fe5ae830dd638 } from '@/components/Fields/send-new-post-notification'
 import { Logo as Logo_713a2ad2ad5f0029771972a392db3e7f } from '@/components/icons/logo'
 
 export const importMap = {
@@ -33,5 +34,6 @@ export const importMap = {
   "@payloadcms/plugin-seo/client#MetaImageComponent": MetaImageComponent_a8a977ebc872c5d5ea7ee689724c0860,
   "@payloadcms/plugin-seo/client#MetaDescriptionComponent": MetaDescriptionComponent_a8a977ebc872c5d5ea7ee689724c0860,
   "@payloadcms/plugin-seo/client#PreviewComponent": PreviewComponent_a8a977ebc872c5d5ea7ee689724c0860,
+  "@/components/Fields/send-new-post-notification#SendNewPostNotifications": SendNewPostNotifications_117ab25abf8f72cbc35fe5ae830dd638,
   "@/components/icons/logo#Logo": Logo_713a2ad2ad5f0029771972a392db3e7f
 }
