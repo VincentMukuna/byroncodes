@@ -84,7 +84,7 @@ export const EmailLayout = ({
               </Section>
             )}
             <Text className="mb-45 text-center text-gray-400">
-              Netlify, 44 Montgomery Street, Suite 300 San Francisco, CA
+              Acme Inc, 123 ABC Road, Suite 300 Westlands, Nairobi
             </Text>
           </Container>
         </Body>

@@ -5,22 +5,22 @@ import { useState } from "react";
 
 import { toast } from "sonner";
 
-import { confirmNewsletterSubscription } from "@/actions/newsletter";
+import { unsubscribeFromNewsletter } from "@/actions/newsletter";
 import { Message } from "@/components/message";
 import { Button } from "@/components/ui/button";
 
-export default function ConfirmNewsletterSubscriptionButton() {
+export function UnsubscribeButton() {
   const searchParams = useSearchParams();
   const router = useRouter();
-  const [isVerifying, setIsVerifying] = useState(false);
-  const token = searchParams.get("token");
+  const [isVerifying, setIsUnsubscribing] = useState(false);
+  const token = searchParams.get("subscription");
   if (!token) {
     return <Message variant="error" message="Invalid token" />;
   }
-  const handleConfirmSubscription = async () => {
-    setIsVerifying(true);
+  const handleUnsubscribe = async () => {
+    setIsUnsubscribing(true);
     try {
-      const res = await confirmNewsletterSubscription(token);
+      const res = await unsubscribeFromNewsletter(token);
 
       if (res.success) {
         toast.success("Success!", {
@@ -33,7 +33,7 @@ export default function ConfirmNewsletterSubscriptionButton() {
       }
       router.replace("/");
     } finally {
-      setIsVerifying(false);
+      setIsUnsubscribing(false);
     }
   };
 
@@ -41,12 +41,12 @@ export default function ConfirmNewsletterSubscriptionButton() {
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        handleConfirmSubscription();
+        handleUnsubscribe();
       }}
       className="grid w-full gap-2"
     >
       <Button className="w-full" disabled={isVerifying}>
-        {isVerifying ? "Verifying..." : "Confirm Subscription "}
+        {isVerifying ? "Unsubscribing..." : "Unsubscribe "}
       </Button>
     </form>
   );
