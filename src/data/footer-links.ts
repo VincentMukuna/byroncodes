@@ -26,7 +26,7 @@ export const resourcesLinks = [
   },
   {
     title: "Testimonials",
-    href: "/about#testimonials",
+    href: "/about-me#testimonials",
   },
 ] as const;
 

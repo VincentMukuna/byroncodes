@@ -69,7 +69,7 @@ export function SiteFooter() {
                 {socialLinks.map((item, index) => (
                   <a
                     key={index}
-                    href="#"
+                    href={item.href}
                     className="flex items-center gap-3 py-2"
                   >
                     <item.icon className="size-6 text-primary" />
