@@ -8,6 +8,9 @@ export const siteConfig = {
     twitter: "https://twitter.com/mandela_byron",
     linkedin: "https://www.linkedin.com/in/byron-mandela-b2835a218/",
     upwork: "https://upwork.com/freelancers/byron1",
+    youtube: "https://www.youtube.com/@byroncodes/",
+    instagram: "https://www.instagram.com/mandela_byron",
+    github: "https://github.com/MandelaByron",
   },
 };
 

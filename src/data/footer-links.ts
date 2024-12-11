@@ -5,36 +5,41 @@ import {
 } from "@radix-ui/react-icons";
 
 import { FacebookIcon, YoutubeFilledIcon } from "@/components/icons/logos";
+import { siteConfig } from "@/config/site";
 
 export const resourcesLinks = [
   {
     title: "Portfolio Site",
-    href: "#",
+    href: "/",
   },
   {
     title: "Blog Posts",
-    href: "#",
+    href: "/blog",
   },
   {
     title: "Contact Me",
-    href: "#",
+    href: "/",
   },
   {
     title: "My Work",
-    href: "#",
+    href: "/my-work",
   },
   {
     title: "Testimonials",
-    href: "#",
+    href: "/about#testimonials",
   },
 ] as const;
 
 export const socialLinks = [
-  { name: "Facebook", icon: FacebookIcon, href: "#" },
-  { name: "Instagram", icon: InstagramLogoIcon, href: "#" },
-  { name: "X", icon: TwitterLogoIcon, href: "#" },
-  { name: "LinkedIn", icon: LinkedInLogoIcon, href: "#" },
-  { name: "YouTube", icon: YoutubeFilledIcon, href: "#" },
+  { name: "Facebook", icon: FacebookIcon, href: siteConfig.links.instagram },
+  {
+    name: "Instagram",
+    icon: InstagramLogoIcon,
+    href: siteConfig.links.instagram,
+  },
+  { name: "X", icon: TwitterLogoIcon, href: siteConfig.links.twitter },
+  { name: "LinkedIn", icon: LinkedInLogoIcon, href: siteConfig.links.linkedin },
+  { name: "YouTube", icon: YoutubeFilledIcon, href: siteConfig.links.youtube },
 ] as const;
 
 export const siteResources = [
