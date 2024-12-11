@@ -28,6 +28,7 @@ import { generatePreviewPath } from "@/payload/utilities/generatePreviewPath";
 
 import { populateAuthors } from "./hooks/populate-authors";
 import { revalidateProject } from "./hooks/revalidate-post";
+import { sendNewPostEmail } from "./hooks/send-new-post-email";
 
 export const Posts: CollectionConfig = {
   slug: "posts",
@@ -206,10 +207,17 @@ export const Posts: CollectionConfig = {
         },
       ],
     },
+    {
+      name: "notifications_sent_at",
+      type: "date",
+      admin: {
+        readOnly: true,
+      },
+    },
     slugField(),
   ],
   hooks: {
-    afterChange: [revalidateProject],
+    afterChange: [revalidateProject, sendNewPostEmail],
     afterRead: [populateAuthors],
   },
   versions: {

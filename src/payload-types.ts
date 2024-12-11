@@ -210,6 +210,7 @@ export interface Post {
         name?: string | null;
       }[]
     | null;
+  notifications_sent_at?: string | null;
   slug?: string | null;
   updatedAt: string;
   createdAt: string;
@@ -421,6 +422,7 @@ export interface PostsSelect<T extends boolean = true> {
         id?: T;
         name?: T;
       };
+  notifications_sent_at?: T;
   slug?: T;
   updatedAt?: T;
   createdAt?: T;

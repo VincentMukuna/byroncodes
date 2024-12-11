@@ -10,7 +10,6 @@ export default async function EmailPage() {
   });
 
   const post = docs[0];
-  console.log(post);
   const subscriber = {
     subscription_token: "subscription-token",
   };
