@@ -17,6 +17,7 @@ import { env } from "./env/server";
 import { Project } from "./payload-types";
 import { collections } from "./payload/collections";
 import { Users } from "./payload/collections/Users";
+import { globals } from "./payload/globals";
 import { revalidateRedirects } from "./payload/hooks/revalidate-redirects";
 
 const filename = fileURLToPath(import.meta.url);
@@ -58,6 +59,7 @@ export default buildConfig({
     livePreview: livePreviewConfig,
   },
   collections: collections,
+  globals: globals,
   email: getEmailAdapter(),
   // This config helps us configure global or default features that the other editors can inherit
   editor: lexicalEditorConfig,

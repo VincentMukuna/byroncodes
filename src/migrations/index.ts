@@ -4,6 +4,7 @@ import * as migration_20241123_234307_add_blog_posts from './20241123_234307_add
 import * as migration_20241124_115717_add_description_to_categories from './20241124_115717_add_description_to_categories';
 import * as migration_20241210_163503_subscriptions from './20241210_163503_subscriptions';
 import * as migration_20241211_183514_add_notifications_sent_at_field_to_posts_table from './20241211_183514_add_notifications_sent_at_field_to_posts_table';
+import * as migration_20241211_202904_testimonials from './20241211_202904_testimonials';
 
 export const migrations = [
   {
@@ -34,6 +35,11 @@ export const migrations = [
   {
     up: migration_20241211_183514_add_notifications_sent_at_field_to_posts_table.up,
     down: migration_20241211_183514_add_notifications_sent_at_field_to_posts_table.down,
-    name: '20241211_183514_add_notifications_sent_at_field_to_posts_table'
+    name: '20241211_183514_add_notifications_sent_at_field_to_posts_table',
+  },
+  {
+    up: migration_20241211_202904_testimonials.up,
+    down: migration_20241211_202904_testimonials.down,
+    name: '20241211_202904_testimonials'
   },
 ];

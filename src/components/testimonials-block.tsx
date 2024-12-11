@@ -15,10 +15,14 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { testimonials } from "@/data/testimonials";
 import { cn } from "@/lib/utils";
+import { Testimonial } from "@/payload-types";
 
-export function TestimonialsBlock() {
+export function TestimonialsBlock({
+  testimonials,
+}: {
+  testimonials: Testimonial[];
+}) {
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);
   React.useEffect(() => {
@@ -32,8 +36,12 @@ export function TestimonialsBlock() {
       setCurrent(api.selectedScrollSnap() + 1);
     });
   }, [api]);
+
   return (
-    <section className="bg-[#201b1b] px-4 py-12 sm:px-6 sm:py-16 md:px-8 md:py-20 lg:px-16 lg:py-28">
+    <section
+      id="testimonials"
+      className="bg-[#201b1b] px-4 py-12 sm:px-6 sm:py-16 md:px-8 md:py-20 lg:px-16 lg:py-28"
+    >
       <div className="mx-auto max-w-[90vw] md:max-w-4xl">
         <Carousel
           setApi={setApi}
@@ -60,13 +68,15 @@ export function TestimonialsBlock() {
                       &quot; {testimonial.quote} &quot;
                     </blockquote>
                     <div className="mt-auto flex flex-col items-center gap-4 text-center md:flex-row md:text-left">
-                      <Image
-                        src={testimonial.image}
-                        alt={`${testimonial.name}'s profile picture`}
-                        width={56}
-                        height={56}
-                        className="rounded-full"
-                      />
+                      {typeof testimonial.image === "object" && (
+                        <Image
+                          src={testimonial.image.url || "/img/jenny.jpg"}
+                          alt={`${testimonial.name}'s profile picture`}
+                          width={56}
+                          height={56}
+                          className="rounded-full"
+                        />
+                      )}
                       <div className="">
                         <p className="font-roboto text-base font-semibold leading-normal text-white">
                           {testimonial.name}

@@ -1,3 +1,5 @@
 import { GlobalConfig } from "payload";
 
-export const globals: GlobalConfig[] = [];
+import { Testimonials } from "./testimonials";
+
+export const globals: GlobalConfig[] = [Testimonials];
