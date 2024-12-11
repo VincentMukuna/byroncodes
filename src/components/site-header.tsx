@@ -36,7 +36,9 @@ export async function SiteHeader({ className }: { className?: string }) {
         featuredArticle={featuredArticle}
       />
       <div className="hidden gap-4 lg:flex">
-        <Button variant={"outline"}>Join</Button>
+        <Button variant={"outline"} asChild>
+          <a href={"#newsletter-email"}>Join</a>
+        </Button>
         <Link href={"/my-work"} className={buttonVariants()}>
           Explore
         </Link>

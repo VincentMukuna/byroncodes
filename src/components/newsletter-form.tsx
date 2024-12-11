@@ -65,6 +65,7 @@ export function NewsletterForm() {
                   <FormControl>
                     <Input
                       type="email"
+                      id="newsletter-email"
                       placeholder="Your email here"
                       className="w-full border border-primary bg-transparent text-base font-normal leading-normal text-[#82cbe4] placeholder-[#82cbe4] focus:outline-none"
                       aria-label="Email for newsletter"

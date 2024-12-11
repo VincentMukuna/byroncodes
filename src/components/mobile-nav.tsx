@@ -216,7 +216,16 @@ export function MobileNav({
           </Collapsible>
         </nav>
         <div className="grid gap-3">
-          <Button variant={"outline"}>Join</Button>
+          <Button variant={"outline"} asChild>
+            <a
+              href={"#newsletter-email"}
+              onClick={() => {
+                setOpen(false);
+              }}
+            >
+              Join
+            </a>
+          </Button>
           <Button>Explore</Button>
         </div>
       </SheetContent>
