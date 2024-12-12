@@ -1,12 +1,4 @@
-import {
-  Button,
-  Column,
-  Container,
-  Heading,
-  Row,
-  Section,
-  Text,
-} from "@react-email/components";
+import { Button, Section, Text } from "@react-email/components";
 
 import { buttonVariants } from "@/components/ui/button";
 import { env } from "@/env/client";
@@ -25,25 +17,18 @@ export const ConfirmSubscriptionEmail = ({
   return (
     <EmailLayout heading="Confirm Subscription">
       <Section>
-        <Container>
-          <Row>
-            <Column>
-              <Heading>Confirm Subscription</Heading>
-              <Text>
-                Please confirm your subscription by clicking the button below.
-              </Text>
-              <Button
-                href={`${baseUrl}/newsletter/confirm-subscription/${subscriptionToken}`}
-                className={cn(
-                  buttonVariants({ variant: "default", size: "lg" }),
-                  "mt-8"
-                )}
-              >
-                Confirm Subscription
-              </Button>
-            </Column>
-          </Row>
-        </Container>
+        <Text>
+          Please confirm your subscription by clicking the button below.
+        </Text>
+        <Button
+          href={`${baseUrl}/newsletter/confirm-subscription/${subscriptionToken}`}
+          className={cn(
+            buttonVariants({ variant: "default", size: "lg" }),
+            "mt-8 w-full"
+          )}
+        >
+          Confirm Subscription
+        </Button>
       </Section>
     </EmailLayout>
   );
