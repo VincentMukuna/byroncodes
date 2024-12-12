@@ -27,7 +27,7 @@ export const NewPostEmail: React.FC<NewPostEmailProps> = ({
       </Section>
       {typeof post.meta?.image === "object" && (
         <Img
-          src={post.meta?.image?.url || ""}
+          src={`${baseUrl}${post.meta?.image?.url}` || ""}
           width="800"
           height="400"
           alt={post.title}
@@ -40,7 +40,7 @@ export const NewPostEmail: React.FC<NewPostEmailProps> = ({
       <Text>{post.meta?.description}</Text>
       <Text> Click the button below to check it out.</Text>
       <Button
-        href={`${baseUrl}/posts/${post.slug}`}
+        href={`${baseUrl}/blog/${post.slug}`}
         className={cn(
           buttonVariants({ variant: "default", size: "lg" }),
           "mt-8 w-full"
