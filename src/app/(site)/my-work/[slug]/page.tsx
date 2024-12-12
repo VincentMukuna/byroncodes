@@ -17,12 +17,12 @@ import { generateMeta } from "@/utils/generateMeta";
 
 import { PortfolioHeader } from "./_components/portfolio-header";
 
+export const dynamic = "force-static";
 interface ProjectPageProps {
   params: Promise<{
     slug: string;
   }>;
 }
-
 export async function generateStaticParams() {
   const payload = await buildPayloadHMR();
   const projects = await payload.find({
