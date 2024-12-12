@@ -103,7 +103,7 @@ export async function confirmNewsletterSubscription(subscriptionToken: string) {
       collection: "subscribers",
       id: subscriber.id,
       data: {
-        subscription_confirmed_at: new Date().toString(),
+        subscription_confirmed_at: new Date().toUTCString(),
       },
     });
 
