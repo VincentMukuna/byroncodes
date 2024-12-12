@@ -15,7 +15,7 @@ export const ConfirmSubscriptionEmail = ({
 }: ConfirmSubscriptionEmailProps) => {
   const baseUrl = env.NEXT_PUBLIC_SERVER_URL;
   return (
-    <EmailLayout heading="Confirm Subscription">
+    <EmailLayout heading="Confirm Subscription" preview="Click to confrim">
       <Section>
         <Text>
           Please confirm your subscription by clicking the button below.

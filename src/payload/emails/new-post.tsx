@@ -20,6 +20,7 @@ export const NewPostEmail: React.FC<NewPostEmailProps> = ({
     <EmailLayout
       heading="New Post"
       subscriptionToken={subscriber.subscription_token}
+      preview="New Post on ByronCodes"
     >
       <Section>
         <Text>Hey there! I just published a new post on my blog.</Text>

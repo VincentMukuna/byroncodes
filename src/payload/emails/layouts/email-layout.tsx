@@ -22,18 +22,20 @@ interface SubscribedLayoutProps {
   heading: string;
   children: React.ReactNode;
   subscriptionToken?: string;
+  preview?: string;
 }
 
 export const EmailLayout = ({
   children,
   heading,
   subscriptionToken,
+  preview = "ByronCodes Newsletter",
 }: SubscribedLayoutProps) => {
   const baseUrl = env.NEXT_PUBLIC_SERVER_URL;
   return (
     <Html>
       <Head />
-      <Preview>Netlify Welcome</Preview>
+      <Preview>{preview}</Preview>
       <Tailwind
         config={{
           theme: {
