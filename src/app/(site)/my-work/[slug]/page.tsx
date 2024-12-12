@@ -31,11 +31,7 @@ export async function generateStaticParams() {
     limit: 1000,
     overrideAccess: false,
   });
-  return projects.docs.map((project) => ({
-    params: {
-      slug: project.slug,
-    },
-  }));
+  return projects.docs?.map(({ slug }) => ({ slug }));
 }
 export default async function ProjectPage(props: ProjectPageProps) {
   const { slug } = await props.params;
