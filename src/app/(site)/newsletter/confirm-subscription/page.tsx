@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 
-import ConfirmNewsletterSubscriptionButton from "./ConfirmSubscriptionForm";
+import ConfirmNewsletterSubscriptionButton from "./ConfirmSubscriptionButton";
 
 export default function VerifyEmailPage() {
   return (

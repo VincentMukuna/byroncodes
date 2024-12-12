@@ -21,7 +21,7 @@ export const ConfirmSubscriptionEmail = ({
           Please confirm your subscription by clicking the button below.
         </Text>
         <Button
-          href={`${baseUrl}/newsletter/confirm-subscription/${subscriptionToken}`}
+          href={`${baseUrl}/newsletter/confirm-subscription?token=${subscriptionToken}`}
           className={cn(
             buttonVariants({ variant: "default", size: "lg" }),
             "mt-8 w-full"
