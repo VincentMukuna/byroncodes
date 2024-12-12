@@ -43,7 +43,7 @@ export async function subscribeToNewsletter(email: string) {
     await payload.sendEmail({
       to: email,
       subject: "Confirm your subscription",
-      html: render(
+      html: await render(
         <ConfirmSubscriptionEmail
           subscriptionToken={subscription.subscription_token}
         />
@@ -179,7 +179,7 @@ export async function notifySubscribersAboutNewPost(postId: string | number) {
     await payload.sendEmail({
       to: subscriber.email,
       subject: `New Post: ${post.title}`,
-      html: render(<NewPostEmail post={post} subscriber={subscriber} />),
+      html: await render(<NewPostEmail post={post} subscriber={subscriber} />),
     });
   }
 
