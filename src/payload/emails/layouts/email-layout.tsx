@@ -55,9 +55,9 @@ export const EmailLayout = ({
           <Img
             src={`${baseUrl}/logo.png`}
             width="184"
-            height="75"
+            height="184"
             alt="Netlify"
-            className="mx-auto my-20"
+            className="mx-auto my-20 object-cover"
           />
           <Container className="p-45 bg-white">
             <Heading className="my-0 text-center leading-8">{heading}</Heading>
