@@ -1,9 +1,16 @@
 import { GlobalConfig } from "payload";
 
+import admin from "@/payload/access/admin";
+import { anyone } from "@/payload/access/anyone";
+
 import { revalidateTestimonials } from "./hooks/revalidate-testimonials";
 
 export const Testimonials: GlobalConfig = {
   slug: "testimonials",
+  access: {
+    read: anyone,
+    update: admin,
+  },
   fields: [
     {
       name: "items",
