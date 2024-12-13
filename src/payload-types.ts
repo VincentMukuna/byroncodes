@@ -499,8 +499,8 @@ export interface Testimonial {
   id: number;
   items: {
     name: string;
-    quote: string;
     role: string;
+    quote: string;
     rating: number;
     image: number | Media;
     id?: string | null;
@@ -517,8 +517,8 @@ export interface TestimonialsSelect<T extends boolean = true> {
     | T
     | {
         name?: T;
-        quote?: T;
         role?: T;
+        quote?: T;
         rating?: T;
         image?: T;
         id?: T;
