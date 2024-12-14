@@ -48,7 +48,7 @@ export default function RootLayout({
           </Suspense>
           <div className="flex-1">{children}</div>
           <SiteFooter />
-          <Toaster richColors position="top-right" />
+          <Toaster richColors position="bottom-right" />
         </div>
         <TailwindIndicator />
         <ScrollTop />
