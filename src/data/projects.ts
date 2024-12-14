@@ -41,8 +41,8 @@ export const getFeaturedProject = unstable_cache(
 
     return docs[0];
   },
-  ["projects", "featuredProject"],
+  ["featuredProject"],
   {
-    tags: ["projects", "featuredProject"],
+    tags: ["featuredProject"],
   }
 );

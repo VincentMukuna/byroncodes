@@ -1,3 +1,5 @@
+import { revalidateTag } from "next/cache";
+
 import {
   MetaDescriptionField,
   MetaImageField,
@@ -72,6 +74,16 @@ export const Projects: CollectionConfig = {
       admin: {
         position: "sidebar",
         description: "Show this project on the homepage",
+      },
+      hooks: {
+        afterChange: [
+          ({ data }) => {
+            if (data?.isFeatured === true) {
+              revalidateTag("featuredProject");
+            }
+            return data;
+          },
+        ],
       },
     },
     {
