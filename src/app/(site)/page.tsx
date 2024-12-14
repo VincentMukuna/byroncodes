@@ -22,7 +22,6 @@ export default function Home() {
       <Suspense fallback={null}>
         <ProjectShowcaseBlock />
       </Suspense>
-      <ProjectShowcaseBlock />
       <Suspense fallback={<SolutionsBlockSkeleton />}>
         <SolutionsBlock />
       </Suspense>
