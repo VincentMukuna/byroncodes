@@ -25,6 +25,7 @@ const poppinsFont = Poppins({
   subsets: ["latin"],
   weight: ["300"],
   variable: "--font-poppins",
+  display: "swap",
 });
 
 export default function RootLayout({
