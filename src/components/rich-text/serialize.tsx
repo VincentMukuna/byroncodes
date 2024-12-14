@@ -162,7 +162,7 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
               const Tag = node?.tag;
               return (
                 <Tag
-                  className="col-start-2 py-8 text-blue-light"
+                  className="col-start-2 pt-10 text-blue-light"
                   key={index}
                   id={HeadingUtils.generateId(node)}
                 >
