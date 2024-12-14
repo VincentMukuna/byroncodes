@@ -70,7 +70,7 @@ export default async function ProjectPage(props: ProjectPageProps) {
         <div className="flex gap-4">
           <CtaBlock.Actions>
             <Link
-              href={siteConfig.links.upwork}
+              href={"/my-work"}
               target={"_blank"}
               className={cn(buttonVariants(), "inline-flex gap-1")}
             >
