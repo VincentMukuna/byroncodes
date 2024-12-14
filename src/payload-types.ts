@@ -18,6 +18,7 @@ export interface Config {
     posts: Post;
     subscribers: Subscriber;
     solutions: Solution;
+    skills: Skill;
     redirects: Redirect;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -32,6 +33,7 @@ export interface Config {
     posts: PostsSelect<false> | PostsSelect<true>;
     subscribers: SubscribersSelect<false> | SubscribersSelect<true>;
     solutions: SolutionsSelect<false> | SolutionsSelect<true>;
+    skills: SkillsSelect<false> | SkillsSelect<true>;
     redirects: RedirectsSelect<false> | RedirectsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -273,6 +275,41 @@ export interface Solution {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "skills".
+ */
+export interface Skill {
+  id: number;
+  title: string;
+  content: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  relatedProjects?: (number | Project)[] | null;
+  categories?: (number | Category)[] | null;
+  meta?: {
+    title?: string | null;
+    image?: (number | null) | Media;
+    description?: string | null;
+  };
+  publishedAt?: string | null;
+  slug?: string | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -323,6 +360,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'solutions';
         value: number | Solution;
+      } | null)
+    | ({
+        relationTo: 'skills';
+        value: number | Skill;
       } | null)
     | ({
         relationTo: 'redirects';
@@ -495,6 +536,28 @@ export interface SolutionsSelect<T extends boolean = true> {
   title?: T;
   content?: T;
   ctaLabel?: T;
+  relatedProjects?: T;
+  categories?: T;
+  meta?:
+    | T
+    | {
+        title?: T;
+        image?: T;
+        description?: T;
+      };
+  publishedAt?: T;
+  slug?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "skills_select".
+ */
+export interface SkillsSelect<T extends boolean = true> {
+  title?: T;
+  content?: T;
   relatedProjects?: T;
   categories?: T;
   meta?:

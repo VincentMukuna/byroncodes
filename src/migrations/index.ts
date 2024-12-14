@@ -8,6 +8,7 @@ import * as migration_20241211_202904_testimonials from './20241211_202904_testi
 import * as migration_20241211_205544_testimonials_array from './20241211_205544_testimonials_array';
 import * as migration_20241214_123207_solutions from './20241214_123207_solutions';
 import * as migration_20241214_133117_add_is_featured_column_to_projects from './20241214_133117_add_is_featured_column_to_projects';
+import * as migration_20241214_170300_skills from './20241214_170300_skills';
 
 export const migrations = [
   {
@@ -58,6 +59,11 @@ export const migrations = [
   {
     up: migration_20241214_133117_add_is_featured_column_to_projects.up,
     down: migration_20241214_133117_add_is_featured_column_to_projects.down,
-    name: '20241214_133117_add_is_featured_column_to_projects'
+    name: '20241214_133117_add_is_featured_column_to_projects',
+  },
+  {
+    up: migration_20241214_170300_skills.up,
+    down: migration_20241214_170300_skills.down,
+    name: '20241214_170300_skills'
   },
 ];

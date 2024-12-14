@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import { FadeInWhenVisible } from "@/components/animations/fade-in-when-visible";
 import { StaggerChildren } from "@/components/animations/stagger-children";
 import { Button } from "@/components/ui/button";
+import { Skill } from "@/payload-types";
 
 const skillsConfig = {
   title: "Innovative",
@@ -35,7 +36,7 @@ const skillsConfig = {
   ],
 };
 
-export function SkillsSection() {
+export function SkillsSectionClient({ skills }: { skills: Skill[] }) {
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -65,29 +66,45 @@ export function SkillsSection() {
           </StaggerChildren>
 
           <StaggerChildren className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
-            {skillsConfig.skills.map((skill, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                className="flex flex-col items-center gap-6"
-              >
-                <Image
-                  src={skill.image}
-                  alt={skill.title}
-                  width={405}
-                  height={240}
-                  className="object-cover"
-                />
-                <div className="space-y-4 text-center">
-                  <h4 className="font-poppins text-2xl font-semibold leading-tight text-white">
-                    {skill.title}
-                  </h4>
-                  <p className="font-poppins text-base font-normal leading-normal text-white">
-                    {skill.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
+            {skills.map((skill) => {
+              const imageUrl =
+                typeof skill.meta?.image === "object"
+                  ? skill.meta?.image?.url
+                  : null;
+              return (
+                <motion.div
+                  key={skill.id}
+                  variants={itemVariants}
+                  className="flex flex-col items-center gap-6"
+                >
+                  <Image
+                    src={imageUrl || "/img/devices.jpg"}
+                    alt={skill.title}
+                    width={405}
+                    height={240}
+                    className="object-cover"
+                  />
+                  <div className="space-y-4 text-center">
+                    <h4 className="font-poppins text-2xl font-semibold leading-tight text-white">
+                      {skill.title}
+                    </h4>
+                    <p className="font-poppins text-base font-normal leading-normal text-white">
+                      {skill.meta?.description}
+                    </p>
+                    <motion.a
+                      href={`/solutions/${skill.slug}`}
+                      className="mt-auto inline-flex items-center text-base font-normal leading-normal text-white transition-colors hover:text-[#ff8328]"
+                      aria-label={`learn more ${skill.title}`}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      {"Learn More"}
+                      <ChevronRightIcon className="ml-2 h-5 w-5 text-primary" />
+                    </motion.a>
+                  </div>
+                </motion.div>
+              );
+            })}
           </StaggerChildren>
 
           <FadeInWhenVisible className="flex flex-col gap-4 sm:flex-row sm:gap-6">
