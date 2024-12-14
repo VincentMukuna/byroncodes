@@ -1,7 +1,7 @@
 import { Media } from "@/components/Media";
-import { Project, Solution } from "@/payload-types";
+import { Project, Skill, Solution } from "@/payload-types";
 
-export function PostHeader({ doc }: { doc: Project | Solution }) {
+export function PostHeader({ doc }: { doc: Project | Solution | Skill }) {
   const { meta } = doc;
   const { image: metaImage, description, title } = meta || {};
 

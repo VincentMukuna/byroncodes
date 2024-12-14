@@ -1,5 +1,3 @@
-"use client";
-
 import { getSkills } from "@/data/skills";
 
 import { SkillsSectionClient } from "./skills-section.client";
