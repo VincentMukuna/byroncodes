@@ -92,7 +92,7 @@ export function SkillsSectionClient({ skills }: { skills: Skill[] }) {
                       {skill.meta?.description}
                     </p>
                     <motion.a
-                      href={`/solutions/${skill.slug}`}
+                      href={`/skills/${skill.slug}`}
                       className="mt-auto inline-flex items-center text-base font-normal leading-normal text-white transition-colors hover:text-[#ff8328]"
                       aria-label={`learn more ${skill.title}`}
                       whileHover={{ scale: 1.05 }}
