@@ -19,6 +19,9 @@ export default function Home() {
       <div className="-mt-[74px]">
         <HeroSection />
       </div>
+      <Suspense fallback={null}>
+        <ProjectShowcaseBlock />
+      </Suspense>
       <ProjectShowcaseBlock />
       <Suspense fallback={<SolutionsBlockSkeleton />}>
         <SolutionsBlock />
