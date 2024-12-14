@@ -26,6 +26,7 @@ export const getFeaturedProject = unstable_cache(
           equals: true,
         },
       },
+      sort: ["createdAt"],
     });
 
     if (docs.length === 0) {

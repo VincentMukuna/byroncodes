@@ -12,6 +12,7 @@ export const getSkills = unstable_cache(
       collection: "skills",
       depth: 10,
       limit,
+      sort: ["createdAt"],
     });
   },
   ["skills"],
