@@ -1,6 +1,6 @@
 import { getFeaturedProject } from "@/data/projects";
 
-import { ProjectShowcaseBlockClient } from "./project-showcas-block.client";
+import { ProjectShowcaseBlockClient } from "./project-showcase-block.client";
 
 export async function ProjectShowcaseBlock() {
   const project = await getFeaturedProject();

@@ -62,6 +62,7 @@ export function ProjectShowcaseBlockClient({ project }: { project: Project }) {
               className="h-auto w-full rounded-[30px] object-cover"
               src={imageUrl || "/img/web_inspo3.jpg"}
               alt="web inspiration"
+              priority
               width={616}
               height={640}
             />
