@@ -1,5 +1,6 @@
 import { Posts } from "./Posts";
 import { Projects } from "./Projects";
+import { Solutions } from "./Solutions";
 import { Subscribers } from "./Subscribers";
 import { Users } from "./Users";
 import Categories from "./categories";
@@ -12,4 +13,5 @@ export const collections = [
   Projects,
   Posts,
   Subscribers,
+  Solutions,
 ];

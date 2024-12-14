@@ -4,13 +4,14 @@ import { Suspense } from "react";
 import { TestimonialsBlock } from "@/components/Testimonials/testimonials.server";
 import { TestimonialsSkeleton } from "@/components/Testimonials/testimonials.skeleton";
 import { CtaBlock } from "@/components/cta-block";
+import { SolutionsBlockSkeleton } from "@/components/skeletons/solutions-block-skeleton";
 import { buttonVariants } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 
 import { HeroSection } from "./_components/hero-section";
 import { ProjectShowcaseBlock } from "./_components/project-showcase-block";
-import { SolutionsBlock } from "./_components/solutions-block";
+import { SolutionsBlock } from "./_components/solutions-block/solutions-block.server";
 
 export default function Home() {
   return (
@@ -19,7 +20,9 @@ export default function Home() {
         <HeroSection />
       </div>
       <ProjectShowcaseBlock />
-      <SolutionsBlock />
+      <Suspense fallback={<SolutionsBlockSkeleton />}>
+        <SolutionsBlock />
+      </Suspense>
       <Suspense fallback={<TestimonialsSkeleton />}>
         <TestimonialsBlock />
       </Suspense>

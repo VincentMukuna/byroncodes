@@ -6,6 +6,7 @@ import * as migration_20241210_163503_subscriptions from './20241210_163503_subs
 import * as migration_20241211_183514_add_notifications_sent_at_field_to_posts_table from './20241211_183514_add_notifications_sent_at_field_to_posts_table';
 import * as migration_20241211_202904_testimonials from './20241211_202904_testimonials';
 import * as migration_20241211_205544_testimonials_array from './20241211_205544_testimonials_array';
+import * as migration_20241214_123207_solutions from './20241214_123207_solutions';
 
 export const migrations = [
   {
@@ -46,6 +47,11 @@ export const migrations = [
   {
     up: migration_20241211_205544_testimonials_array.up,
     down: migration_20241211_205544_testimonials_array.down,
-    name: '20241211_205544_testimonials_array'
+    name: '20241211_205544_testimonials_array',
+  },
+  {
+    up: migration_20241214_123207_solutions.up,
+    down: migration_20241214_123207_solutions.down,
+    name: '20241214_123207_solutions'
   },
 ];

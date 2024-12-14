@@ -1,8 +1,8 @@
 import { Media } from "@/components/Media";
-import { Project } from "@/payload-types";
+import { Project, Solution } from "@/payload-types";
 
-export function PortfolioHeader({ project }: { project: Project }) {
-  const { meta } = project;
+export function PostHeader({ doc }: { doc: Project | Solution }) {
+  const { meta } = doc;
   const { image: metaImage, description, title } = meta || {};
 
   return (
@@ -30,7 +30,7 @@ export function PortfolioHeader({ project }: { project: Project }) {
               {description}
             </p>
             <div className="flex flex-wrap items-center justify-center gap-2">
-              {project?.categories
+              {doc?.categories
                 ?.filter(
                   (category) =>
                     typeof category === "object" && category !== null

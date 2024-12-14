@@ -17,9 +17,7 @@ export const generateMeta = async (args: {
     "url" in doc.meta.image &&
     `${env.NEXT_PUBLIC_SERVER_URL}${doc.meta.image.url}`;
 
-  const title = doc?.meta?.title
-    ? `${doc?.meta?.title} | ${siteConfig.name}`
-    : siteConfig.name;
+  const title = doc?.meta?.title ? `${doc?.meta?.title}` : siteConfig.name;
 
   return {
     description: doc?.meta?.description,
