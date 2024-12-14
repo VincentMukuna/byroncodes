@@ -8,8 +8,9 @@ import { ChevronRightIcon } from "@radix-ui/react-icons";
 import { motion, useAnimation, useInView } from "framer-motion";
 
 import { buttonVariants } from "@/components/ui/button";
+import { Project } from "@/payload-types";
 
-export function ProjectShowcaseBlock() {
+export function ProjectShowcaseBlockClient({ project }: { project: Project }) {
   const controls = useAnimation();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
@@ -42,6 +43,10 @@ export function ProjectShowcaseBlock() {
     },
   };
 
+  const { meta } = project || {};
+  const imageUrl =
+    typeof meta?.image === "object" ? meta?.image?.url : "/img/web_inspo3.jpg";
+
   return (
     <section className="bg-black px-4 py-12 sm:px-8 sm:py-16 md:px-12 md:py-20 lg:px-16 lg:py-28">
       <motion.div
@@ -55,7 +60,7 @@ export function ProjectShowcaseBlock() {
           <motion.div variants={itemVariants} className="w-full lg:w-1/2">
             <Image
               className="h-auto w-full rounded-[30px] object-cover"
-              src="/img/web_inspo3.jpg"
+              src={imageUrl || "/img/web_inspo3.jpg"}
               alt="web inspiration"
               width={616}
               height={640}
@@ -94,7 +99,7 @@ export function ProjectShowcaseBlock() {
               className="mt-4 flex flex-wrap items-center gap-4 sm:gap-6"
             >
               <Link
-                href={"/my-work"}
+                href={`/my-work/${project.slug}`}
                 className={buttonVariants({ variant: "outline" })}
               >
                 View

@@ -144,6 +144,7 @@ export interface Category {
 export interface Project {
   id: number;
   title: string;
+  isFeatured?: boolean | null;
   content: {
     root: {
       type: string;
@@ -421,6 +422,7 @@ export interface CategoriesSelect<T extends boolean = true> {
  */
 export interface ProjectsSelect<T extends boolean = true> {
   title?: T;
+  isFeatured?: T;
   content?: T;
   relatedProjects?: T;
   categories?: T;

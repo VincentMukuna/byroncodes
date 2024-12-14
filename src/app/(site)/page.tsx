@@ -10,7 +10,7 @@ import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 
 import { HeroSection } from "./_components/hero-section";
-import { ProjectShowcaseBlock } from "./_components/project-showcase-block";
+import { ProjectShowcaseBlock } from "./_components/project-showcase/project-showcase-block.server";
 import { SolutionsBlock } from "./_components/solutions-block/solutions-block.server";
 
 export default function Home() {

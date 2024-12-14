@@ -65,6 +65,16 @@ export const Projects: CollectionConfig = {
       required: true,
     },
     {
+      name: "isFeatured",
+      label: "Featured",
+      type: "checkbox",
+      defaultValue: false,
+      admin: {
+        position: "sidebar",
+        description: "Show this project on the homepage",
+      },
+    },
+    {
       type: "tabs",
       tabs: [
         {
