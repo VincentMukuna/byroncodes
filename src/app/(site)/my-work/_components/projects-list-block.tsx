@@ -9,22 +9,6 @@ const projectListConfig = {
   title: "Portfolio",
   heading: "Showcase of My Work",
   description: "Explore my diverse range of projects and skills.",
-  projects: [
-    {
-      image: "/img/phone.jpg",
-      title: "E-commerce Website",
-      tags: ["Web Development", "E-commerce", "Responsive Design"],
-      description:
-        "This project involved creating a fully functional e-commerce platform. It features user-friendly navigation and secure payment options.",
-    },
-    {
-      image: "/img/blog.jpg",
-      title: "Personal Blog",
-      tags: ["Blog Development", "Content Management", "User Engagement"],
-      description:
-        "I designed a personal blog to share insights and experiences. It includes a clean layout and easy-to-use interface.",
-    },
-  ],
 };
 
 export async function ProjectListBlock() {
