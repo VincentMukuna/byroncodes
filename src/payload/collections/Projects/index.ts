@@ -39,7 +39,7 @@ export const Projects: CollectionConfig = {
     create: admin,
   },
   admin: {
-    defaultColumns: ["title", "slug", "publishedAt"],
+    defaultColumns: ["title", "slug", "isFeatured", "publishedAt"],
     livePreview: {
       url: ({ data }) => {
         const path = generatePreviewPath({
