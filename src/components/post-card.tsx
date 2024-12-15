@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { ChevronRightIcon } from "@radix-ui/react-icons";
 
+import useClickableCard from "@/hooks/useClickableCard";
 import { Post } from "@/payload-types";
 
 import { Media } from "./Media";
@@ -11,7 +12,6 @@ interface BlogPost {
 }
 
 export const PostCard: React.FC<BlogPost> = ({ post }) => {
-  if (!post) return null;
   const { meta, categories: rawCategories, slug, title } = post;
   const { description, image: metaImage } = meta || {};
 
@@ -22,9 +22,13 @@ export const PostCard: React.FC<BlogPost> = ({ post }) => {
           return c.title;
         })
     : [];
-
+  const { card, link } = useClickableCard({});
+  if (!post) return null;
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-lg transition-all duration-300 ease-in-out hover:scale-[1.02] hover:shadow-2xl">
+    <article
+      ref={card.ref}
+      className="group flex h-full cursor-pointer flex-col overflow-hidden rounded-lg transition-all duration-300 ease-in-out hover:scale-[1.02] hover:shadow-2xl"
+    >
       <div className="relative h-[20rem] transition-transform duration-500 ease-in-out group-hover:scale-105 group-focus:scale-105">
         {!metaImage && <div className="">No image</div>}
         {metaImage && typeof metaImage !== "string" && (
@@ -59,6 +63,7 @@ export const PostCard: React.FC<BlogPost> = ({ post }) => {
           </p>
         </div>
         <Link
+          ref={link.ref}
           href={`/blog/${slug}`}
           className="inline-flex items-center font-poppins text-base font-normal leading-normal text-white transition-colors duration-300 ease-in-out hover:text-[#ff8328]"
         >
