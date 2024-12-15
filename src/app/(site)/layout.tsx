@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Poppins, Roboto } from "next/font/google";
 import { Suspense } from "react";
 
+import { Analytics } from "@vercel/analytics/react";
+
 import { LivePreviewListener } from "@/components/live-preview-listener";
 import ScrollTop from "@/components/scroll-top";
 import { SiteFooter } from "@/components/site-footer";
@@ -53,6 +55,7 @@ export default function RootLayout({
         </div>
         <TailwindIndicator />
         <ScrollTop />
+        <Analytics />
       </body>
     </html>
   );
