@@ -51,6 +51,11 @@ export const Testimonials: CollectionConfig = {
       type: "number",
       label: "Rating",
       required: true,
+      defaultValue: 5,
+      admin: {
+        description:
+          "Rating out of 5. This will be displayed as stars on the website.",
+      },
     },
     {
       name: "image",
