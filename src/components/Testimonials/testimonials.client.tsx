@@ -64,7 +64,10 @@ export function TestimonialsClient({
                         )
                       )}
                     </div>
-                    <blockquote className="text-lg font-semibold leading-relaxed text-white sm:text-xl md:text-2xl lg:leading-[1.4]">
+                    <blockquote
+                      className="text-lg font-semibold leading-relaxed text-white sm:text-xl md:text-2xl lg:leading-[1.4]"
+                      style={{ whiteSpace: "pre-wrap" }}
+                    >
                       &quot; {testimonial.quote} &quot;
                     </blockquote>
                     <div className="mt-auto flex flex-col items-center gap-4 text-center md:flex-row md:text-left">
