@@ -19,6 +19,7 @@ export interface Config {
     subscribers: Subscriber;
     solutions: Solution;
     skills: Skill;
+    testimonials: Testimonial;
     redirects: Redirect;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -34,6 +35,7 @@ export interface Config {
     subscribers: SubscribersSelect<false> | SubscribersSelect<true>;
     solutions: SolutionsSelect<false> | SolutionsSelect<true>;
     skills: SkillsSelect<false> | SkillsSelect<true>;
+    testimonials: TestimonialsSelect<false> | TestimonialsSelect<true>;
     redirects: RedirectsSelect<false> | RedirectsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -42,12 +44,8 @@ export interface Config {
   db: {
     defaultIDType: number;
   };
-  globals: {
-    testimonials: Testimonial;
-  };
-  globalsSelect: {
-    testimonials: TestimonialsSelect<false> | TestimonialsSelect<true>;
-  };
+  globals: {};
+  globalsSelect: {};
   locale: null;
   user: User & {
     collection: 'users';
@@ -310,6 +308,20 @@ export interface Skill {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "testimonials".
+ */
+export interface Testimonial {
+  id: number;
+  name: string;
+  role: string;
+  quote: string;
+  rating: number;
+  image: number | Media;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -364,6 +376,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'skills';
         value: number | Skill;
+      } | null)
+    | ({
+        relationTo: 'testimonials';
+        value: number | Testimonial;
       } | null)
     | ({
         relationTo: 'redirects';
@@ -575,6 +591,19 @@ export interface SkillsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "testimonials_select".
+ */
+export interface TestimonialsSelect<T extends boolean = true> {
+  name?: T;
+  role?: T;
+  quote?: T;
+  rating?: T;
+  image?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects_select".
  */
 export interface RedirectsSelect<T extends boolean = true> {
@@ -620,42 +649,6 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
   batch?: T;
   updatedAt?: T;
   createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "testimonials".
- */
-export interface Testimonial {
-  id: number;
-  items: {
-    name: string;
-    role: string;
-    quote: string;
-    rating: number;
-    image: number | Media;
-    id?: string | null;
-  }[];
-  updatedAt?: string | null;
-  createdAt?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "testimonials_select".
- */
-export interface TestimonialsSelect<T extends boolean = true> {
-  items?:
-    | T
-    | {
-        name?: T;
-        role?: T;
-        quote?: T;
-        rating?: T;
-        image?: T;
-        id?: T;
-      };
-  updatedAt?: T;
-  createdAt?: T;
-  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

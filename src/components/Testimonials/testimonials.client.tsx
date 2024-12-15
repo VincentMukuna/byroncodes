@@ -21,7 +21,7 @@ import { Testimonial } from "@/payload-types";
 export function TestimonialsClient({
   testimonials,
 }: {
-  testimonials: Testimonial["items"];
+  testimonials: Testimonial[];
 }) {
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);

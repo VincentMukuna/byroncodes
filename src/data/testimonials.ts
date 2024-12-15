@@ -1,7 +1,15 @@
-import { getCachedGlobal } from "@/lib/getGlobals";
+import { unstable_cache } from "next/cache";
 
-export async function getTestimonials() {
-  const testimonials = await getCachedGlobal("testimonials", 4)();
+import { buildPayloadHMR } from "@/utils/buildPayloadHMR";
 
-  return testimonials.items;
-}
+export const getTestimonials = unstable_cache(async () => {
+  const payload = await buildPayloadHMR();
+
+  const { docs: testimonials } = await payload.find({
+    collection: "testimonials",
+    depth: 2,
+    sort: "rating",
+  });
+
+  return testimonials;
+}, ["testimonials"]);
