@@ -4,6 +4,8 @@ import admin from "@/payload/access/admin";
 import { adminOrPublished } from "@/payload/access/adminOrPublished";
 import { checkRole } from "@/payload/access/check-role";
 
+import { revalidateTestimonial } from "./hooks/revalidate-testimonials";
+
 export const Testimonials: CollectionConfig = {
   slug: "testimonials",
   access: {
@@ -69,4 +71,7 @@ export const Testimonials: CollectionConfig = {
       },
     },
   ],
+  hooks: {
+    afterChange: [revalidateTestimonial],
+  },
 };
