@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /next/
+Disallow: /newsletter/
+Sitemap: https:/staging.byroncodes.com/sitemap.xml
