@@ -16,7 +16,7 @@ export const Testimonials: CollectionConfig = {
     create: admin,
   },
   admin: {
-    defaultColumns: ["name", "role", "rating"],
+    defaultColumns: ["image", "name", "role", "rating"],
   },
   fields: [
     {
