@@ -7,6 +7,7 @@ type SitemapCollection = "posts" | "projects" | "skills" | "solutions";
 
 async function getCollectionUrls(collection: SitemapCollection, path: string) {
   const payload = await buildPayloadHMR();
+  payload.logger.info(`Generating sitemap urls for ${collection}`);
   const { docs } = await payload.find({
     collection,
     draft: false,
