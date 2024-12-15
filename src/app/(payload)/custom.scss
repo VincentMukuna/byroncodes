@@ -1,6 +1,13 @@
 /* Primary Button */
 .btn--style-primary {
-    background-color: #ff8328;
+  background-color: #ff8328;
   border: 1px solid #ff8328;
+  color: #fff;
+
+  [disabled="true"] & {
+    background-color: #ff8328;
+    border: 1px solid #ff8328;
+    opacity: 0.5;
     color: #fff;
+  }
 }
