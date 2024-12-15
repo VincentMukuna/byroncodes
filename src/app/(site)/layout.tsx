@@ -35,6 +35,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <meta
+          name="google-site-verification"
+          content="hcnxp2hTBwVg5tcytxTUJalSV_rbY_O2YNDD7PU0Kh8"
+        />
+      </head>
       <body
         className={cn(
           robotoFont.variable,
