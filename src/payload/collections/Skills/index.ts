@@ -38,7 +38,7 @@ export const Skills: CollectionConfig = {
     create: admin,
   },
   admin: {
-    defaultColumns: ["meta.image", "title", "slug", "publishedAt"],
+    defaultColumns: ["title", "slug", "publishedAt"],
     livePreview: {
       url: ({ data }) => {
         const path = generatePreviewPath({
