@@ -10,6 +10,7 @@ import * as migration_20241214_123207_solutions from './20241214_123207_solution
 import * as migration_20241214_133117_add_is_featured_column_to_projects from './20241214_133117_add_is_featured_column_to_projects';
 import * as migration_20241214_170300_skills from './20241214_170300_skills';
 import * as migration_20241215_060829_move_testimonials_to_collection from './20241215_060829_move_testimonials_to_collection';
+import * as migration_20241215_061738_add_default_to_ratings from './20241215_061738_add_default_to_ratings';
 
 export const migrations = [
   {
@@ -70,6 +71,11 @@ export const migrations = [
   {
     up: migration_20241215_060829_move_testimonials_to_collection.up,
     down: migration_20241215_060829_move_testimonials_to_collection.down,
-    name: '20241215_060829_move_testimonials_to_collection'
+    name: '20241215_060829_move_testimonials_to_collection',
+  },
+  {
+    up: migration_20241215_061738_add_default_to_ratings.up,
+    down: migration_20241215_061738_add_default_to_ratings.down,
+    name: '20241215_061738_add_default_to_ratings'
   },
 ];
