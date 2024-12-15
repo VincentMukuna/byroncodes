@@ -46,7 +46,7 @@ export function TestimonialsClient({
         <Carousel
           setApi={setApi}
           opts={{}}
-          plugins={[Autoplay({ delay: 7000 })]}
+          plugins={[Autoplay({ delay: 15000 })]}
           className="w-full"
         >
           <CarouselContent className="">
