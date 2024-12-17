@@ -15,6 +15,9 @@ const S3_ENDPOINT = env.S3_ENDPOINT || "http://localhost:9000";
  * @type {import("next").NextConfig}
  */
 const nextConfig = {
+  experimental: {
+    ppr: true,
+  },
   images: {
     remotePatterns: [
       ...[NEXT_PUBLIC_SERVER_URL, S3_ENDPOINT].map((item) => {
