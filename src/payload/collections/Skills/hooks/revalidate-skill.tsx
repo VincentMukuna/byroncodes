@@ -25,6 +25,7 @@ export const revalidateSkill: CollectionAfterChangeHook<Skill> = ({
     payload.logger.info(`Revalidating skill at path: ${previousPath}`);
 
     revalidateTag("skills");
+    revalidatePath("/about-me");
     revalidatePath(previousPath);
   }
 

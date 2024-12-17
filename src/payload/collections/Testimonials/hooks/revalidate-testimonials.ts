@@ -1,4 +1,4 @@
-import { revalidateTag } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 
 import { CollectionAfterChangeHook } from "payload";
 
@@ -10,6 +10,7 @@ export const revalidateTestimonial: CollectionAfterChangeHook<
   payload.logger.info("Revalidating testimonials");
 
   revalidateTag("testimonials");
+  revalidatePath("/", "layout");
 
   return doc;
 };

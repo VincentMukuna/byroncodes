@@ -28,5 +28,6 @@ export const revalidateProject: CollectionAfterChangeHook<Post> = ({
     revalidatePath(previousPath);
   }
 
+  revalidatePath("/blog");
   return doc;
 };

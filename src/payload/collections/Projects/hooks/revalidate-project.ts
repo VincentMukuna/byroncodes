@@ -26,5 +26,9 @@ export const revalidateProject: CollectionAfterChangeHook<Project> = ({
     revalidatePath(previousPath);
   }
 
+  if (doc.isFeatured !== previousDoc?.isFeatured) {
+    revalidatePath("/");
+  }
+
   return doc;
 };

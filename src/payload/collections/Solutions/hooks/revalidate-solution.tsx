@@ -25,6 +25,7 @@ export const revalidateSolution: CollectionAfterChangeHook<Solution> = ({
     payload.logger.info(`Revalidating solution at path: ${previousPath}`);
 
     revalidateTag("solutions");
+    revalidatePath("/");
     revalidatePath(previousPath);
   }
 
