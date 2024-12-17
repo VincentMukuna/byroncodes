@@ -8,7 +8,6 @@ export const getTestimonials = unstable_cache(async () => {
   const { docs: testimonials } = await payload.find({
     collection: "testimonials",
     depth: 2,
-    sort: "rating",
   });
 
   return testimonials;
