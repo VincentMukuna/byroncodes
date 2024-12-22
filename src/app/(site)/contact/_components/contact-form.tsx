@@ -113,6 +113,7 @@ export function ContactForm() {
         <Turnstile
           siteKey={env.NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY}
           theme="dark"
+          sandbox={true}
           onVerify={(token) => {
             form.setValue("token", token);
           }}
