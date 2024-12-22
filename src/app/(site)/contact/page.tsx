@@ -4,8 +4,6 @@ import { siteConfig } from "@/config/site";
 
 import { ContactForm } from "./_components/contact-form";
 
-export const dynamic = "force-dynamic";
-
 export default function ContactPage() {
   return (
     <main className="container mx-auto max-w-2xl px-4 py-8">
