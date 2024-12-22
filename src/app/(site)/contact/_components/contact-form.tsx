@@ -120,6 +120,11 @@ export function ContactForm() {
                   siteKey={env.NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY}
                   retry="auto"
                   refreshExpired="auto"
+                  onLoad={() => {
+                    // eslint-disable-next-line n/no-process-env
+                    console.log("Turnstile loaded", process.env.NODE_ENV);
+                  }}
+                  appearance="always"
                   // eslint-disable-next-line n/no-process-env
                   sandbox={process.env.NODE_ENV === "development"}
                   theme="dark"
