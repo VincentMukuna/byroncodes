@@ -46,7 +46,6 @@ export function ContactForm() {
 
   async function onSubmit(data: ContactFormData) {
     setIsSubmitting(true);
-    console.log("Submitting form:", data);
     const result = await submitContactForm(data);
 
     setIsSubmitting(false);
@@ -125,11 +124,9 @@ export function ContactForm() {
                   sandbox={process.env.NODE_ENV === "development"}
                   theme="dark"
                   onVerify={(token) => {
-                    console.log("Turnstile token:", token);
                     form.setValue("token", token);
                   }}
-                  onError={(error) => {
-                    console.error("Turnstile error:", error);
+                  onError={() => {
                     form.setValue("token", "");
                     form.setError("token", {
                       type: "manual",
@@ -140,7 +137,6 @@ export function ContactForm() {
                   onExpire={() => {
                     //ask user to reload the page
                     form.setValue("token", "");
-                    console.error("Turnstile token expired");
                     form.setError("token", {
                       type: "manual",
                       message:
