@@ -2,6 +2,8 @@ import { CollectionConfig } from "payload";
 
 import admin from "@/payload/access/admin";
 
+import { notifyOwner } from "./hooks/notify-owner";
+
 export const ContactFormSubmissions: CollectionConfig = {
   slug: "contact-form-submissions",
   admin: {
@@ -33,4 +35,7 @@ export const ContactFormSubmissions: CollectionConfig = {
       required: true,
     },
   ],
+  hooks: {
+    afterChange: [notifyOwner],
+  },
 };
