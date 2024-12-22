@@ -53,6 +53,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
       changeFrequency: "weekly",
     },
+    {
+      url: `${siteConfig.url}/contact`,
+      lastModified: new Date(),
+    },
     ...postUrls,
     ...projectUrls,
     ...skillUrls,
