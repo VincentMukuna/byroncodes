@@ -122,7 +122,7 @@ export function ContactForm() {
                   refreshExpired="auto"
                   appearance="always"
                   // eslint-disable-next-line n/no-process-env
-                  sandbox={process.env.NODE_ENV !== "development"}
+                  sandbox={process.env.NODE_ENV === "development"}
                   theme="dark"
                   onVerify={(token) => {
                     form.setValue("token", token);
