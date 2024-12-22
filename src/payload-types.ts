@@ -144,6 +144,9 @@ export interface Category {
 export interface Project {
   id: number;
   title: string;
+  /**
+   * Show this project on the homepage
+   */
   isFeatured?: boolean | null;
   content: {
     root: {
@@ -164,6 +167,9 @@ export interface Project {
   categories?: (number | Category)[] | null;
   meta?: {
     title?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
     image?: (number | null) | Media;
     description?: string | null;
   };
@@ -206,6 +212,9 @@ export interface Post {
   categories?: (number | Category)[] | null;
   meta?: {
     title?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
     image?: (number | null) | Media;
     description?: string | null;
   };
@@ -257,11 +266,17 @@ export interface Solution {
     };
     [k: string]: unknown;
   };
+  /**
+   * The text that will be displayed on the CTA button
+   */
   ctaLabel?: string | null;
   relatedProjects?: (number | Project)[] | null;
   categories?: (number | Category)[] | null;
   meta?: {
     title?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
     image?: (number | null) | Media;
     description?: string | null;
   };
@@ -293,10 +308,16 @@ export interface Skill {
     };
     [k: string]: unknown;
   };
+  /**
+   * Projects that relate to this skill
+   */
   relatedProjects?: (number | Project)[] | null;
   categories?: (number | Category)[] | null;
   meta?: {
     title?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
     image?: (number | null) | Media;
     description?: string | null;
   };
@@ -313,9 +334,18 @@ export interface Skill {
 export interface Testimonial {
   id: number;
   name: string;
+  /**
+   * Role and company of the person giving the testimonial. E.g. 'CEO, Company Name'
+   */
   role: string;
   quote: string;
+  /**
+   * Rating out of 5. This will be displayed as stars on the website.
+   */
   rating: number;
+  /**
+   * Image of the person giving the testimonial. This will be displayed alongside the testimonial.
+   */
   image: number | Media;
   updatedAt: string;
   createdAt: string;
@@ -326,6 +356,9 @@ export interface Testimonial {
  */
 export interface Redirect {
   id: number;
+  /**
+   * You will need to rebuild the website when changing this field.
+   */
   from: string;
   to?: {
     type?: ('reference' | 'custom') | null;
