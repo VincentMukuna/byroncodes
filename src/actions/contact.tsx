@@ -36,7 +36,9 @@ export async function submitContactForm(data: ContactFormData) {
     return {
       success: false,
       errors: {
-        token: ["Invalid token. Please refresh the page and try again."],
+        token: [
+          "Could not verify you are human. Please refresh the page and try again.",
+        ],
       },
     };
   }
