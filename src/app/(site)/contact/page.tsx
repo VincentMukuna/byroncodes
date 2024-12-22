@@ -3,7 +3,9 @@ import dynamic from "next/dynamic";
 
 import { siteConfig } from "@/config/site";
 
-const ContactForm = dynamic(() => import("./_components/contact-form"));
+const ContactForm = dynamic(() => import("./_components/contact-form"), {
+  ssr: false,
+});
 
 export default function ContactPage() {
   return (
