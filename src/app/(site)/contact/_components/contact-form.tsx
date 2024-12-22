@@ -3,7 +3,9 @@
 import { useState } from "react";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Turnstile } from "next-turnstile";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import { z } from "zod";
 
 import { ContactFormData, submitContactForm } from "@/actions/contact";
@@ -11,7 +13,6 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -19,18 +20,19 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { env } from "@/env/client";
 
 const contactFormSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
   email: z.string().email({ message: "Invalid email address." }),
   message: z
     .string()
-    .min(10, { message: "Message must be at least 10 characters." }),
+    .min(1, { message: "Message must be at least 10 characters." }),
+  token: z.string(),
 });
 
 export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitSuccess, setSubmitSuccess] = useState(false);
 
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
@@ -38,15 +40,18 @@ export function ContactForm() {
       name: "",
       email: "",
       message: "",
+      token: "",
     },
   });
 
   async function onSubmit(data: ContactFormData) {
     setIsSubmitting(true);
+    console.log("Submitting form:", data);
     const result = await submitContactForm(data);
+
     setIsSubmitting(false);
     if (result.success) {
-      setSubmitSuccess(true);
+      toast.success("Success!", { description: result.message });
       form.reset();
     } else {
       // Handle errors
@@ -106,11 +111,48 @@ export function ContactForm() {
         <Button type="submit" disabled={isSubmitting}>
           {isSubmitting ? "Sending..." : "Send Message"}
         </Button>
-        {submitSuccess && (
-          <FormDescription className="text-green-600">
-            Thank you for your message. I&apos;ll get back to you soon!
-          </FormDescription>
-        )}
+        <FormField
+          control={form.control}
+          name="token"
+          render={({}) => (
+            <FormItem>
+              <FormControl>
+                <Turnstile
+                  siteKey={env.NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY}
+                  retry="auto"
+                  refreshExpired="auto"
+                  // eslint-disable-next-line n/no-process-env
+                  sandbox={process.env.NODE_ENV === "development"}
+                  theme="dark"
+                  onVerify={(token) => {
+                    console.log("Turnstile token:", token);
+                    form.setValue("token", token);
+                  }}
+                  onError={(error) => {
+                    console.error("Turnstile error:", error);
+                    form.setValue("token", "");
+                    form.setError("token", {
+                      type: "manual",
+                      message:
+                        "Error verifying. Please reload the page and try again.",
+                    });
+                  }}
+                  onExpire={() => {
+                    //ask user to reload the page
+                    form.setValue("token", "");
+                    console.error("Turnstile token expired");
+                    form.setError("token", {
+                      type: "manual",
+                      message:
+                        "Token expired. Please reload the page and try again.",
+                    });
+                  }}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
       </form>
     </Form>
   );

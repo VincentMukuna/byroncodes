@@ -1,13 +1,18 @@
 "use server";
 
+import { validateTurnstileToken } from "next-turnstile";
+import { v4 } from "uuid";
 import { z } from "zod";
+
+import { env } from "@/env/server";
 
 const contactFormSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
   email: z.string().email({ message: "Invalid email address." }),
   message: z
     .string()
-    .min(10, { message: "Message must be at least 10 characters." }),
+    .min(2, { message: "Message must be at least 10 characters." }),
+  token: z.string(),
 });
 
 export type ContactFormData = z.infer<typeof contactFormSchema>;
@@ -19,11 +24,28 @@ export async function submitContactForm(data: ContactFormData) {
     return { success: false, errors: result.error.flatten().fieldErrors };
   }
 
-  // Here you would typically send an email or save to a database
+  // Validate the Turnstile token
+  const validationResponse = await validateTurnstileToken({
+    token: result.data.token,
+    secretKey: env.CLOUDFLARE_TURNSTILE_SECRET_KEY,
+    idempotencyKey: v4(),
+    sandbox: env.NODE_ENV === "development",
+  });
+
+  if (!validationResponse.success) {
+    return {
+      success: false,
+      errors: {
+        token: ["Invalid token. Please refresh the page and try again."],
+      },
+    };
+  }
   console.log("Form submitted:", result.data);
 
-  // Simulate a delay
   await new Promise((resolve) => setTimeout(resolve, 1000));
 
-  return { success: true };
+  return {
+    success: true,
+    message: "Thanks for reaching out! I'll get back to you soon.",
+  };
 }
