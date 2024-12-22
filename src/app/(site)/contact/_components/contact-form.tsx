@@ -59,6 +59,7 @@ export function ContactForm() {
       toast.success("Success!", { description: result.message });
       form.reset();
     } else {
+      toast.error("Error!", { description: result.message });
       // Handle errors
       Object.entries(result.errors || {}).forEach(([key, value]) => {
         form.setError(key as keyof ContactFormData, {
