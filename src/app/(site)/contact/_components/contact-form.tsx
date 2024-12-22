@@ -110,20 +110,22 @@ export function ContactForm() {
         <Button type="submit" disabled={isSubmitting}>
           {isSubmitting ? "Sending..." : "Send Message"}
         </Button>
-        <Turnstile
-          siteKey={env.NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY}
-          theme="dark"
-          sandbox={true}
-          onVerify={(token) => {
-            form.setValue("token", token);
-          }}
-        />
         <FormField
           control={form.control}
           name="token"
           render={({}) => (
             <FormItem>
-              <FormControl></FormControl>
+              <FormControl>
+                <Turnstile
+                  siteKey={env.NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY}
+                  theme="dark"
+                  // eslint-disable-next-line n/no-process-env
+                  sandbox={process.env.NODE_ENV === "development"}
+                  onVerify={(token) => {
+                    form.setValue("token", token);
+                  }}
+                />
+              </FormControl>
               <FormMessage />
             </FormItem>
           )}
