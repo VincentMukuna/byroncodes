@@ -1,9 +1,9 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { useState } from "react";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Turnstile } from "next-turnstile";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
@@ -21,11 +21,6 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { env } from "@/env/client";
-
-const Turnstile = dynamic(
-  () => import("next-turnstile").then((mod) => mod.Turnstile),
-  { ssr: false }
-);
 
 const contactFormSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -117,35 +112,9 @@ export function ContactForm() {
         </Button>
         <Turnstile
           siteKey={env.NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY}
-          retry="auto"
-          refreshExpired="auto"
-          onLoad={() => {
-            // eslint-disable-next-line n/no-process-env
-            console.log("Turnstile loaded", process.env.NODE_ENV);
-          }}
-          appearance="always"
-          // eslint-disable-next-line n/no-process-env
-          sandbox={process.env.NODE_ENV === "development"}
           theme="dark"
           onVerify={(token) => {
-            console.log("Token verified", token);
             form.setValue("token", token);
-          }}
-          onError={() => {
-            console.log("Error verifying");
-            form.setValue("token", "");
-            form.setError("token", {
-              type: "manual",
-              message: "Error verifying. Please reload the page and try again.",
-            });
-          }}
-          onExpire={() => {
-            //ask user to reload the page
-            form.setValue("token", "");
-            form.setError("token", {
-              type: "manual",
-              message: "Token expired. Please reload the page and try again.",
-            });
           }}
         />
         <FormField
