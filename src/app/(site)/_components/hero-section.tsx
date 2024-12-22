@@ -71,8 +71,8 @@ export function HeroSection() {
               </Link>
             </motion.div>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button variant="secondaryOutline" size="lg">
-                Contact Me
+              <Button variant="secondaryOutline" size="lg" asChild>
+                <Link href={"/contact"}>Contact Me</Link>
               </Button>
             </motion.div>
           </motion.div>

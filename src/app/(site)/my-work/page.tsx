@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Link from "next/link";
 import { Suspense } from "react";
 
 import { TestimonialsBlock } from "@/components/Testimonials/testimonials.server";
@@ -29,7 +30,9 @@ export default function MyWorkPage() {
         </CtaBlock.Header>
         <CtaBlock.Actions>
           <Button variant="default">View</Button>
-          <Button variant="outline">Contact</Button>
+          <Button variant="outline" asChild>
+            <Link href={"/contact"}>Contact Me</Link>
+          </Button>
         </CtaBlock.Actions>
       </CtaBlock>
     </main>
