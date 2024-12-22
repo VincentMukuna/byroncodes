@@ -5,6 +5,7 @@ import { v4 } from "uuid";
 import { z } from "zod";
 
 import { env } from "@/env/server";
+import { buildPayloadHMR } from "@/utils/buildPayloadHMR";
 
 const contactFormSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -43,10 +44,26 @@ export async function submitContactForm(data: ContactFormData) {
       },
     };
   }
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+  const payload = await buildPayloadHMR();
+  try {
+    await payload.create({
+      collection: "contact-form-submissions",
+      data: {
+        name: data.name,
+        email: data.email,
+        message: data.message,
+      },
+    });
 
-  return {
-    success: true,
-    message: "Thanks for reaching out! I'll get back to you soon.",
-  };
+    return {
+      success: true,
+      message: "Thanks for reaching out! I'll get back to you soon.",
+    };
+  } catch (error) {
+    console.error("Failed to create contact form submission:", error);
+    return {
+      success: false,
+      message: "An error occurred. Please try again later.",
+    };
+  }
 }

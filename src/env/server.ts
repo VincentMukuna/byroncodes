@@ -27,6 +27,8 @@ export const env = createEnv({
     S3_ENDPOINT: z.string().optional(),
 
     CLOUDFLARE_TURNSTILE_SECRET_KEY: z.string().min(1),
+
+    OWNER_EMAIL: z.string().email(),
   },
   onValidationError: (error: ZodError) => {
     console.error(

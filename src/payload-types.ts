@@ -20,6 +20,7 @@ export interface Config {
     solutions: Solution;
     skills: Skill;
     testimonials: Testimonial;
+    'contact-form-submissions': ContactFormSubmission;
     redirects: Redirect;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -36,6 +37,7 @@ export interface Config {
     solutions: SolutionsSelect<false> | SolutionsSelect<true>;
     skills: SkillsSelect<false> | SkillsSelect<true>;
     testimonials: TestimonialsSelect<false> | TestimonialsSelect<true>;
+    'contact-form-submissions': ContactFormSubmissionsSelect<false> | ContactFormSubmissionsSelect<true>;
     redirects: RedirectsSelect<false> | RedirectsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -352,6 +354,18 @@ export interface Testimonial {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contact-form-submissions".
+ */
+export interface ContactFormSubmission {
+  id: number;
+  name: string;
+  email: string;
+  message: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -413,6 +427,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'testimonials';
         value: number | Testimonial;
+      } | null)
+    | ({
+        relationTo: 'contact-form-submissions';
+        value: number | ContactFormSubmission;
       } | null)
     | ({
         relationTo: 'redirects';
@@ -632,6 +650,17 @@ export interface TestimonialsSelect<T extends boolean = true> {
   quote?: T;
   rating?: T;
   image?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contact-form-submissions_select".
+ */
+export interface ContactFormSubmissionsSelect<T extends boolean = true> {
+  name?: T;
+  email?: T;
+  message?: T;
   updatedAt?: T;
   createdAt?: T;
 }

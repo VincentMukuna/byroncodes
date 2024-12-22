@@ -1,3 +1,4 @@
+import { ContactFormSubmissions } from "./ContactFormSubmissions";
 import { Posts } from "./Posts";
 import { Projects } from "./Projects";
 import { Skills } from "./Skills";
@@ -18,4 +19,5 @@ export const collections = [
   Solutions,
   Skills,
   Testimonials,
+  ContactFormSubmissions,
 ];
