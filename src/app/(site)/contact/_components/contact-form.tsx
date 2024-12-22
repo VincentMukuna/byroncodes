@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import Script from "next/script";
+import { useRef, useState } from "react";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Turnstile } from "next-turnstile";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
@@ -44,9 +44,15 @@ export function ContactForm() {
     },
   });
 
+  const contactFormRef = useRef<HTMLFormElement>(null);
+
   async function onSubmit(data: ContactFormData) {
+    const formData = new FormData(contactFormRef.current!);
     setIsSubmitting(true);
-    const result = await submitContactForm(data);
+    const result = await submitContactForm({
+      ...data,
+      token: formData.get("cf-turnstile-response") as string,
+    });
 
     setIsSubmitting(false);
     if (result.success) {
@@ -65,7 +71,11 @@ export function ContactForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="space-y-6"
+        ref={contactFormRef}
+      >
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           <FormField
             control={form.control}
@@ -110,13 +120,23 @@ export function ContactForm() {
         <Button type="submit" disabled={isSubmitting}>
           {isSubmitting ? "Sending..." : "Send Message"}
         </Button>
+        <Script
+          src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+          async
+          defer
+        ></Script>
+        <div
+          className="cf-turnstile"
+          data-sitekey={env.NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY}
+          data-callback="javascriptCallback"
+        ></div>
         <FormField
           control={form.control}
           name="token"
           render={({}) => (
             <FormItem>
               <FormControl>
-                <Turnstile
+                {/* <Turnstile
                   siteKey={env.NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY}
                   theme="dark"
                   // eslint-disable-next-line n/no-process-env
@@ -124,7 +144,7 @@ export function ContactForm() {
                   onVerify={(token) => {
                     form.setValue("token", token);
                   }}
-                />
+                /> */}
               </FormControl>
               <FormMessage />
             </FormItem>
