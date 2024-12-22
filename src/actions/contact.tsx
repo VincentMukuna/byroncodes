@@ -13,7 +13,11 @@ const contactFormSchema = z.object({
   message: z
     .string()
     .min(2, { message: "Message must be at least 10 characters." }),
-  token: z.string(),
+  token: z
+    .string()
+    .min(1, {
+      message: "Could not verify your browser. Refresh the page and try again",
+    }),
 });
 
 export type ContactFormData = z.infer<typeof contactFormSchema>;
