@@ -33,6 +33,7 @@ export async function submitContactForm(data: ContactFormData) {
   });
 
   if (!validationResponse.success) {
+    console.error("Turnstile validation failed:", { validationResponse });
     return {
       success: false,
       errors: {
@@ -42,8 +43,6 @@ export async function submitContactForm(data: ContactFormData) {
       },
     };
   }
-  console.log("Form submitted:", result.data);
-
   await new Promise((resolve) => setTimeout(resolve, 1000));
 
   return {
