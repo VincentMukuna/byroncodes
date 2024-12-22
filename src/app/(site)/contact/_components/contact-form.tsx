@@ -1,9 +1,9 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { useState } from "react";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Turnstile } from "next-turnstile";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
@@ -21,6 +21,13 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { env } from "@/env/client";
+
+const Turnstile = dynamic(
+  () => import("next-turnstile").then((mod) => mod.Turnstile),
+  {
+    ssr: false,
+  }
+);
 
 const contactFormSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
