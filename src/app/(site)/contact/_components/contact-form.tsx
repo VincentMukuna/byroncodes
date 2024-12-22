@@ -31,7 +31,7 @@ const contactFormSchema = z.object({
   token: z.string(),
 });
 
-export function ContactForm() {
+export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const form = useForm<ContactFormData>({

@@ -1,8 +1,9 @@
 import { Metadata } from "next";
+import dynamic from "next/dynamic";
 
 import { siteConfig } from "@/config/site";
 
-import { ContactForm } from "./_components/contact-form";
+const ContactForm = dynamic(() => import("./_components/contact-form"));
 
 export default function ContactPage() {
   return (
