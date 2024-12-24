@@ -26,7 +26,7 @@ export function SiteFooter() {
             </Link>
             <NewsletterForm />
           </div>
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 lg:flex-1">
+          <div className="grid max-w-96 grid-cols-1 gap-8 sm:grid-cols-2 lg:flex-1">
             <div className="flex flex-col gap-4">
               <h2 className="font-roboto text-base font-semibold leading-normal text-white">
                 Resources Links
