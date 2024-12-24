@@ -13,7 +13,7 @@ export function SiteFooter() {
   return (
     <footer className="bg-background-secondary px-4 py-8 sm:px-8 lg:px-16 lg:py-20">
       <div className="mx-auto max-w-7xl">
-        <div className="flex flex-col gap-8 lg:flex-row lg:justify-between lg:gap-32">
+        <div className="flex w-full flex-col gap-8 lg:flex-row lg:justify-between lg:gap-32">
           <div className="flex select-none flex-col gap-6">
             <Link href="/" className="w-fit">
               <Image
