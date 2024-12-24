@@ -13,7 +13,7 @@ export function SiteFooter() {
   return (
     <footer className="bg-background-secondary px-4 py-8 sm:px-8 lg:px-16 lg:py-20">
       <div className="mx-auto max-w-7xl">
-        <div className="flex flex-col gap-8 lg:flex-row lg:gap-32">
+        <div className="flex flex-col gap-8 lg:flex-row lg:justify-between lg:gap-32">
           <div className="flex select-none flex-col gap-6">
             <Link href="/" className="w-fit">
               <Image
@@ -41,24 +41,6 @@ export function SiteFooter() {
                     {item.title}
                   </a>
                 ))}
-              </nav>
-            </div>
-            <div className="flex flex-col gap-4">
-              <h2 className="font-roboto text-base font-semibold leading-normal text-white">
-                Connect With
-              </h2>
-              <nav className="flex flex-col gap-2">
-                {["Newsletter", "GitHub", "LinkedIn", "YouTube", "Twitter"].map(
-                  (item, index) => (
-                    <a
-                      key={index}
-                      href="#"
-                      className="py-2 text-sm font-normal leading-[21px] text-[#009fba]"
-                    >
-                      {item}
-                    </a>
-                  )
-                )}
               </nav>
             </div>
             <div className="flex flex-col gap-4">
