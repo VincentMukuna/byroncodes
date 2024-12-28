@@ -118,7 +118,7 @@ export function ContactForm() {
             </FormItem>
           )}
         />
-        <Button type="submit" disabled={isSubmitting}>
+        <Button type="submit" disabled={isSubmitting||form.getValues().token.length === 0}>
           {isSubmitting ? "Sending..." : "Send Message"}
         </Button>
         <Script
