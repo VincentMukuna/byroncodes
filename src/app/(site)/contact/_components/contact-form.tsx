@@ -49,6 +49,11 @@ export function ContactForm() {
   async function onSubmit(data: ContactFormData) {
     const formData = new FormData(contactFormRef.current!);
     setIsSubmitting(true);
+    if (!formData.has("cf-turnstile-response")) {
+      setIsSubmitting(false);
+      toast.error("Error!", { description: "Please complete the reCAPTCHA." });
+      return;
+    }
     const result = await submitContactForm({
       ...data,
       token: formData.get("cf-turnstile-response") as string,
@@ -118,7 +123,7 @@ export function ContactForm() {
             </FormItem>
           )}
         />
-        <Button type="submit" disabled={isSubmitting||form.getValues().token.length === 0}>
+        <Button type="submit" disabled={isSubmitting}>
           {isSubmitting ? "Sending..." : "Send Message"}
         </Button>
         <Script

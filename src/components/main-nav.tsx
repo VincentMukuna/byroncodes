@@ -52,7 +52,7 @@ export function MainNav({
           title: "Contact Me",
           id: "nav-contact",
           description: "Get in touch for collaboration opportunities.",
-          href: "/my-work#contact-me",
+          href: "/contact",
         },
         {
           title: "Blog",
