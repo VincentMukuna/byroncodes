@@ -100,6 +100,7 @@ export function ProjectShowcaseBlockClient({ project }: { project: Project }) {
               className="mt-4 flex flex-wrap items-center gap-4 sm:gap-6"
             >
               <Link
+                prefetch={true}
                 href={`/my-work/${project.slug}`}
                 className={buttonVariants({ variant: "outline" })}
               >

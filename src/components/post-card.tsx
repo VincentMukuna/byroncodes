@@ -65,6 +65,7 @@ export const PostCard: React.FC<BlogPost> = ({ post }) => {
           </p>
         </div>
         <Link
+          prefetch={true}
           ref={link.ref}
           href={`/blog/${slug}`}
           className="inline-flex items-center font-poppins text-base font-normal leading-normal text-white transition-colors duration-300 ease-in-out hover:text-[#ff8328]"
