@@ -91,7 +91,7 @@ export default async function SolutionPage(props: SolutionPageProps) {
           </CtaBlock.Actions>
           <CtaBlock.Actions>
             <Link
-              href={siteConfig.links.upwork}
+              href={"/contact"}
               target={"_blank"}
               className={cn(
                 buttonVariants({ variant: "outline" }),
