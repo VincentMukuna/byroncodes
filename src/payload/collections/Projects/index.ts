@@ -28,8 +28,8 @@ import { SocialMediaEmbed } from "@/payload/blocks/SocialMediaEmbed";
 import { slugField } from "@/payload/fields/slug";
 import { generatePreviewPath } from "@/payload/utilities/generatePreviewPath";
 
-import { populateAuthors } from "../Posts/hooks/populate-authors";
-import { revalidateProject } from "../Posts/hooks/revalidate-post";
+import { populateAuthors } from "./hooks/populate-authors";
+import { revalidateProject } from "./hooks/revalidate-project";
 
 export const Projects: CollectionConfig = {
   slug: "projects",

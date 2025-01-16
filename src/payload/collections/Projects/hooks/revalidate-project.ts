@@ -7,6 +7,7 @@ import { Project } from "@/payload-types";
 export const revalidateProject: CollectionAfterChangeHook<Project> = ({
   doc,
   previousDoc,
+  operation,
   req: { payload },
 }) => {
   if (doc._status === "published") {
@@ -26,7 +27,7 @@ export const revalidateProject: CollectionAfterChangeHook<Project> = ({
     revalidatePath(previousPath);
   }
 
-  if (doc.isFeatured !== previousDoc?.isFeatured) {
+  if (doc.isFeatured !== previousDoc?.isFeatured && operation === "update") {
     revalidatePath("/");
   }
 

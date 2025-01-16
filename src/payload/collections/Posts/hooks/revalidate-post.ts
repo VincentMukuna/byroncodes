@@ -4,7 +4,7 @@ import { CollectionAfterChangeHook } from "payload";
 
 import { Post } from "@/payload-types";
 
-export const revalidateProject: CollectionAfterChangeHook<Post> = ({
+export const revalidatePost: CollectionAfterChangeHook<Post> = ({
   doc,
   previousDoc,
   req: { payload },
@@ -27,7 +27,5 @@ export const revalidateProject: CollectionAfterChangeHook<Post> = ({
     revalidateTag("featured-article");
     revalidatePath(previousPath);
   }
-
-  revalidatePath("/blog");
   return doc;
 };

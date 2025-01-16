@@ -27,7 +27,7 @@ import { slugField } from "@/payload/fields/slug";
 import { generatePreviewPath } from "@/payload/utilities/generatePreviewPath";
 
 import { populateAuthors } from "./hooks/populate-authors";
-import { revalidateProject } from "./hooks/revalidate-post";
+import { revalidatePost } from "./hooks/revalidate-post";
 
 export const Posts: CollectionConfig = {
   slug: "posts",
@@ -235,7 +235,7 @@ export const Posts: CollectionConfig = {
     },
   ],
   hooks: {
-    afterChange: [revalidateProject],
+    afterChange: [revalidatePost],
     afterRead: [populateAuthors],
   },
   versions: {
