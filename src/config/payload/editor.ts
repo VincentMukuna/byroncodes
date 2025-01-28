@@ -10,8 +10,10 @@ import { RichTextAdapterProvider } from "payload";
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const lexicalEditorConfig: RichTextAdapterProvider<any, any, any> =
   lexicalEditor({
-    features: () => {
+    features: ({ defaultFeatures, rootFeatures }) => {
       return [
+        ...rootFeatures,
+        ...defaultFeatures,
         UnderlineFeature(),
         BoldFeature(),
         ItalicFeature(),
