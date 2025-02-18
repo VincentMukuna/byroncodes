@@ -40,7 +40,7 @@ export function HeroSection() {
               transition={{ duration: 0.8 }}
               className="self-stretch text-4xl font-semibold leading-tight text-white md:text-5xl lg:text-[56px] lg:leading-[1.2]"
             >
-              Mastering Development for Innovative Solutions
+              Excelling in the Development of Innovative Solutions
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -48,9 +48,12 @@ export function HeroSection() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="self-stretch text-base font-normal leading-relaxed text-white sm:text-lg md:text-xl md:leading-[30px]"
             >
-              Byron Mandela specializes in web scraping, data extraction, and
-              Django backend development—delivering automation and scalable
-              solutions to clients worldwide.
+              I&apos;m Byron Mandela, an independent software developer. I know
+              firsthand how challenging it can be to break into the tech
+              sphere—that&apos;s why I&apos;m here: to make advanced programming
+              and web development concepts easy, accessible, and fun for
+              everyone. I&apos;ll help you turn real-world problems into
+              innovative solutions through in-depth project-based tutorials.
             </motion.p>
           </motion.div>
           <motion.div
