@@ -143,7 +143,7 @@ export function ContentHeader({
               </div>
             </div>
           </div>
-          <div className="relative aspect-[16/9] w-full lg:flex-1">
+          <div className="relative aspect-video w-full lg:flex-1">
             {typeof metaImage === "object" && (
               <Media fill imgClassName="object-cover" resource={metaImage!} />
             )}
