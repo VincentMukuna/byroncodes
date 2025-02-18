@@ -14,7 +14,13 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { WebShare } from "@/components/web-share";
-import { Post } from "@/payload-types";
+import { Post, Project } from "@/payload-types";
+
+type Breadcrumb = {
+  label: string;
+  href: string;
+  active: boolean;
+};
 
 const blogPostConfig = {
   breadcrumbs: [{ label: "Blog", href: "/blog", active: true }],
@@ -26,8 +32,14 @@ const blogPostConfig = {
   imageAlt: "Future of Software Development",
 };
 
-export function BlogPostHeader({ blog }: { blog: Post }) {
-  const { meta: { image: metaImage } = {}, populatedAuthors } = blog;
+export function ContentHeader({
+  doc,
+  breadcrumbs = blogPostConfig.breadcrumbs,
+}: {
+  doc: Post | Project;
+  breadcrumbs: Breadcrumb[];
+}) {
+  const { meta: { image: metaImage } = {}, populatedAuthors } = doc;
   const shareLinks = [
     { icon: Link2Icon, href: "/#", label: "Copy link" },
     { icon: LinkedInLogoIcon, href: "/#", label: "Share on LinkedIn" },
@@ -42,14 +54,14 @@ export function BlogPostHeader({ blog }: { blog: Post }) {
             <div className="space-y-8">
               <Breadcrumb>
                 <BreadcrumbList>
-                  {blogPostConfig.breadcrumbs.map((crumb, index) => (
+                  {breadcrumbs.map((crumb, index) => (
                     <React.Fragment key={index}>
                       <BreadcrumbItem key={index}>
                         <BreadcrumbLink href={crumb.href} active={crumb.active}>
                           {crumb.label}
                         </BreadcrumbLink>
                       </BreadcrumbItem>
-                      {index < blogPostConfig.breadcrumbs.length - 1 && (
+                      {index <= blogPostConfig.breadcrumbs.length - 1 && (
                         <BreadcrumbSeparator key={`bcListSeperator-${index}`} />
                       )}
                     </React.Fragment>
@@ -57,7 +69,7 @@ export function BlogPostHeader({ blog }: { blog: Post }) {
                 </BreadcrumbList>
               </Breadcrumb>
               <h1 className="font-poppins text-3xl font-semibold leading-tight text-[#ff8328] sm:text-4xl md:text-[45px] md:leading-[1.2]">
-                {blog.title}
+                {doc.title}
               </h1>
             </div>
             <div className="space-y-8">
@@ -93,7 +105,7 @@ export function BlogPostHeader({ blog }: { blog: Post }) {
                 </div>
                 <div className="flex items-center gap-2 text-sm text-white">
                   <span>
-                    {new Date(blog.publishedAt || "").toLocaleString() ||
+                    {new Date(doc.publishedAt || "").toLocaleString() ||
                       "Draft"}
                   </span>
                   <span className="text-xl">•</span>
@@ -109,7 +121,7 @@ export function BlogPostHeader({ blog }: { blog: Post }) {
                     data={{
                       title: blogPostConfig.title,
                       text: "Check out this blog post",
-                      url: `/blog/${blog.slug}`,
+                      url: `/blog/${doc.slug}`,
                     }}
                     variant={"secondary"}
                     size={"icon"}

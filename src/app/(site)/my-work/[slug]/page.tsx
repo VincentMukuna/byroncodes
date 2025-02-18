@@ -5,6 +5,7 @@ import { Fragment, Suspense } from "react";
 
 import { TestimonialsBlock } from "@/components/Testimonials/testimonials.server";
 import { TestimonialsSkeleton } from "@/components/Testimonials/testimonials.skeleton";
+import { ContentHeader } from "@/components/content-header";
 import { CtaBlock } from "@/components/cta-block";
 import { LivePreviewListener } from "@/components/live-preview-listener";
 import { PayloadRedirects } from "@/components/payload-redirects";
@@ -15,14 +16,13 @@ import { cn } from "@/lib/utils";
 import { buildPayloadHMR } from "@/utils/buildPayloadHMR";
 import { generateMeta } from "@/utils/generateMeta";
 
-import { PostHeader } from "../../../../components/post-header";
-
 export const dynamic = "force-static";
 interface ProjectPageProps {
   params: Promise<{
     slug: string;
   }>;
 }
+
 export async function generateStaticParams() {
   const payload = await buildPayloadHMR();
   const projects = await payload.find({
@@ -33,6 +33,7 @@ export async function generateStaticParams() {
   });
   return projects.docs?.map(({ slug }) => ({ slug }));
 }
+
 export default async function ProjectPage(props: ProjectPageProps) {
   const { slug } = await props.params;
   const url = `/my-work/${slug}`;
@@ -45,7 +46,21 @@ export default async function ProjectPage(props: ProjectPageProps) {
       <LivePreviewListener />
       <article className="pb-16">
         <PayloadRedirects disableNotFound url={url} />
-        <PostHeader doc={project} />
+        <ContentHeader
+          doc={project}
+          breadcrumbs={[
+            {
+              label: "My Work",
+              href: "/my-work",
+              active: false,
+            },
+            {
+              label: project.title,
+              href: url,
+              active: true,
+            },
+          ]}
+        />
         <div className="px-4 pt-8 sm:px-6 md:px-8 lg:px-16">
           <div className="container grid-rows-[1fr] lg:grid lg:grid-cols-[1fr_48rem_1fr]">
             <RichText

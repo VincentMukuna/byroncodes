@@ -3,13 +3,13 @@ import { draftMode } from "next/headers";
 import { cache } from "react";
 
 import BuyMeCoffeeButton from "@/components/buy-me-a-coffee";
+import { ContentHeader } from "@/components/content-header";
 import { PayloadRedirects } from "@/components/payload-redirects";
 import { buildPayloadHMR } from "@/utils/buildPayloadHMR";
 import { generateMeta } from "@/utils/generateMeta";
 
 import { BlogPostContent } from "./_components/blog-post-content";
 import { BlogPostCta } from "./_components/blog-post-cta";
-import { BlogPostHeader } from "./_components/blog-post-header";
 import { RelatedPosts } from "./_components/related-posts";
 
 export const dynamic = "force-static";
@@ -40,7 +40,13 @@ export default async function BlogPostPage({ params }: Props) {
   return (
     <main>
       <PayloadRedirects url={url} disableNotFound={true} />
-      <BlogPostHeader blog={blog} />
+      <ContentHeader
+        doc={blog}
+        breadcrumbs={[
+          { label: "Blog", href: "/blog", active: false },
+          { label: blog.title, href: url, active: true },
+        ]}
+      />
       <BlogPostContent blog={blog} />
       <div className="flex items-center justify-center">
         <BuyMeCoffeeButton />
