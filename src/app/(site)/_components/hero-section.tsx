@@ -27,7 +27,7 @@ export function HeroSection() {
         />
       </motion.div>
       <div className="mx-auto max-w-7xl md:mx-0">
-        <div className="flex flex-col gap-8 py-12 sm:py-16 md:max-w-[560px] lg:py-20">
+        <div className="flex flex-col gap-8 py-12 sm:py-16 md:max-w-[60%] lg:py-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
