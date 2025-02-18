@@ -64,7 +64,7 @@ export default async function ProjectPage(props: ProjectPageProps) {
         <div className="px-4 pt-8 sm:px-6 md:px-8 lg:px-16">
           <div className="container grid-rows-[1fr] lg:grid lg:grid-cols-[1fr_48rem_1fr]">
             <RichText
-              className="col-span-3 col-start-1 grid-rows-[1fr] lg:grid lg:grid-cols-subgrid"
+              className="col-span-3 col-start-1 mx-auto grid-rows-[1fr] lg:grid lg:grid-cols-subgrid"
               content={project.content}
               enableGutter={false}
             />
